@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfCuvantDictionar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <CuvantDictionar>
+    <Cuvant>mar</Cuvant>
+    <Descriere>fruct de vara</Descriere>
+    <Categorie>fructe</Categorie>
+  </CuvantDictionar>
+  <CuvantDictionar>
+    <Cuvant>strugure</Cuvant>
+    <Descriere>fruct de toamna</Descriere>
+    <Categorie>fructe</Categorie>
+  </CuvantDictionar>
+  <CuvantDictionar>
+    <Cuvant>morcov</Cuvant>
+    <Descriere>leguma din pamant</Descriere>
+    <Categorie>legume</Categorie>
+  </CuvantDictionar>
+  <CuvantDictionar>
+    <Cuvant>morcov</Cuvant>
+    <Descriere>leguma din pamant</Descriere>
+    <Categorie>legume</Categorie>
+  </CuvantDictionar>
+</ArrayOfCuvantDictionar>

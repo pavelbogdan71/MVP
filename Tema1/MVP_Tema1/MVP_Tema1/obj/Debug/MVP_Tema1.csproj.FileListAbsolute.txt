@@ -1,0 +1,44 @@
+C:\Users\pavel\source\repos\MVP_Tema1\MVP_Tema1\bin\Debug\MVP_Tema1.exe.config
+C:\Users\pavel\source\repos\MVP_Tema1\MVP_Tema1\bin\Debug\MVP_Tema1.exe
+C:\Users\pavel\source\repos\MVP_Tema1\MVP_Tema1\bin\Debug\MVP_Tema1.pdb
+C:\Users\pavel\source\repos\MVP_Tema1\MVP_Tema1\obj\Debug\MVP_Tema1.csprojAssemblyReference.cache
+C:\Users\pavel\source\repos\MVP_Tema1\MVP_Tema1\obj\Debug\MainWindow.g.cs
+C:\Users\pavel\source\repos\MVP_Tema1\MVP_Tema1\obj\Debug\PaginaAdministrare.g.cs
+C:\Users\pavel\source\repos\MVP_Tema1\MVP_Tema1\obj\Debug\PaginaCautare.g.cs
+C:\Users\pavel\source\repos\MVP_Tema1\MVP_Tema1\obj\Debug\PaginaJoc.g.cs
+C:\Users\pavel\source\repos\MVP_Tema1\MVP_Tema1\obj\Debug\App.g.cs
+C:\Users\pavel\source\repos\MVP_Tema1\MVP_Tema1\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\pavel\source\repos\MVP_Tema1\MVP_Tema1\obj\Debug\MVP_Tema1_MarkupCompile.cache
+C:\Users\pavel\source\repos\MVP_Tema1\MVP_Tema1\obj\Debug\MVP_Tema1_MarkupCompile.lref
+C:\Users\pavel\source\repos\MVP_Tema1\MVP_Tema1\obj\Debug\MainWindow.baml
+C:\Users\pavel\source\repos\MVP_Tema1\MVP_Tema1\obj\Debug\PaginaAdministrare.baml
+C:\Users\pavel\source\repos\MVP_Tema1\MVP_Tema1\obj\Debug\PaginaCautare.baml
+C:\Users\pavel\source\repos\MVP_Tema1\MVP_Tema1\obj\Debug\PaginaJoc.baml
+C:\Users\pavel\source\repos\MVP_Tema1\MVP_Tema1\obj\Debug\MVP_Tema1.g.resources
+C:\Users\pavel\source\repos\MVP_Tema1\MVP_Tema1\obj\Debug\MVP_Tema1.Properties.Resources.resources
+C:\Users\pavel\source\repos\MVP_Tema1\MVP_Tema1\obj\Debug\MVP_Tema1.csproj.GenerateResource.cache
+C:\Users\pavel\source\repos\MVP_Tema1\MVP_Tema1\obj\Debug\MVP_Tema1.csproj.CoreCompileInputs.cache
+C:\Users\pavel\source\repos\MVP_Tema1\MVP_Tema1\obj\Debug\MVP_Tema1.exe
+C:\Users\pavel\source\repos\MVP_Tema1\MVP_Tema1\obj\Debug\MVP_Tema1.pdb
+C:\Users\pavel\source\Facultate an 2 sem 2\MVP\MVP_Tema1\MVP_Tema1\bin\Debug\MVP_Tema1.exe.config
+C:\Users\pavel\source\Facultate an 2 sem 2\MVP\MVP_Tema1\MVP_Tema1\bin\Debug\MVP_Tema1.exe
+C:\Users\pavel\source\Facultate an 2 sem 2\MVP\MVP_Tema1\MVP_Tema1\bin\Debug\MVP_Tema1.pdb
+C:\Users\pavel\source\Facultate an 2 sem 2\MVP\MVP_Tema1\MVP_Tema1\obj\Debug\MVP_Tema1.csprojAssemblyReference.cache
+C:\Users\pavel\source\Facultate an 2 sem 2\MVP\MVP_Tema1\MVP_Tema1\obj\Debug\MainWindow.g.cs
+C:\Users\pavel\source\Facultate an 2 sem 2\MVP\MVP_Tema1\MVP_Tema1\obj\Debug\PaginaAdministrare.g.cs
+C:\Users\pavel\source\Facultate an 2 sem 2\MVP\MVP_Tema1\MVP_Tema1\obj\Debug\PaginaCautare.g.cs
+C:\Users\pavel\source\Facultate an 2 sem 2\MVP\MVP_Tema1\MVP_Tema1\obj\Debug\PaginaJoc.g.cs
+C:\Users\pavel\source\Facultate an 2 sem 2\MVP\MVP_Tema1\MVP_Tema1\obj\Debug\App.g.cs
+C:\Users\pavel\source\Facultate an 2 sem 2\MVP\MVP_Tema1\MVP_Tema1\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\pavel\source\Facultate an 2 sem 2\MVP\MVP_Tema1\MVP_Tema1\obj\Debug\MVP_Tema1_MarkupCompile.cache
+C:\Users\pavel\source\Facultate an 2 sem 2\MVP\MVP_Tema1\MVP_Tema1\obj\Debug\MVP_Tema1_MarkupCompile.lref
+C:\Users\pavel\source\Facultate an 2 sem 2\MVP\MVP_Tema1\MVP_Tema1\obj\Debug\MainWindow.baml
+C:\Users\pavel\source\Facultate an 2 sem 2\MVP\MVP_Tema1\MVP_Tema1\obj\Debug\PaginaAdministrare.baml
+C:\Users\pavel\source\Facultate an 2 sem 2\MVP\MVP_Tema1\MVP_Tema1\obj\Debug\PaginaCautare.baml
+C:\Users\pavel\source\Facultate an 2 sem 2\MVP\MVP_Tema1\MVP_Tema1\obj\Debug\PaginaJoc.baml
+C:\Users\pavel\source\Facultate an 2 sem 2\MVP\MVP_Tema1\MVP_Tema1\obj\Debug\MVP_Tema1.g.resources
+C:\Users\pavel\source\Facultate an 2 sem 2\MVP\MVP_Tema1\MVP_Tema1\obj\Debug\MVP_Tema1.Properties.Resources.resources
+C:\Users\pavel\source\Facultate an 2 sem 2\MVP\MVP_Tema1\MVP_Tema1\obj\Debug\MVP_Tema1.csproj.GenerateResource.cache
+C:\Users\pavel\source\Facultate an 2 sem 2\MVP\MVP_Tema1\MVP_Tema1\obj\Debug\MVP_Tema1.csproj.CoreCompileInputs.cache
+C:\Users\pavel\source\Facultate an 2 sem 2\MVP\MVP_Tema1\MVP_Tema1\obj\Debug\MVP_Tema1.exe
+C:\Users\pavel\source\Facultate an 2 sem 2\MVP\MVP_Tema1\MVP_Tema1\obj\Debug\MVP_Tema1.pdb
