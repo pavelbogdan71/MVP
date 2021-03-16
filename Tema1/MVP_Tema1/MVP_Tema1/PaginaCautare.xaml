@@ -4,11 +4,47 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MVP_Tema1"
+      xmlns:ctx="clr-namespace:MVP_Tema1"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PaginaCautare">
 
-    <Grid>
-        
+    <Page.DataContext>
+        <ctx:CuvantDictionarVM/>
+    </Page.DataContext>
+    
+    <Grid Margin="65,0,0,0">
+
+        <StackPanel HorizontalAlignment="Center"
+                         VerticalAlignment="Center">
+            <WrapPanel>
+                <StackPanel>
+                    <WrapPanel>
+                        <TextBlock Text="Search:"></TextBlock>
+                        <TextBox x:Name="searchTextBox" Width="100" 
+                                 TextChanged="TextBox_TextChanged"></TextBox>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <TextBlock Text="Category:"/>
+                        <ComboBox x:Name="categoryComboBox"
+                                  ItemsSource="{Binding Categorii}"
+                                  IsEnabled="{Binding ElementName=checkBox,Path=IsChecked}"/>
+                        <CheckBox Name="checkBox"/> 
+                    </WrapPanel>
+                    <ListBox x:Name="searchListBox" ItemsSource="{Binding CuvinteDictionar}"
+                             DisplayMemberPath="Cuvant"
+                             Visibility="Hidden"
+                             SelectionChanged="searchListBox_SelectionChanged"
+                             ></ListBox>
+                </StackPanel>
+           
+            </WrapPanel>
+
+            <StackPanel>
+                <TextBlock x:Name="wordCategory" TextWrapping="Wrap"></TextBlock>
+                <TextBlock x:Name="wordDescription" TextWrapping="Wrap"></TextBlock>
+            </StackPanel>
+        </StackPanel>
+
     </Grid>
 </Page>

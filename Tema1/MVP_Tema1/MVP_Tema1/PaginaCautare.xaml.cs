@@ -24,5 +24,57 @@ namespace MVP_Tema1
         {
             InitializeComponent();
         }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (searchTextBox.Text == string.Empty)
+            {
+                wordCategory.Text = string.Empty;
+                wordDescription.Text = string.Empty;
+            }
+            else
+            {
+                List<CuvantDictionar> lista = new List<CuvantDictionar>();
+
+                string cuvantCautat = searchTextBox.Text;
+
+                foreach (CuvantDictionar cuv in (DataContext as CuvantDictionarVM).CuvinteDictionar) 
+                {
+                    if (cuv.Cuvant.StartsWith(cuvantCautat))
+                    {
+                        if(checkBox.IsChecked.GetValueOrDefault())
+                        {
+                            if(cuv.Categorie==categoryComboBox.Text.ToString())
+                            {
+                                lista.Add(cuv);
+                            }
+                        }
+                        else
+                        {
+                            lista.Add(cuv);
+                        }
+                        
+                    }
+                }
+
+                searchListBox.ItemsSource = lista;
+                searchListBox.Visibility = Visibility.Visible;
+            }
+        }
+
+
+        private void searchListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            if (searchListBox.SelectedItem != null)
+            {
+                searchTextBox.Text = (searchListBox.SelectedItem as CuvantDictionar).Cuvant.ToString();
+                searchListBox.Visibility = Visibility.Collapsed;
+
+                wordDescription.Text = "Descriere: " + (searchListBox.SelectedItem as CuvantDictionar).Descriere.ToString();
+                wordCategory.Text = "Categorie: " + (searchListBox.SelectedItem as CuvantDictionar).Categorie.ToString();
+            }
+            
+        }
     }
 }

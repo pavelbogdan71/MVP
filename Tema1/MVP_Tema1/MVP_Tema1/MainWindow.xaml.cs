@@ -33,11 +33,13 @@ namespace MVP_Tema1
 
         private void BtnClickCautare(object sender, RoutedEventArgs e)
         {
+            dex.Visibility = Visibility.Hidden;
             MainFrame.Content = new PaginaCautare();
         }
 
         private void BtnClickJoc(object sender, RoutedEventArgs e)
         {
+            dex.Visibility = Visibility.Hidden;
             MainFrame.Content = new PaginaJoc();
         }
 

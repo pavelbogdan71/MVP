@@ -30,8 +30,8 @@
             <WrapPanel>
                 <TextBlock Text="Categorie: " ></TextBlock>
                 <ComboBox Width="60" x:Name="comboBoxCategorie"
-                          ItemsSource="{Binding CuvinteDictionar}" 
-                          DisplayMemberPath="Categorie">
+                          ItemsSource="{Binding Categorii}" 
+                          >
                 </ComboBox>
             </WrapPanel>
 
