@@ -24,4 +24,22 @@
     <Categorie>legume</Categorie>
     <Imagine>no_image_available.jpg</Imagine>
   </CuvantDictionar>
+  <CuvantDictionar>
+    <Cuvant>paine</Cuvant>
+    <Descriere>aliment de baza</Descriere>
+    <Categorie>aliment</Categorie>
+    <Imagine>paine.jpg</Imagine>
+  </CuvantDictionar>
+  <CuvantDictionar>
+    <Cuvant>caciula</Cuvant>
+    <Descriere>acopera capul</Descriere>
+    <Categorie>imbracaminte</Categorie>
+    <Imagine>caciula.jpg</Imagine>
+  </CuvantDictionar>
+  <CuvantDictionar>
+    <Cuvant>tricou</Cuvant>
+    <Descriere>acopera jumatea de sus a corpului</Descriere>
+    <Categorie>imbracaminte</Categorie>
+    <Imagine>tricou.jfif</Imagine>
+  </CuvantDictionar>
 </ArrayOfCuvantDictionar>

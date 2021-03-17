@@ -28,62 +28,16 @@ namespace MVP_Tema1
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (searchTextBox.Text == string.Empty)
-            {
-                wordCategory.Text = string.Empty;
-                wordDescription.Text = string.Empty;
-                image.Visibility = Visibility.Hidden;
-            }
-            else
-            {
-                List<CuvantDictionar> lista = new List<CuvantDictionar>();
-
-                string cuvantCautat = searchTextBox.Text;
-
-                foreach (CuvantDictionar cuv in (DataContext as CuvantDictionarVM).CuvinteDictionar) 
-                {
-                    if (cuv.Cuvant.StartsWith(cuvantCautat))
-                    {
-                        if(checkBox.IsChecked.GetValueOrDefault())
-                        {
-                            if(cuv.Categorie==categoryComboBox.Text.ToString())
-                            {
-                                lista.Add(cuv);
-                            }
-                        }
-                        else
-                        {
-                            lista.Add(cuv);
-                        }
-                        
-                    }
-                }
-
-                searchListBox.ItemsSource = lista;
-                searchListBox.Visibility = Visibility.Visible;
-            }
+            CuvantDictionarVM.CautareCuvant(searchTextBox, wordCategory, wordDescription, image, checkBox, categoryComboBox, searchListBox);
         }
 
 
         private void searchListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
-            if (searchListBox.SelectedItem != null)
-            {
-
-                searchTextBox.Text = (searchListBox.SelectedItem as CuvantDictionar).Cuvant.ToString();
-                searchListBox.Visibility = Visibility.Collapsed;
-
-                wordDescription.Text = "Descriere: " + (searchListBox.SelectedItem as CuvantDictionar).Descriere.ToString();
-                wordCategory.Text = "Categorie: " + (searchListBox.SelectedItem as CuvantDictionar).Categorie.ToString();
-
-
-                
-                image.Source =new BitmapImage(new Uri (System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory,@"..\..\Images\", (searchListBox.SelectedItem as CuvantDictionar).Imagine)));
-
-                image.Visibility = Visibility.Visible;
-            }
+            CuvantDictionarVM.SelectareCuvantListaCautari(searchListBox, searchTextBox, wordDescription, wordCategory, image);
             
         }
+
+        
     }
 }

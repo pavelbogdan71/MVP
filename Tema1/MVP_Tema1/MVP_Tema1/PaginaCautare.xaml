@@ -22,7 +22,8 @@
                     <WrapPanel>
                         <TextBlock Text="Search:"></TextBlock>
                         <TextBox x:Name="searchTextBox" Width="100" 
-                                 TextChanged="TextBox_TextChanged"></TextBox>
+                                 TextChanged="TextBox_TextChanged"
+                                 "></TextBox>
                     </WrapPanel>
                     <WrapPanel>
                         <TextBlock Text="Category:"/>

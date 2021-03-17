@@ -12,9 +12,8 @@
     <Page.DataContext>
         <ctx:CuvantDictionarVM/>
     </Page.DataContext>
-    
-    <Grid Margin="65,0,0,0">
 
+    <Grid Margin="65,0,0,0">
         <StackPanel HorizontalAlignment="Center"
                    VerticalAlignment="Center">
             <TextBlock x:Name="textBlock" 
@@ -28,7 +27,7 @@
 
 
             <TextBox x:Name="raspuns"></TextBox>
-            <Button Content="Next" Click="Button_Click"></Button>
+            <Button x:Name="button" Content="Next" Click="button_Click"></Button>
         </StackPanel>
 
     </Grid>
