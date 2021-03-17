@@ -4,20 +4,24 @@
     <Cuvant>mar</Cuvant>
     <Descriere>fruct de vara</Descriere>
     <Categorie>fructe</Categorie>
+    <Imagine>mere.jfif</Imagine>
   </CuvantDictionar>
   <CuvantDictionar>
-    <Cuvant>strugure</Cuvant>
-    <Descriere>fruct de toamna</Descriere>
+    <Cuvant>morcov</Cuvant>
+    <Descriere>leguma portocalie</Descriere>
+    <Categorie>morcov</Categorie>
+    <Imagine>morcov.jfif</Imagine>
+  </CuvantDictionar>
+  <CuvantDictionar>
+    <Cuvant>pepene</Cuvant>
+    <Descriere>fruct zemos</Descriere>
     <Categorie>fructe</Categorie>
+    <Imagine>no_image_available.jpg</Imagine>
   </CuvantDictionar>
   <CuvantDictionar>
-    <Cuvant>morcov</Cuvant>
-    <Descriere>leguma din pamant</Descriere>
+    <Cuvant>rosie</Cuvant>
+    <Descriere>legume de culoarea rosie</Descriere>
     <Categorie>legume</Categorie>
-  </CuvantDictionar>
-  <CuvantDictionar>
-    <Cuvant>morcov</Cuvant>
-    <Descriere>leguma din pamant</Descriere>
-    <Categorie>legume</Categorie>
+    <Imagine>no_image_available.jpg</Imagine>
   </CuvantDictionar>
 </ArrayOfCuvantDictionar>

@@ -47,6 +47,8 @@ namespace MVP_Tema1
         }
         
 
+
+        
         ~CuvantDictionarVM()
         {
             XmlSerializer ser = new XmlSerializer(typeof(ObservableCollection<CuvantDictionar>));

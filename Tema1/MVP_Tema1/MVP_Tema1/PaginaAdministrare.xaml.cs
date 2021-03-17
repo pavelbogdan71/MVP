@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,15 +33,39 @@ namespace MVP_Tema1
             {
                 Cuvant = textBoxCuvant.Text,
                 Descriere = textBoxExplcatie.Text,
-                Categorie = comboBoxCategorie.Text
+                Categorie = comboBoxCategorie.Text,
+                Imagine = System.IO.Path.GetFileName(imgPhoto.Source.ToString())
             };
 
-            cuv.Categorie = textBoxNewCategory.Text;
+            if(cuv.Categorie=="")
+            {
+                cuv.Categorie = textBoxNewCategory.Text;
+            }
+            
 
-            (DataContext as CuvantDictionarVM).CuvinteDictionar.Add(cuv);  
-          
+            (DataContext as CuvantDictionarVM).CuvinteDictionar.Add(cuv);
+
         }
 
-      
+        private void btnLoad_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog op = new OpenFileDialog();
+            op.Title = "Select a picture";
+            op.Filter = "All files (*.*)|*.*";
+
+
+            if (op.ShowDialog() == true)
+            {
+                string source = op.FileName;
+                string destination = @"C:\Users\pavel\Desktop\Fac Repo\MVP\Tema1\MVP_Tema1\MVP_Tema1\Images\" + op.SafeFileName;
+                if(source!=destination)
+                {
+                    System.IO.File.Copy(source, destination, true);
+                }
+                
+                imgPhoto.Source = new BitmapImage(new Uri(destination));
+                
+            }
+        }
     }
 }

@@ -41,6 +41,12 @@
                 <CheckBox Name="checkBox1"/>
             </WrapPanel>
 
+            <WrapPanel>
+                <Image x:Name="imgPhoto" Source="Images/no_image_available.jpg" Width="50" Height="50" Stretch="Fill"/>
+                <Button x:Name="btnLoad" Content="Load" VerticalAlignment="Center" Click="btnLoad_Click"></Button>
+            </WrapPanel>
+            
+
             <WrapPanel HorizontalAlignment="Center">
                 <Button Content="Add" Click="btnClickAdd"></Button>
             </WrapPanel>

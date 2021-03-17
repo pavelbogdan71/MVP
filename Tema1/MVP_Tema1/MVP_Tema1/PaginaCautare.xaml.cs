@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace MVP_Tema1
 {
@@ -31,6 +32,7 @@ namespace MVP_Tema1
             {
                 wordCategory.Text = string.Empty;
                 wordDescription.Text = string.Empty;
+                image.Visibility = Visibility.Hidden;
             }
             else
             {
@@ -68,11 +70,18 @@ namespace MVP_Tema1
 
             if (searchListBox.SelectedItem != null)
             {
+
                 searchTextBox.Text = (searchListBox.SelectedItem as CuvantDictionar).Cuvant.ToString();
                 searchListBox.Visibility = Visibility.Collapsed;
 
                 wordDescription.Text = "Descriere: " + (searchListBox.SelectedItem as CuvantDictionar).Descriere.ToString();
                 wordCategory.Text = "Categorie: " + (searchListBox.SelectedItem as CuvantDictionar).Categorie.ToString();
+
+
+                
+                image.Source =new BitmapImage(new Uri (System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory,@"..\..\Images\", (searchListBox.SelectedItem as CuvantDictionar).Imagine)));
+
+                image.Visibility = Visibility.Visible;
             }
             
         }

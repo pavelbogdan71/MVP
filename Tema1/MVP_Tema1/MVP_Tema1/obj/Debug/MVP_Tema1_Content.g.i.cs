@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/cuvinte.xml")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/no_image_available.jpg")]
 
 

@@ -133,5 +133,8 @@
   <ItemGroup>
     <Resource Include="Data\cuvinte.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\no_image_available.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
