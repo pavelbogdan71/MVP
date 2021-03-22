@@ -12,42 +12,50 @@
     <Page.DataContext>
         <ctx:CuvantDictionarVM/>
     </Page.DataContext>
-    
-    <Grid Margin="65,0,0,0">
+
+    <Grid>
 
         <StackPanel HorizontalAlignment="Center"
                          VerticalAlignment="Center">
             <WrapPanel>
                 <StackPanel>
-                    <WrapPanel>
-                        <TextBlock Text="Search:"></TextBlock>
-                        <TextBox x:Name="searchTextBox" Width="100" 
-                                 TextChanged="TextBox_TextChanged"
-                                 "></TextBox>
-                    </WrapPanel>
-                    <WrapPanel>
-                        <TextBlock Text="Category:"/>
+
+                    <WrapPanel Margin="0,10,0,10">
+                        <TextBlock Text="Categorie: " FontSize="20"/>
                         <ComboBox x:Name="categoryComboBox"
                                   ItemsSource="{Binding Categorii}"
-                                  IsEnabled="{Binding ElementName=checkBox,Path=IsChecked}"/>
-                        <CheckBox Name="checkBox"/> 
+                                  IsEnabled="{Binding ElementName=checkBox,Path=IsChecked}"
+                                  Width="200"/>
+                        <CheckBox Name="checkBox" VerticalAlignment="Center"/>
                     </WrapPanel>
+                    <WrapPanel Margin="0,10,0,10">
+                        <TextBlock Text="Cautare:    " FontSize="20" TextWrapping="Wrap"></TextBlock>
+                        <TextBox x:Name="searchTextBox" Width="200" 
+                                 TextChanged="TextBox_TextChanged"
+                                 ></TextBox>
+                    </WrapPanel>
+
                     <ListBox x:Name="searchListBox" ItemsSource="{Binding CuvinteDictionar}"
                              DisplayMemberPath="Cuvant"
                              Visibility="Hidden"
                              SelectionChanged="searchListBox_SelectionChanged"
                              ></ListBox>
+                    
                 </StackPanel>
-           
+
             </WrapPanel>
 
             <StackPanel>
-                <TextBlock x:Name="wordCategory" TextWrapping="Wrap"></TextBlock>
-                <TextBlock x:Name="wordDescription" TextWrapping="Wrap"></TextBlock>
-                <Image x:Name="image" Width="50" Height="50" Stretch="Fill"/>
+                <TextBlock x:Name="wordCategory" TextWrapping="Wrap" FontSize="20"
+                           Margin="0,10,0,10"></TextBlock>
+                <TextBlock x:Name="wordDescription" TextWrapping="Wrap" FontSize="20"
+                           Margin="0,10,0,10"></TextBlock>
+                <Image x:Name="image" Width="100" Height="100" Stretch="Fill"
+                       Margin="0,10,0,10"/>
             </StackPanel>
-            
+
         </StackPanel>
 
     </Grid>
+
 </Page>

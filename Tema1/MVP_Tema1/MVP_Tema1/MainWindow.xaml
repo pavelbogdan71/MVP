@@ -5,9 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MVP_Tema1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="800">
-    <Grid Background="#63A0C5">
-
+        Title="MainWindow" Height="650" Width="800"
+        WindowStartupLocation="CenterScreen">
+ 
+    
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.504,1.5" StartPoint="0.504,0.03">
+                <GradientStop Color="#34424F" Offset="0"/>
+                <GradientStop Color="#B4F0EB" Offset="0.567"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Frame x:Name="MainFrame" Margin="65,0,0,0" NavigationUIVisibility="Hidden"/>
         
         <Grid x:Name="dex" Margin="65,0,0,0">

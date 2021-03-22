@@ -17,38 +17,42 @@
 
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
             
-            <WrapPanel >
-                <TextBlock  Text="Cuvant: "></TextBlock>
-                <TextBox x:Name="textBoxCuvant"  Width="60"/>
+            <WrapPanel HorizontalAlignment="Center" Margin="0,10,0,10">
+                <TextBlock  Text="Cuvant:             "
+                            FontSize="20"></TextBlock>
+                <TextBox x:Name="textBoxCuvant"  Width="200" TextWrapping="Wrap" />
             </WrapPanel>
 
-            <WrapPanel>
-                <TextBlock Text="Explicatie:  "></TextBlock>
-                <TextBox Width="60" x:Name="textBoxExplcatie"/>
+            <WrapPanel HorizontalAlignment="Center" Margin="0,10,0,10">
+                <TextBlock Text="Explicatie:          "
+                           FontSize="20" VerticalAlignment="Center"></TextBlock>
+                <TextBox Width="200" x:Name="textBoxExplcatie"
+                         Height="100" TextWrapping="Wrap"/>
             </WrapPanel>
 
-            <WrapPanel>
-                <TextBlock Text="Categorie: " ></TextBlock>
-                <ComboBox Width="60" x:Name="comboBoxCategorie"
-                          ItemsSource="{Binding Categorii}" 
+            <WrapPanel HorizontalAlignment="Center">
+                <TextBlock Text="Categorie:         " FontSize="20"></TextBlock>
+                <ComboBox Width="199" x:Name="comboBoxCategorie"
+                          ItemsSource="{Binding Categorii}"
                           >
                 </ComboBox>
             </WrapPanel>
 
-            <WrapPanel>
-                <TextBlock Text="New Category: " />
-                <TextBox x:Name="textBoxNewCategory" Width="60" IsEnabled="{Binding ElementName=checkBox1, Path=IsChecked}"/>
-                <CheckBox Name="checkBox1"/>
+            <WrapPanel HorizontalAlignment="Center" Margin="0,10,0,10">
+                <TextBlock Text="Categorie noua:  " FontSize="20" TextWrapping="Wrap"/>
+                <TextBox x:Name="textBoxNewCategory" Width="196" IsEnabled="{Binding IsChecked, ElementName=checkBox1}"/>
+                <CheckBox Name="checkBox1" VerticalAlignment="Center"/>
             </WrapPanel>
 
-            <WrapPanel>
-                <Image x:Name="imgPhoto" Source="Images/no_image_available.jpg" Width="50" Height="50" Stretch="Fill"/>
-                <Button x:Name="btnLoad" Content="Load" VerticalAlignment="Center" Click="btnLoad_Click"></Button>
+            <WrapPanel HorizontalAlignment="Center" Margin="0,10,0,10">
+                <TextBlock Text="Incarcare imagine:    " FontSize="20"></TextBlock>
+                <Image x:Name="imgPhoto" Source="Images/no_image_available.jpg" Width="70" Height="70" Stretch="Fill"/>
+                <Button x:Name="btnLoad" Content="Load" VerticalAlignment="Center" Click="btnLoad_Click" Margin="10,10,10,10"></Button>
             </WrapPanel>
             
 
             <WrapPanel HorizontalAlignment="Center">
-                <Button Content="Add" Click="btnClickAdd"></Button>
+                <Button Content="Add" Click="btnClickAdd" Width="50" Height="30"></Button>
             </WrapPanel>
 
         </StackPanel>

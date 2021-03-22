@@ -73,7 +73,15 @@ namespace MVP_Tema1
             }
 
 
-            CuvinteDictionar.Add(cuv);
+            if(cuv.Cuvant=="" || cuv.Descriere=="" || cuv.Categorie=="")
+            {
+                MessageBox.Show("Cuvantul nu a fost adaugat\nInput invalid");
+            }
+            else
+            {
+                CuvinteDictionar.Add(cuv);
+            }
+            
         }
 
         public static void IncarcareImagine(Image imgPhoto)
