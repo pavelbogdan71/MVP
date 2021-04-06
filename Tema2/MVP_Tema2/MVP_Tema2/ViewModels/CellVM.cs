@@ -9,9 +9,9 @@ namespace MVP_Tema2.ViewModels
 {
     class CellVM:BaseNotification
     {
-        public CellVM(int x,int y)
+        public CellVM(int x,int y,string color)
         {
-            SimpleCell = new Cell(x, y);
+            SimpleCell = new Cell(x, y,color);
         }
 
 

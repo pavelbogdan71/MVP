@@ -12,6 +12,9 @@ namespace MVP_Tema2.Services
     {
         public static ObservableCollection<ObservableCollection<Cell>> InitBoard()
         {
+            string culoareDeschisa = "#E8C090";
+            string culoareInchisa = "#BD6904";
+
             ObservableCollection<ObservableCollection<Cell>> result = new ObservableCollection<ObservableCollection<Cell>>();
             for(int i=0;i<8;i++)
             {
@@ -19,7 +22,15 @@ namespace MVP_Tema2.Services
 
                 for(int j=0;j<8;j++)
                 {
-                    line.Add(new Cell(i, j));
+                    if((i+j)%2==0)
+                    {
+                        line.Add(new Cell(i, j,culoareDeschisa));
+                    }
+                    else
+                    {
+                        line.Add(new Cell(i, j,culoareInchisa));
+                    }
+                    
                 }
                 result.Add(line);
             }

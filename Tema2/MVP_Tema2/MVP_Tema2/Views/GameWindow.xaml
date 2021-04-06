@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MVP_Tema2.ViewModels"
         mc:Ignorable="d"
-        Title="GameWindow" Height="800" Width="800">
+        Title="GameWindow" Height="830" Width="810">
     <Window.DataContext>
         <local:GameVM/>
     </Window.DataContext>
@@ -21,9 +21,13 @@
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Border Width="100" Height="100" BorderBrush="Black" BorderThickness="2">
+                            <Border Width="100" Height="100" BorderBrush="Black" BorderThickness="1" Background="{Binding SimpleCell.Color}">
                                 <Button>
-                                    
+                                    <Button.Template>
+                                        <ControlTemplate>
+                                            <Ellipse Width="70" Height="70" Fill="White" Stroke="Black"/>
+                                        </ControlTemplate>
+                                    </Button.Template>
                                 </Button>
                             </Border>
                         </DataTemplate>

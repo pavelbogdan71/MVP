@@ -4,15 +4,18 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace MVP_Tema2.Models
 {
     class Cell : INotifyPropertyChanged
     {
 
-        public Cell(int x,int y)
+        public Cell(int x,int y,string color)
         {
-            
+            this.X = x;
+            this.Y = y;
+            this.Color = color;
         }
 
 
@@ -39,10 +42,25 @@ namespace MVP_Tema2.Models
             }
             set
             {
-                x = value;
+                y = value;
                 NotifyPropertyChanged("Y");
             }
         }
+
+        private string color;
+        public string Color 
+        {
+            get
+            {
+                return color;
+            }
+            set
+            {
+                color = value;
+                NotifyPropertyChanged("Color");
+            }
+        }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void NotifyPropertyChanged(string propertyName)
