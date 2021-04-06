@@ -11,11 +11,12 @@ namespace MVP_Tema2.Models
     class Cell : INotifyPropertyChanged
     {
 
-        public Cell(int x,int y,string color)
+        public Cell(int x,int y,string color,Piece piece)
         {
             this.X = x;
             this.Y = y;
             this.Color = color;
+            this.piece = piece;
         }
 
 
@@ -58,6 +59,20 @@ namespace MVP_Tema2.Models
             {
                 color = value;
                 NotifyPropertyChanged("Color");
+            }
+        }
+
+        private Piece piece;
+        public Piece Piece 
+        {
+            get
+            {
+                return piece;
+            }
+            set
+            {
+                piece = value;
+                NotifyPropertyChanged("Piece");
             }
         }
 

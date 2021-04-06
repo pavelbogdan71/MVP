@@ -25,7 +25,7 @@
                                 <Button>
                                     <Button.Template>
                                         <ControlTemplate>
-                                            <Ellipse Width="70" Height="70" Fill="White" Stroke="Black"/>
+                                            <Ellipse Width="70" Height="70" Fill="{Binding SimpleCell.Piece.Color}"/>
                                         </ControlTemplate>
                                     </Button.Template>
                                 </Button>

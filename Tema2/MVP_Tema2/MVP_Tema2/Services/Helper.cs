@@ -24,11 +24,23 @@ namespace MVP_Tema2.Services
                 {
                     if((i+j)%2==0)
                     {
-                        line.Add(new Cell(i, j,culoareDeschisa));
+                        line.Add(new Cell(i, j,culoareDeschisa,new Piece()));
                     }
                     else
                     {
-                        line.Add(new Cell(i, j,culoareInchisa));
+                        if(i<3)
+                        {
+                            line.Add(new Cell(i, j, culoareInchisa, new Piece("#FFFFFF")));
+                        }
+                        else if(i>4)
+                        {
+                            line.Add(new Cell(i, j, culoareInchisa, new Piece("#B20505")));
+                        }
+                        else
+                        {
+                            line.Add(new Cell(i, j, culoareInchisa, new Piece()));
+                        }
+                        
                     }
                     
                 }

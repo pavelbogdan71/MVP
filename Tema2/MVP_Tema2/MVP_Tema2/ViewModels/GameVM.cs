@@ -29,7 +29,7 @@ namespace MVP_Tema2.ViewModels
                 for(int j=0;j<board[i].Count;j++)
                 {
                     Cell cell = board[i][j];
-                    CellVM cellVM = new CellVM(cell.X, cell.Y,cell.Color);
+                    CellVM cellVM = new CellVM(cell.X, cell.Y,cell.Color,cell.Piece);
                     line.Add(cellVM);
                 }
 
