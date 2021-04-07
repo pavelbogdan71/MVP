@@ -10,8 +10,14 @@ namespace MVP_Tema2.Services
 {
     class Helper
     {
+        public static Cell CurrentCell { get; set; }
+        public static Cell PreviousCell { get; set; }
+        public static ObservableCollection<Cell> HintCells { get; set; }
+
         public static ObservableCollection<ObservableCollection<Cell>> InitBoard()
         {
+            HintCells = new ObservableCollection<Cell>();
+
             string culoareDeschisa = "#E8C090";
             string culoareInchisa = "#BD6904";
 
@@ -24,21 +30,21 @@ namespace MVP_Tema2.Services
                 {
                     if((i+j)%2==0)
                     {
-                        line.Add(new Cell(i, j,culoareDeschisa,new Piece()));
+                        line.Add(new Cell(i, j,culoareDeschisa,new Piece("Transparent")));
                     }
                     else
                     {
                         if(i<3)
                         {
-                            line.Add(new Cell(i, j, culoareInchisa, new Piece("#FFFFFF")));
+                            line.Add(new Cell(i, j, culoareInchisa, new Piece("White")));
                         }
                         else if(i>4)
                         {
-                            line.Add(new Cell(i, j, culoareInchisa, new Piece("#B20505")));
+                            line.Add(new Cell(i, j, culoareInchisa, new Piece("Red")));
                         }
                         else
                         {
-                            line.Add(new Cell(i, j, culoareInchisa, new Piece()));
+                            line.Add(new Cell(i, j, culoareInchisa, new Piece("Transparent")));
                         }
                         
                     }

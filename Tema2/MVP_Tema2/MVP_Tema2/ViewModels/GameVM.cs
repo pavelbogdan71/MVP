@@ -12,10 +12,12 @@ namespace MVP_Tema2.ViewModels
     class GameVM
     {
         public ObservableCollection<ObservableCollection<CellVM>> GameBoard { get; set; }
+        private GameBusinessLogic bl;
 
         public GameVM()
         {
             ObservableCollection<ObservableCollection<Cell>> board = Helper.InitBoard();
+            bl = new GameBusinessLogic(board);
             GameBoard = CellBoardToCellVMBoard(board);
         }
 
@@ -29,7 +31,7 @@ namespace MVP_Tema2.ViewModels
                 for(int j=0;j<board[i].Count;j++)
                 {
                     Cell cell = board[i][j];
-                    CellVM cellVM = new CellVM(cell.X, cell.Y,cell.Color,cell.Piece);
+                    CellVM cellVM = new CellVM(cell.X, cell.Y,cell.Color,cell.Piece,bl);
                     line.Add(cellVM);
                 }
 

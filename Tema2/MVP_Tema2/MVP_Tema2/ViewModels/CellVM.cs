@@ -1,17 +1,23 @@
-﻿using MVP_Tema2.Models;
+﻿using MVP_Tema2.Commands;
+using MVP_Tema2.Models;
+using MVP_Tema2.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace MVP_Tema2.ViewModels
 {
     class CellVM:BaseNotification
     {
-        public CellVM(int x,int y,string color,Piece piece)
+
+        GameBusinessLogic bl;
+        public CellVM(int x,int y,string color,Piece piece,GameBusinessLogic bl)
         {
             SimpleCell = new Cell(x, y,color,piece);
+            this.bl = bl;
         }
 
 
@@ -28,5 +34,21 @@ namespace MVP_Tema2.ViewModels
                 NotifyPropertyChanged("SimpleCell");
             }
         }
+
+
+
+        private ICommand clickCommand;
+        public ICommand ClickCommand
+        {
+            get
+            {
+                if(clickCommand==null)
+                {
+                    clickCommand = new RelayCommand<Cell>(bl.ClickAction);
+                }
+                return clickCommand;
+            }
+        }
+
     }
 }

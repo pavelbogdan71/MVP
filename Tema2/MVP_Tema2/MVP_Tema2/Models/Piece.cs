@@ -12,12 +12,12 @@ namespace MVP_Tema2.Models
 
         public Piece(string color)
         {
-            this.color = color;
+            this.Color = color;
         }
 
         public Piece()
         {
-
+            
         }
 
         private string color;

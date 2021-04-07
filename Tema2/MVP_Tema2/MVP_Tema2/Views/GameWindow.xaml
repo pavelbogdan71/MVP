@@ -19,10 +19,11 @@
                             <StackPanel Orientation="Horizontal"/>
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
+                    
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Border Width="100" Height="100" BorderBrush="Black" BorderThickness="1" Background="{Binding SimpleCell.Color}">
-                                <Button>
+                                <Button Command="{Binding ClickCommand}" CommandParameter="{Binding SimpleCell}">
                                     <Button.Template>
                                         <ControlTemplate>
                                             <Ellipse Width="70" Height="70" Fill="{Binding SimpleCell.Piece.Color}"/>

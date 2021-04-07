@@ -16,7 +16,7 @@ namespace MVP_Tema2.Models
             this.X = x;
             this.Y = y;
             this.Color = color;
-            this.piece = piece;
+            this.Piece = piece;
         }
 
 
