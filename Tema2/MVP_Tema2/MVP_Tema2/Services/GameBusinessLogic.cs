@@ -51,17 +51,43 @@ namespace MVP_Tema2.Services
             }
         }
 
-        private void Hint(Cell cell)
+        private void SimpleMove(Cell cell)
         {
-            if(Helper.HintCells.Count>0)
+            if(Helper.PreviousCell.Piece.Color=="White")
+            {
+                cell.Piece.Color = "White";
+            }
+            if (Helper.PreviousCell.Piece.Color == "Red")
+            {
+                cell.Piece.Color = "Red";
+            }
+
+
+            if (Helper.PreviousCell!=null)
+            {
+                Helper.PreviousCell.Piece.Color = "Transparent";
+            }
+
+
+            if (Helper.HintCells.Count > 0)
             {
                 foreach (Cell c in Helper.HintCells)
                 {
-                    c.Piece.Color = "Transparent";
+                    if(c.Piece.Color == "Green")
+                    {
+                        c.Piece.Color = "Transparent";
+                    }
+                    
                 }
             }
-            
+        }
 
+        private void Hint(Cell cell)
+        {
+
+            Helper.CurrentCell = cell;
+            
+           
             if(cell.Piece.Color== "White")
             {
                 HintWhiteSimpleMove(cell);
@@ -71,6 +97,16 @@ namespace MVP_Tema2.Services
             {
                 HintRedSimpleMove(cell);
             }
+
+
+
+
+            if (cell.Piece.Color == "Green")
+            {
+                SimpleMove(cell);
+            }
+
+            Helper.PreviousCell = cell;
         }
 
 
