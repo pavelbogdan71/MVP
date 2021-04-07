@@ -53,6 +53,7 @@ namespace MVP_Tema2.Services
 
         private void SimpleMove(Cell cell)
         {
+
             if(Helper.PreviousCell.Piece.Color=="White")
             {
                 cell.Piece.Color = "White";
@@ -69,20 +70,79 @@ namespace MVP_Tema2.Services
             }
 
 
-            if (Helper.HintCells.Count > 0)
+            Helper.HintCellsClear();
+        }
+
+
+        private void HintWhiteJump(Cell cell)
+        {
+            //verificare saritura la stanga
+            if(cell.X<6 && cell.Y>1)
             {
-                foreach (Cell c in Helper.HintCells)
+               if(board[cell.X+1][cell.Y-1].Piece.Color == "Red" && board[cell.X+2][cell.Y-2].Piece.Color == "Transparent")
+               {
+                    board[cell.X + 2][cell.Y - 2].Piece.Color = "Green";
+
+                    Helper.HintCells.Add(board[cell.X + 2][cell.Y - 2]);
+               }
+            }
+            //verificare saritura la dreapta
+            if(cell.X<6 && cell.Y<6)
+            {
+                if(board[cell.X+1][cell.Y+1].Piece.Color =="Red" && board[cell.X+2][cell.Y+2].Piece.Color == "Transparent")
                 {
-                    if(c.Piece.Color == "Green")
-                    {
-                        c.Piece.Color = "Transparent";
-                    }
-                    
+                    board[cell.X + 2][cell.Y + 2].Piece.Color = "Green";
+
+                    Helper.HintCells.Add(board[cell.X + 2][cell.Y + 2]);
+                }
+            }
+
+        }
+
+        private void HintRedJump(Cell cell)
+        {
+            //verificare saritura la stanga
+            if(cell.X>1 && cell.Y>1)
+            {
+                if(board[cell.X-1][cell.Y-1].Piece.Color == "White" && board[cell.X-2][cell.Y-2].Piece.Color == "Transparent")
+                {
+                    board[cell.X - 2][cell.Y - 2].Piece.Color = "Green";
+
+                    Helper.HintCells.Add(board[cell.X - 2][cell.Y - 2]);
+                }
+            }
+            //verificare saritura la dreapta
+            if(cell.X>1 && cell.Y<6)
+            {
+                if(board[cell.X-1][cell.Y+1].Piece.Color=="White" && board[cell.X-2][cell.Y+2].Piece.Color == "Transparent")
+                {
+                    board[cell.X - 2][cell.Y + 2].Piece.Color = "Green";
+
+                    Helper.HintCells.Add(board[cell.X - 2][cell.Y + 2]);
                 }
             }
         }
 
-        private void Hint(Cell cell)
+
+        private void Jump(Cell cell)
+        {
+            if(Helper.PreviousCell.Piece.Color == "White")
+            {
+                cell.Piece.Color = "White";
+            }
+            if(Helper.PreviousCell.Piece.Color == "Red")
+            {
+                cell.Piece.Color = "Red";
+            }
+
+            Helper.PreviousCell.Piece.Color = "Transparent";
+
+            board[(cell.X + Helper.PreviousCell.X) / 2][(cell.Y + Helper.PreviousCell.Y) / 2].Piece.Color = "Transparent";
+
+            Helper.HintCellsClear();
+        }
+
+        private void Action(Cell cell)
         {
 
             Helper.CurrentCell = cell;
@@ -90,12 +150,18 @@ namespace MVP_Tema2.Services
            
             if(cell.Piece.Color== "White")
             {
+                Helper.HintCellsClear();
+
                 HintWhiteSimpleMove(cell);
+                HintWhiteJump(cell);
             }
 
             if(cell.Piece.Color== "Red")
             {
+                Helper.HintCellsClear();
+
                 HintRedSimpleMove(cell);
+                HintRedJump(cell);
             }
 
 
@@ -103,20 +169,20 @@ namespace MVP_Tema2.Services
 
             if (cell.Piece.Color == "Green")
             {
-                SimpleMove(cell);
+                if(Helper.PreviousCell.X == cell.X - 1 || Helper.PreviousCell.X == cell.X + 1)
+                {
+                    SimpleMove(cell);
+                }
+                if(Helper.PreviousCell.X == cell.X - 2 || Helper.PreviousCell.X == cell.X + 2)
+                {
+                    Jump(cell);
+                }
             }
 
             Helper.PreviousCell = cell;
         }
 
 
-
-
-
-        private void Action(Cell cell)
-        {
-            Hint(cell);
-        }
 
         public void ClickAction(Cell obj)
         {

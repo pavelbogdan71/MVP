@@ -14,6 +14,21 @@ namespace MVP_Tema2.Services
         public static Cell PreviousCell { get; set; }
         public static ObservableCollection<Cell> HintCells { get; set; }
 
+        public static void HintCellsClear()
+        {
+            if (HintCells.Count > 0)
+            {
+                foreach (Cell c in HintCells)
+                {
+                    if (c.Piece.Color == "Green")
+                    {
+                        c.Piece.Color = "Transparent";
+                    }
+
+                }
+            }
+        }
+
         public static ObservableCollection<ObservableCollection<Cell>> InitBoard()
         {
             HintCells = new ObservableCollection<Cell>();
