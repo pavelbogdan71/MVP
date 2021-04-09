@@ -13,7 +13,11 @@ namespace MVP_Tema2.Services
         public static Cell CurrentCell { get; set; }
         public static Cell PreviousCell { get; set; }
         public static ObservableCollection<Cell> HintCells { get; set; }
-        public static Player PlayerTurn = new Player("Red",8);
+
+        public static Player PlayerRed = new Player("Red");
+        public static Player PlayerWhite = new Player("White");
+
+        public static Player PrevPlayer = PlayerWhite;
 
         public static void HintCellsClear()
         {
@@ -32,7 +36,13 @@ namespace MVP_Tema2.Services
 
         public static Player InitPlayer()
         {
-            return PlayerTurn;
+            if(PrevPlayer==PlayerWhite)
+            {
+                PrevPlayer = PlayerRed;
+                return PlayerRed;
+            }
+            PrevPlayer = PlayerWhite;
+            return PlayerWhite;
         }
 
         public static ObservableCollection<ObservableCollection<Cell>> InitBoard()

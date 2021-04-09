@@ -15,6 +15,8 @@ namespace MVP_Tema2.ViewModels
         private GameBusinessLogic bl;
 
         public PlayerVM CurrentPlayer { get; set; }
+        public PlayerVM PlayerWhite { get; set; }
+        public PlayerVM PlayerRed { get; set; }
 
         public GameVM()
         {
@@ -23,8 +25,13 @@ namespace MVP_Tema2.ViewModels
             GameBoard = CellBoardToCellVMBoard(board);
 
 
+
             Player player = Helper.InitPlayer();
             CurrentPlayer = new PlayerVM(player);
+
+
+            PlayerWhite = new PlayerVM(Helper.PlayerWhite);
+            PlayerRed = new PlayerVM(Helper.PlayerRed);
         }
 
         private ObservableCollection<ObservableCollection<CellVM>> CellBoardToCellVMBoard(ObservableCollection<ObservableCollection<Cell>> board)

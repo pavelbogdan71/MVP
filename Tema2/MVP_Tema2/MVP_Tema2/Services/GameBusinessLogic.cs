@@ -135,10 +135,12 @@ namespace MVP_Tema2.Services
             if(Helper.PreviousCell.Piece.Color == "White")
             {
                 cell.Piece.Color = "White";
+                Helper.PlayerRed.PiecesNumber -= 1;
             }
             if(Helper.PreviousCell.Piece.Color == "Red")
             {
                 cell.Piece.Color = "Red";
+                Helper.PlayerWhite.PiecesNumber -= 1;
             }
 
             Helper.PreviousCell.Piece.Color = "Transparent";
@@ -158,7 +160,7 @@ namespace MVP_Tema2.Services
             Helper.CurrentCell = cell;
             
            
-            if(cell.Piece.Color== "White")
+            if(cell.Piece.Color== "White" && Helper.PrevPlayer.PieceColor=="White")
             {
                 Helper.HintCellsClear();
 
@@ -167,7 +169,7 @@ namespace MVP_Tema2.Services
                
             }
 
-            if(cell.Piece.Color== "Red" )
+            if(cell.Piece.Color== "Red" && Helper.PrevPlayer.PieceColor=="Red")
             {
                 Helper.HintCellsClear();
 
@@ -188,16 +190,17 @@ namespace MVP_Tema2.Services
                 if(Helper.PreviousCell.X == cell.X - 2 || Helper.PreviousCell.X == cell.X + 2)
                 {
                     Jump(cell);
+
                 }
 
 
-                if(Helper.PlayerTurn.PieceColor=="Red")
+                if(Helper.PrevPlayer.PieceColor=="Red")
                 {
-                    Helper.PlayerTurn.PieceColor = "White";
+                    Helper.PrevPlayer.PieceColor = "White";
                 }
-                else if(Helper.PlayerTurn.PieceColor=="White")
+                else if(Helper.PrevPlayer.PieceColor=="White")
                 {
-                    Helper.PlayerTurn.PieceColor = "Red";
+                    Helper.PrevPlayer.PieceColor = "Red";
                 }
             }
 

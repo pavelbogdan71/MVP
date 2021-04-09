@@ -15,6 +15,17 @@ namespace MVP_Tema2.Models
             this.piecesNumber = piecesNumber ;
         }
 
+        public Player(string pieceColor)
+        {
+            this.piecesNumber = 12;
+            this.pieceColor = pieceColor;
+        }
+
+        public void DeletePiece()
+        {
+            this.piecesNumber--;
+        }
+
         private string pieceColor;
         public string PieceColor
         {
