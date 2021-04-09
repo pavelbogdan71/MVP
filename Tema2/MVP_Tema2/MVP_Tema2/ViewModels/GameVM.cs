@@ -14,11 +14,17 @@ namespace MVP_Tema2.ViewModels
         public ObservableCollection<ObservableCollection<CellVM>> GameBoard { get; set; }
         private GameBusinessLogic bl;
 
+        public PlayerVM CurrentPlayer { get; set; }
+
         public GameVM()
         {
             ObservableCollection<ObservableCollection<Cell>> board = Helper.InitBoard();
             bl = new GameBusinessLogic(board);
             GameBoard = CellBoardToCellVMBoard(board);
+
+
+            Player player = Helper.InitPlayer();
+            CurrentPlayer = new PlayerVM(player);
         }
 
         private ObservableCollection<ObservableCollection<CellVM>> CellBoardToCellVMBoard(ObservableCollection<ObservableCollection<Cell>> board)

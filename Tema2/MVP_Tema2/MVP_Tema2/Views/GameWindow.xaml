@@ -5,37 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MVP_Tema2.ViewModels"
         mc:Ignorable="d"
-        Title="GameWindow" Height="830" Width="810">
+        Title="GameWindow" Height="700" Width="700">
     <Window.DataContext>
         <local:GameVM/>
     </Window.DataContext>
 
-    <ItemsControl ItemsSource="{Binding GameBoard}">
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBlock Text="{Binding CurrentPlayer.SimplePlayer.PieceColor, StringFormat=Player {0}}" 
+                   FontSize="21" 
+                   Foreground="Black" 
+                   HorizontalAlignment="Center" 
+                   Margin="0,0,0,10"/>
+        
+        <ItemsControl ItemsSource="{Binding GameBoard}">
         <ItemsControl.ItemTemplate>
             <DataTemplate>
                 <ItemsControl ItemsSource="{Binding}">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <StackPanel Orientation="Horizontal"/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                    
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Border Width="100" Height="100" BorderBrush="Black" BorderThickness="1" Background="{Binding SimpleCell.Color}">
-                                <Button Command="{Binding ClickCommand}" CommandParameter="{Binding SimpleCell}">
-                                    <Button.Template>
-                                        <ControlTemplate>
-                                            <Ellipse Width="70" Height="70" Fill="{Binding SimpleCell.Piece.Color}"/>
-                                        </ControlTemplate>
-                                    </Button.Template>
-                                </Button>
-                            </Border>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Width="60" Height="60" BorderBrush="Black" BorderThickness="1" Background="{Binding SimpleCell.Color}">
+                                        <Button Command="{Binding ClickCommand}" CommandParameter="{Binding SimpleCell}">
+                                            <Button.Template>
+                                                <ControlTemplate>
+                                                    <Ellipse Width="40" Height="40" Fill="{Binding SimpleCell.Piece.Color}"/>
+                                                </ControlTemplate>
+                                            </Button.Template>
+                                        </Button>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
             </DataTemplate>
         </ItemsControl.ItemTemplate>
     </ItemsControl>
-    
+    </StackPanel>
 </Window>

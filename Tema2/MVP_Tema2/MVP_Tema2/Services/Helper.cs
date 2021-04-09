@@ -13,6 +13,7 @@ namespace MVP_Tema2.Services
         public static Cell CurrentCell { get; set; }
         public static Cell PreviousCell { get; set; }
         public static ObservableCollection<Cell> HintCells { get; set; }
+        public static Player PlayerTurn = new Player("Red",8);
 
         public static void HintCellsClear()
         {
@@ -27,6 +28,11 @@ namespace MVP_Tema2.Services
 
                 }
             }
+        }
+
+        public static Player InitPlayer()
+        {
+            return PlayerTurn;
         }
 
         public static ObservableCollection<ObservableCollection<Cell>> InitBoard()

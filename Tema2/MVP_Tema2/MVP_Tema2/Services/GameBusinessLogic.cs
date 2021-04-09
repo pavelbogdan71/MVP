@@ -17,7 +17,7 @@ namespace MVP_Tema2.Services
             this.board = board;
         }
 
-
+        
         private void HintWhiteSimpleMove(Cell cell)
         {
             if(cell.Y>0 && board[cell.X + 1][cell.Y - 1].Piece.Color!= "White" && board[cell.X + 1][cell.Y - 1].Piece.Color != "Red")
@@ -51,16 +51,19 @@ namespace MVP_Tema2.Services
             }
         }
 
+
         private void SimpleMove(Cell cell)
         {
 
             if(Helper.PreviousCell.Piece.Color=="White")
             {
                 cell.Piece.Color = "White";
+
             }
             if (Helper.PreviousCell.Piece.Color == "Red")
             {
                 cell.Piece.Color = "Red";
+
             }
 
 
@@ -72,6 +75,9 @@ namespace MVP_Tema2.Services
 
             Helper.HintCellsClear();
         }
+
+
+
 
 
         private void HintWhiteJump(Cell cell)
@@ -142,6 +148,10 @@ namespace MVP_Tema2.Services
             Helper.HintCellsClear();
         }
 
+
+
+
+
         private void Action(Cell cell)
         {
 
@@ -154,16 +164,18 @@ namespace MVP_Tema2.Services
 
                 HintWhiteSimpleMove(cell);
                 HintWhiteJump(cell);
+               
             }
 
-            if(cell.Piece.Color== "Red")
+            if(cell.Piece.Color== "Red" )
             {
                 Helper.HintCellsClear();
 
                 HintRedSimpleMove(cell);
                 HintRedJump(cell);
-            }
 
+                
+            }
 
 
 
@@ -177,7 +189,18 @@ namespace MVP_Tema2.Services
                 {
                     Jump(cell);
                 }
+
+
+                if(Helper.PlayerTurn.PieceColor=="Red")
+                {
+                    Helper.PlayerTurn.PieceColor = "White";
+                }
+                else if(Helper.PlayerTurn.PieceColor=="White")
+                {
+                    Helper.PlayerTurn.PieceColor = "Red";
+                }
             }
+
 
             Helper.PreviousCell = cell;
         }
