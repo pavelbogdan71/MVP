@@ -100,17 +100,31 @@ namespace MVP_Tema2.Services
             //verificare saritura la stanga
             if(cell.X<6 && cell.Y>1)
             {
-               if(board[cell.X+1][cell.Y-1].Piece.Color == "Red" && board[cell.X+2][cell.Y-2].Piece.Color == "Transparent")
+               if(cell.Piece.Color=="White" && board[cell.X+1][cell.Y-1].Piece.Color == "Red" && board[cell.X+2][cell.Y-2].Piece.Color == "Transparent")
                {
                     board[cell.X + 2][cell.Y - 2].Piece.Color = "Green";
 
                     Helper.HintCells.Add(board[cell.X + 2][cell.Y - 2]);
                }
+
+                if (cell.Piece.Color == "Red" && board[cell.X + 1][cell.Y - 1].Piece.Color == "White" && board[cell.X + 2][cell.Y - 2].Piece.Color == "Transparent")
+                {
+                    board[cell.X + 2][cell.Y - 2].Piece.Color = "Green";
+
+                    Helper.HintCells.Add(board[cell.X + 2][cell.Y - 2]);
+                }
             }
             //verificare saritura la dreapta
             if(cell.X<6 && cell.Y<6)
             {
-                if(board[cell.X+1][cell.Y+1].Piece.Color =="Red" && board[cell.X+2][cell.Y+2].Piece.Color == "Transparent")
+                if(cell.Piece.Color=="White" && board[cell.X+1][cell.Y+1].Piece.Color =="Red" && board[cell.X+2][cell.Y+2].Piece.Color == "Transparent")
+                {
+                    board[cell.X + 2][cell.Y + 2].Piece.Color = "Green";
+
+                    Helper.HintCells.Add(board[cell.X + 2][cell.Y + 2]);
+                }
+
+                if (cell.Piece.Color == "Red" && board[cell.X + 1][cell.Y + 1].Piece.Color == "White" && board[cell.X + 2][cell.Y + 2].Piece.Color == "Transparent")
                 {
                     board[cell.X + 2][cell.Y + 2].Piece.Color = "Green";
 
@@ -125,7 +139,14 @@ namespace MVP_Tema2.Services
             //verificare saritura la stanga
             if(cell.X>1 && cell.Y>1)
             {
-                if(board[cell.X-1][cell.Y-1].Piece.Color == "White" && board[cell.X-2][cell.Y-2].Piece.Color == "Transparent")
+                if(cell.Piece.Color=="Red" && board[cell.X-1][cell.Y-1].Piece.Color == "White" && board[cell.X-2][cell.Y-2].Piece.Color == "Transparent")
+                {
+                    board[cell.X - 2][cell.Y - 2].Piece.Color = "Green";
+
+                    Helper.HintCells.Add(board[cell.X - 2][cell.Y - 2]);
+                }
+
+                if (cell.Piece.Color == "White" && board[cell.X - 1][cell.Y - 1].Piece.Color == "Red" && board[cell.X - 2][cell.Y - 2].Piece.Color == "Transparent")
                 {
                     board[cell.X - 2][cell.Y - 2].Piece.Color = "Green";
 
@@ -135,7 +156,14 @@ namespace MVP_Tema2.Services
             //verificare saritura la dreapta
             if(cell.X>1 && cell.Y<6)
             {
-                if(board[cell.X-1][cell.Y+1].Piece.Color=="White" && board[cell.X-2][cell.Y+2].Piece.Color == "Transparent")
+                if(cell.Piece.Color=="Red" && board[cell.X-1][cell.Y+1].Piece.Color=="White" && board[cell.X-2][cell.Y+2].Piece.Color == "Transparent")
+                {
+                    board[cell.X - 2][cell.Y + 2].Piece.Color = "Green";
+
+                    Helper.HintCells.Add(board[cell.X - 2][cell.Y + 2]);
+                }
+
+                if (cell.Piece.Color == "White" && board[cell.X - 1][cell.Y + 1].Piece.Color == "Red" && board[cell.X - 2][cell.Y + 2].Piece.Color == "Transparent")
                 {
                     board[cell.X - 2][cell.Y + 2].Piece.Color = "Green";
 
@@ -169,11 +197,17 @@ namespace MVP_Tema2.Services
             }
 
 
+            if(Helper.PreviousCell.Piece.KingText=="K")
+            {
+                cell.Piece.KingText = "K";
+            }
+
             Helper.PreviousCell.Piece.Color = "Transparent";
             Helper.PreviousCell.Piece.KingText = "";
 
             board[(cell.X + Helper.PreviousCell.X) / 2][(cell.Y + Helper.PreviousCell.Y) / 2].Piece.Color = "Transparent";
             board[(cell.X + Helper.PreviousCell.X) / 2][(cell.Y + Helper.PreviousCell.Y) / 2].Piece.KingText = "";
+
 
             Helper.HintCellsClear();
         }
@@ -228,6 +262,7 @@ namespace MVP_Tema2.Services
                 {
                     SimpleMove(cell);
                 }
+
                 if (Helper.PreviousCell.X == cell.X - 2 || Helper.PreviousCell.X == cell.X + 2)
                 {
                     Jump(cell);
