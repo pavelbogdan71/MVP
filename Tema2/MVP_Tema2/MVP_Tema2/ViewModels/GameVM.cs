@@ -18,6 +18,7 @@ namespace MVP_Tema2.ViewModels
         public PlayerVM PlayerWhite { get; set; }
         public PlayerVM PlayerRed { get; set; }
 
+
         public GameVM()
         {
             ObservableCollection<ObservableCollection<Cell>> board = Helper.InitBoard();
@@ -32,6 +33,7 @@ namespace MVP_Tema2.ViewModels
 
             PlayerWhite = new PlayerVM(Helper.PlayerWhite);
             PlayerRed = new PlayerVM(Helper.PlayerRed);
+
         }
 
         private ObservableCollection<ObservableCollection<CellVM>> CellBoardToCellVMBoard(ObservableCollection<ObservableCollection<Cell>> board)

@@ -19,6 +19,7 @@ namespace MVP_Tema2.Services
 
         public static Player PrevPlayer = PlayerWhite;
 
+
         public static void HintCellsClear()
         {
             if (HintCells.Count > 0)
@@ -33,6 +34,7 @@ namespace MVP_Tema2.Services
                 }
             }
         }
+
 
         public static Player InitPlayer()
         {

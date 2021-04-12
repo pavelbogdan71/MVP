@@ -54,15 +54,24 @@ namespace MVP_Tema2.Services
 
         private void SimpleMove(Cell cell)
         {
-
             if(Helper.PreviousCell.Piece.Color=="White")
             {
                 cell.Piece.Color = "White";
+
+                if(cell.X==7)
+                {
+                    cell.Piece.KingText = "K";
+                }
 
             }
             if (Helper.PreviousCell.Piece.Color == "Red")
             {
                 cell.Piece.Color = "Red";
+
+                if(cell.X==0)
+                {
+                    cell.Piece.KingText = "K";
+                }
 
             }
 
@@ -70,8 +79,8 @@ namespace MVP_Tema2.Services
             if (Helper.PreviousCell!=null)
             {
                 Helper.PreviousCell.Piece.Color = "Transparent";
+                Helper.PreviousCell.Piece.KingText = "";
             }
-
 
             Helper.HintCellsClear();
         }
@@ -136,73 +145,89 @@ namespace MVP_Tema2.Services
             {
                 cell.Piece.Color = "White";
                 Helper.PlayerRed.PiecesNumber -= 1;
+
+                if(cell.X==7)
+                {
+                    cell.Piece.KingText = "K";
+                }
             }
             if(Helper.PreviousCell.Piece.Color == "Red")
             {
                 cell.Piece.Color = "Red";
                 Helper.PlayerWhite.PiecesNumber -= 1;
+
+                if(cell.X==0)
+                {
+                    cell.Piece.KingText = "K";
+                }
             }
 
+
             Helper.PreviousCell.Piece.Color = "Transparent";
+            Helper.PreviousCell.Piece.KingText = "";
 
             board[(cell.X + Helper.PreviousCell.X) / 2][(cell.Y + Helper.PreviousCell.Y) / 2].Piece.Color = "Transparent";
+            board[(cell.X + Helper.PreviousCell.X) / 2][(cell.Y + Helper.PreviousCell.Y) / 2].Piece.KingText = "";
 
             Helper.HintCellsClear();
         }
 
 
 
-
-
-        private void Action(Cell cell)
+        private void Hint(Cell cell)
         {
-
-            Helper.CurrentCell = cell;
-            
-           
-            if(cell.Piece.Color== "White" && Helper.PrevPlayer.PieceColor=="White")
+            if (cell.Piece.Color == "White" && Helper.PrevPlayer.PieceColor == "White")
             {
                 Helper.HintCellsClear();
 
                 HintWhiteSimpleMove(cell);
                 HintWhiteJump(cell);
-               
+
             }
 
-            if(cell.Piece.Color== "Red" && Helper.PrevPlayer.PieceColor=="Red")
+            if (cell.Piece.Color == "Red" && Helper.PrevPlayer.PieceColor == "Red")
             {
                 Helper.HintCellsClear();
 
                 HintRedSimpleMove(cell);
                 HintRedJump(cell);
-
-                
             }
+        }
 
-
-
+        private void Move(Cell cell)
+        {
             if (cell.Piece.Color == "Green")
             {
-                if(Helper.PreviousCell.X == cell.X - 1 || Helper.PreviousCell.X == cell.X + 1)
+                if (Helper.PreviousCell.X == cell.X - 1 || Helper.PreviousCell.X == cell.X + 1)
                 {
                     SimpleMove(cell);
                 }
-                if(Helper.PreviousCell.X == cell.X - 2 || Helper.PreviousCell.X == cell.X + 2)
+                if (Helper.PreviousCell.X == cell.X - 2 || Helper.PreviousCell.X == cell.X + 2)
                 {
                     Jump(cell);
 
                 }
 
 
-                if(Helper.PrevPlayer.PieceColor=="Red")
+                if (Helper.PrevPlayer.PieceColor == "Red")
                 {
                     Helper.PrevPlayer.PieceColor = "White";
                 }
-                else if(Helper.PrevPlayer.PieceColor=="White")
+                else if (Helper.PrevPlayer.PieceColor == "White")
                 {
                     Helper.PrevPlayer.PieceColor = "Red";
                 }
             }
+        }
+        private void Action(Cell cell)
+        {
+            Helper.CurrentCell = cell;
+
+
+            Hint(cell);
+
+
+            Move(cell);
 
 
             Helper.PreviousCell = cell;

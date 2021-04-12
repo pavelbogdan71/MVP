@@ -48,7 +48,19 @@ namespace MVP_Tema2.Models
             }
         }
 
-
+        private string kingText;
+        public string KingText 
+        {
+            get
+            {
+                return kingText;
+            }
+            set
+            {
+                kingText = value;
+                NotifyPropertyChanged("KingText");
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void NotifyPropertyChanged(string propertyName)
