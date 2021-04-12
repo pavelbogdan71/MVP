@@ -20,13 +20,13 @@ namespace MVP_Tema2.Services
         
         private void HintWhiteSimpleMove(Cell cell)
         {
-            if(cell.Y>0 && board[cell.X + 1][cell.Y - 1].Piece.Color!= "White" && board[cell.X + 1][cell.Y - 1].Piece.Color != "Red")
+            if(cell.Y>0 && cell.X >= 0 && cell.X < 8 && board[cell.X + 1][cell.Y - 1].Piece.Color!= "White" && board[cell.X + 1][cell.Y - 1].Piece.Color != "Red")
             {
                 board[cell.X + 1][cell.Y - 1].Piece.Color = "Green";
 
                 Helper.HintCells.Add(board[cell.X + 1][cell.Y - 1]);
             }
-            if(cell.Y<7 && board[cell.X + 1][cell.Y + 1].Piece.Color!= "White" && board[cell.X + 1][cell.Y + 1].Piece.Color != "Red")
+            if(cell.Y<7 && cell.X >= 0 && cell.X < 8 && board[cell.X + 1][cell.Y + 1].Piece.Color!= "White" && board[cell.X + 1][cell.Y + 1].Piece.Color != "Red")
             {
                 board[cell.X + 1][cell.Y + 1].Piece.Color = "Green";
 
@@ -36,14 +36,14 @@ namespace MVP_Tema2.Services
 
         private void HintRedSimpleMove(Cell cell)
         {
-            if(cell.Y>0 && board[cell.X - 1][cell.Y - 1].Piece.Color!="White" && board[cell.X - 1][cell.Y - 1].Piece.Color!="Red")
+            if(cell.Y>0 && cell.X>=0 && cell.X<8 && board[cell.X - 1][cell.Y - 1].Piece.Color!="White" && board[cell.X - 1][cell.Y - 1].Piece.Color!="Red")
             {
                 board[cell.X - 1][cell.Y - 1].Piece.Color = "Green";
 
                 Helper.HintCells.Add(board[cell.X - 1][cell.Y - 1]);
             }
 
-            if(cell.Y<7 && board[cell.X - 1][cell.Y + 1].Piece.Color!="White" && board[cell.X - 1][cell.Y + 1].Piece.Color!="Red")
+            if(cell.Y<7 && cell.X >= 0 && cell.X < 8 && board[cell.X - 1][cell.Y + 1].Piece.Color!="White" && board[cell.X - 1][cell.Y + 1].Piece.Color!="Red")
             {
                 board[cell.X - 1][cell.Y + 1].Piece.Color = "Green";
 
@@ -79,7 +79,13 @@ namespace MVP_Tema2.Services
             if (Helper.PreviousCell!=null)
             {
                 Helper.PreviousCell.Piece.Color = "Transparent";
-                Helper.PreviousCell.Piece.KingText = "";
+
+                if(Helper.PreviousCell.Piece.KingText == "K")
+                {
+                    cell.Piece.KingText = "K";
+                    Helper.PreviousCell.Piece.KingText = "";
+                }
+               
             }
 
             Helper.HintCellsClear();
@@ -180,8 +186,18 @@ namespace MVP_Tema2.Services
             {
                 Helper.HintCellsClear();
 
-                HintWhiteSimpleMove(cell);
-                HintWhiteJump(cell);
+                if(cell.X<7)
+                {
+                    HintWhiteSimpleMove(cell);
+                    HintWhiteJump(cell);
+                }
+                
+
+                if(cell.Piece.KingText=="K")
+                {
+                    HintRedSimpleMove(cell);
+                    HintRedJump(cell);
+                }
 
             }
 
@@ -189,8 +205,18 @@ namespace MVP_Tema2.Services
             {
                 Helper.HintCellsClear();
 
-                HintRedSimpleMove(cell);
-                HintRedJump(cell);
+                if(cell.X>0)
+                {
+                    HintRedSimpleMove(cell);
+                    HintRedJump(cell);
+                }
+                
+
+                if(cell.Piece.KingText=="K")
+                {
+                    HintWhiteSimpleMove(cell);
+                    HintWhiteJump(cell);
+                }
             }
         }
 
@@ -205,7 +231,6 @@ namespace MVP_Tema2.Services
                 if (Helper.PreviousCell.X == cell.X - 2 || Helper.PreviousCell.X == cell.X + 2)
                 {
                     Jump(cell);
-
                 }
 
 
@@ -219,13 +244,19 @@ namespace MVP_Tema2.Services
                 }
             }
         }
+
+
+
+
+
+
+
         private void Action(Cell cell)
         {
             Helper.CurrentCell = cell;
 
 
             Hint(cell);
-
 
             Move(cell);
 
