@@ -27,7 +27,7 @@
                        Text="{Binding PlayerWhite.SimplePlayer.PiecesNumber,StringFormat=White pieces left: {0}}" 
                        HorizontalAlignment="Left"/>
 
-            <TextBlock Text="{Binding CurrentPlayer.SimplePlayer.PieceColor, StringFormat=Player {0}}" 
+            <TextBlock Text="{Binding CurrentPlayer.SimplePlayer.PieceColor, StringFormat=Player turn: {0}}" 
                        FontSize="21" 
                        Foreground="Black" 
                        HorizontalAlignment="Center" 

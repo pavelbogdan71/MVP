@@ -11,6 +11,7 @@ namespace MVP_Tema2.Services
     class GameBusinessLogic
     {
         private ObservableCollection<ObservableCollection<Cell>> board;
+        private bool isJumping;
 
         public GameBusinessLogic(ObservableCollection<ObservableCollection<Cell>> board)
         {
@@ -20,13 +21,15 @@ namespace MVP_Tema2.Services
         
         private void HintWhiteSimpleMove(Cell cell)
         {
-            if(cell.Y>0 && cell.X >= 0 && cell.X < 8 && board[cell.X + 1][cell.Y - 1].Piece.Color!= "White" && board[cell.X + 1][cell.Y - 1].Piece.Color != "Red")
+            if(cell.Y>0 && cell.X >= 0 && cell.X < 7 && board[cell.X + 1][cell.Y - 1].Piece.Color!= "White" && board[cell.X + 1][cell.Y - 1].Piece.Color != "Red")
             {
-                board[cell.X + 1][cell.Y - 1].Piece.Color = "Green";
+                  board[cell.X + 1][cell.Y - 1].Piece.Color = "Green";
 
-                Helper.HintCells.Add(board[cell.X + 1][cell.Y - 1]);
+                 Helper.HintCells.Add(board[cell.X + 1][cell.Y - 1]);
+              
+                
             }
-            if(cell.Y<7 && cell.X >= 0 && cell.X < 8 && board[cell.X + 1][cell.Y + 1].Piece.Color!= "White" && board[cell.X + 1][cell.Y + 1].Piece.Color != "Red")
+            if(cell.Y<7 && cell.X >= 0 && cell.X < 7 && board[cell.X + 1][cell.Y + 1].Piece.Color!= "White" && board[cell.X + 1][cell.Y + 1].Piece.Color != "Red")
             {
                 board[cell.X + 1][cell.Y + 1].Piece.Color = "Green";
 
@@ -36,14 +39,14 @@ namespace MVP_Tema2.Services
 
         private void HintRedSimpleMove(Cell cell)
         {
-            if(cell.Y>0 && cell.X>=0 && cell.X<8 && board[cell.X - 1][cell.Y - 1].Piece.Color!="White" && board[cell.X - 1][cell.Y - 1].Piece.Color!="Red")
+            if(cell.Y>0 && cell.X>0 && cell.X<8 && board[cell.X - 1][cell.Y - 1].Piece.Color!="White" && board[cell.X - 1][cell.Y - 1].Piece.Color!="Red")
             {
                 board[cell.X - 1][cell.Y - 1].Piece.Color = "Green";
 
                 Helper.HintCells.Add(board[cell.X - 1][cell.Y - 1]);
             }
 
-            if(cell.Y<7 && cell.X >= 0 && cell.X < 8 && board[cell.X - 1][cell.Y + 1].Piece.Color!="White" && board[cell.X - 1][cell.Y + 1].Piece.Color!="Red")
+            if(cell.Y<7 && cell.X > 0 && cell.X < 8 && board[cell.X - 1][cell.Y + 1].Piece.Color!="White" && board[cell.X - 1][cell.Y + 1].Piece.Color!="Red")
             {
                 board[cell.X - 1][cell.Y + 1].Piece.Color = "Green";
 
@@ -89,6 +92,17 @@ namespace MVP_Tema2.Services
             }
 
             Helper.HintCellsClear();
+
+
+
+            if (Helper.PrevPlayer.PieceColor == "Red")
+            {
+                Helper.PrevPlayer.PieceColor = "White";
+            }
+            else if (Helper.PrevPlayer.PieceColor == "White")
+            {
+                Helper.PrevPlayer.PieceColor = "Red";
+            }
         }
 
 
@@ -210,6 +224,23 @@ namespace MVP_Tema2.Services
 
 
             Helper.HintCellsClear();
+
+            isJumping = true;
+
+            if (!CanJump(cell))
+            {
+                if (Helper.PrevPlayer.PieceColor == "Red")
+                {
+                    Helper.PrevPlayer.PieceColor = "White";
+                }
+                else if (Helper.PrevPlayer.PieceColor == "White")
+                {
+                    Helper.PrevPlayer.PieceColor = "Red";
+                }
+
+                isJumping = false;
+            }
+            
         }
 
 
@@ -222,14 +253,20 @@ namespace MVP_Tema2.Services
 
                 if(cell.X<7)
                 {
-                    HintWhiteSimpleMove(cell);
+                    if (!isJumping)
+                    {
+                        HintWhiteSimpleMove(cell);
+                    }
                     HintWhiteJump(cell);
                 }
                 
 
                 if(cell.Piece.KingText=="K")
                 {
-                    HintRedSimpleMove(cell);
+                    if (!isJumping)
+                    {
+                        HintRedSimpleMove(cell);
+                    }
                     HintRedJump(cell);
                 }
 
@@ -241,17 +278,85 @@ namespace MVP_Tema2.Services
 
                 if(cell.X>0)
                 {
-                    HintRedSimpleMove(cell);
+                    if(!isJumping)
+                    {
+                        HintRedSimpleMove(cell);
+                    }
+                    
                     HintRedJump(cell);
                 }
                 
 
                 if(cell.Piece.KingText=="K")
                 {
-                    HintWhiteSimpleMove(cell);
+                    if (!isJumping)
+                    {
+                        HintWhiteSimpleMove(cell);
+                    }
                     HintWhiteJump(cell);
                 }
             }
+        }
+
+
+        private bool CanJump(Cell cell)
+        {
+            bool ok = false;
+            //verificare saritura la stanga
+            if (cell.X < 6 && cell.Y > 1)
+            {
+                if (cell.Piece.Color == "White" && board[cell.X + 1][cell.Y - 1].Piece.Color == "Red" && board[cell.X + 2][cell.Y - 2].Piece.Color == "Transparent")
+                {
+                    ok = true;
+                }
+
+                if (cell.Piece.Color == "Red" && board[cell.X + 1][cell.Y - 1].Piece.Color == "White" && board[cell.X + 2][cell.Y - 2].Piece.Color == "Transparent")
+                {
+                    ok = true;
+                }
+            }
+            //verificare saritura la dreapta
+            if (cell.X < 6 && cell.Y < 6)
+            {
+                if (cell.Piece.Color == "White" && board[cell.X + 1][cell.Y + 1].Piece.Color == "Red" && board[cell.X + 2][cell.Y + 2].Piece.Color == "Transparent")
+                {
+                    ok = true;
+                }
+
+                if (cell.Piece.Color == "Red" && board[cell.X + 1][cell.Y + 1].Piece.Color == "White" && board[cell.X + 2][cell.Y + 2].Piece.Color == "Transparent")
+                {
+                    ok = true;
+                }
+            }
+
+            //verificare saritura la stanga
+            if (cell.X > 1 && cell.Y > 1)
+            {
+                if (cell.Piece.Color == "Red" && board[cell.X - 1][cell.Y - 1].Piece.Color == "White" && board[cell.X - 2][cell.Y - 2].Piece.Color == "Transparent")
+                {
+                    ok = true;
+                }
+
+                if (cell.Piece.Color == "White" && board[cell.X - 1][cell.Y - 1].Piece.Color == "Red" && board[cell.X - 2][cell.Y - 2].Piece.Color == "Transparent")
+                {
+                    ok = true;
+                }
+            }
+            //verificare saritura la dreapta
+            if (cell.X > 1 && cell.Y < 6)
+            {
+                if (cell.Piece.Color == "Red" && board[cell.X - 1][cell.Y + 1].Piece.Color == "White" && board[cell.X - 2][cell.Y + 2].Piece.Color == "Transparent")
+                {
+                    ok = true;
+                }
+
+                if (cell.Piece.Color == "White" && board[cell.X - 1][cell.Y + 1].Piece.Color == "Red" && board[cell.X - 2][cell.Y + 2].Piece.Color == "Transparent")
+                {
+                    ok = true;
+                }
+            }
+
+            return ok;
         }
 
         private void Move(Cell cell)
@@ -266,17 +371,9 @@ namespace MVP_Tema2.Services
                 if (Helper.PreviousCell.X == cell.X - 2 || Helper.PreviousCell.X == cell.X + 2)
                 {
                     Jump(cell);
-                }
+                    
+                } 
 
-
-                if (Helper.PrevPlayer.PieceColor == "Red")
-                {
-                    Helper.PrevPlayer.PieceColor = "White";
-                }
-                else if (Helper.PrevPlayer.PieceColor == "White")
-                {
-                    Helper.PrevPlayer.PieceColor = "Red";
-                }
             }
         }
 
