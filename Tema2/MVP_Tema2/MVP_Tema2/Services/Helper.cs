@@ -19,6 +19,7 @@ namespace MVP_Tema2.Services
 
         public static Player PrevPlayer = PlayerWhite;
 
+        public static Player Winner { get; set; }
 
         public static void HintCellsClear()
         {
@@ -45,6 +46,11 @@ namespace MVP_Tema2.Services
             }
             PrevPlayer = PlayerWhite;
             return PlayerWhite;
+        }
+
+        public static Player GetWinner()
+        {
+            return Winner;
         }
 
         public static ObservableCollection<ObservableCollection<Cell>> InitBoard()

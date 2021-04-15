@@ -18,6 +18,7 @@ namespace MVP_Tema2.ViewModels
         public PlayerVM PlayerWhite { get; set; }
         public PlayerVM PlayerRed { get; set; }
 
+        public PlayerVM Winner { get; set; }
 
         public GameVM()
         {
@@ -33,6 +34,10 @@ namespace MVP_Tema2.ViewModels
 
             PlayerWhite = new PlayerVM(Helper.PlayerWhite);
             PlayerRed = new PlayerVM(Helper.PlayerRed);
+
+
+            Player winner = Helper.Winner;
+            Winner = new PlayerVM(winner);
 
         }
 

@@ -192,6 +192,7 @@ namespace MVP_Tema2.Services
             if(Helper.PreviousCell.Piece.Color == "White")
             {
                 cell.Piece.Color = "White";
+
                 Helper.PlayerRed.PiecesNumber -= 1;
 
                 if(cell.X==7)
@@ -240,7 +241,19 @@ namespace MVP_Tema2.Services
 
                 isJumping = false;
             }
-            
+
+
+
+            if(Helper.PlayerRed.PiecesNumber == 0)
+            {
+                Helper.Winner = new Player("White");
+            }
+
+            if (Helper.PlayerWhite.PiecesNumber == 0)
+            {
+                Helper.Winner = new Player("Red");
+            }
+
         }
 
 
@@ -310,7 +323,7 @@ namespace MVP_Tema2.Services
                     ok = true;
                 }
 
-                if (cell.Piece.Color == "Red" && board[cell.X + 1][cell.Y - 1].Piece.Color == "White" && board[cell.X + 2][cell.Y - 2].Piece.Color == "Transparent")
+                if (cell.Piece.Color == "Red" && board[cell.X + 1][cell.Y - 1].Piece.Color == "White" && board[cell.X + 2][cell.Y - 2].Piece.Color == "Transparent" && cell.Piece.KingText=="K")
                 {
                     ok = true;
                 }
@@ -323,7 +336,7 @@ namespace MVP_Tema2.Services
                     ok = true;
                 }
 
-                if (cell.Piece.Color == "Red" && board[cell.X + 1][cell.Y + 1].Piece.Color == "White" && board[cell.X + 2][cell.Y + 2].Piece.Color == "Transparent")
+                if (cell.Piece.Color == "Red" && board[cell.X + 1][cell.Y + 1].Piece.Color == "White" && board[cell.X + 2][cell.Y + 2].Piece.Color == "Transparent" && cell.Piece.KingText == "K")
                 {
                     ok = true;
                 }
@@ -337,7 +350,7 @@ namespace MVP_Tema2.Services
                     ok = true;
                 }
 
-                if (cell.Piece.Color == "White" && board[cell.X - 1][cell.Y - 1].Piece.Color == "Red" && board[cell.X - 2][cell.Y - 2].Piece.Color == "Transparent")
+                if (cell.Piece.Color == "White" && board[cell.X - 1][cell.Y - 1].Piece.Color == "Red" && board[cell.X - 2][cell.Y - 2].Piece.Color == "Transparent" && cell.Piece.KingText == "K")
                 {
                     ok = true;
                 }
@@ -350,7 +363,7 @@ namespace MVP_Tema2.Services
                     ok = true;
                 }
 
-                if (cell.Piece.Color == "White" && board[cell.X - 1][cell.Y + 1].Piece.Color == "Red" && board[cell.X - 2][cell.Y + 2].Piece.Color == "Transparent")
+                if (cell.Piece.Color == "White" && board[cell.X - 1][cell.Y + 1].Piece.Color == "Red" && board[cell.X - 2][cell.Y + 2].Piece.Color == "Transparent" && cell.Piece.KingText == "K")
                 {
                     ok = true;
                 }

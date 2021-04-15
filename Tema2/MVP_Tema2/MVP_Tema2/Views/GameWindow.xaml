@@ -10,6 +10,16 @@
         <local:GameVM/>
     </Window.DataContext>
 
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="File">
+                <MenuItem Header="New Game"/>
+                <MenuItem Header="Save"/>
+                <MenuItem Header="Open"/>
+            </MenuItem>
+            <MenuItem Header="About"/>
+        </Menu>
+    
     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
 
         <Grid>
@@ -25,7 +35,8 @@
             
             <TextBlock Grid.Column="0" Grid.Row="1"
                        Text="{Binding PlayerWhite.SimplePlayer.PiecesNumber,StringFormat=White pieces left: {0}}" 
-                       HorizontalAlignment="Left"/>
+                       HorizontalAlignment="Left"
+                       FontSize="15"/>
 
             <TextBlock Text="{Binding CurrentPlayer.SimplePlayer.PieceColor, StringFormat=Player turn: {0}}" 
                        FontSize="21" 
@@ -36,9 +47,10 @@
 
             <TextBlock Grid.Column="2" Grid.Row="1"
                        Text="{Binding PlayerRed.SimplePlayer.PiecesNumber,StringFormat=Red pieces left: {0}}" 
-                       HorizontalAlignment="Right"/>
+                       HorizontalAlignment="Right"
+                       FontSize="15"/>
 
-            <TextBlock Text="{Binding Winner}"
+            <TextBlock Text="{Binding Winner.SimplePlayer.PieceColor}"
                        Grid.Row="0" Grid.Column="1"
                        HorizontalAlignment="Center"/>
         </Grid>
@@ -76,4 +88,5 @@
             </ItemsControl.ItemTemplate>
         </ItemsControl>
     </StackPanel>
+    </DockPanel>
 </Window>
