@@ -19,6 +19,10 @@ namespace MVP_Tema2.Models
             this.Piece = piece;
         }
 
+        public Cell()
+        {
+
+        }
 
         private int x;
         public int X

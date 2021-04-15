@@ -19,7 +19,7 @@ namespace MVP_Tema2.Services
 
         public static Player PrevPlayer = PlayerWhite;
 
-        public static Player Winner { get; set; }
+        public static Player Winner = new Player("");
 
         public static void HintCellsClear()
         {

@@ -1,4 +1,5 @@
-﻿using MVP_Tema2.Models;
+﻿using MVP_Tema2.Commands;
+using MVP_Tema2.Models;
 using MVP_Tema2.Services;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace MVP_Tema2.ViewModels
 {
@@ -13,6 +15,7 @@ namespace MVP_Tema2.ViewModels
     {
         public ObservableCollection<ObservableCollection<CellVM>> GameBoard { get; set; }
         private GameBusinessLogic bl;
+        private MenuServices menuServices;
 
         public PlayerVM CurrentPlayer { get; set; }
         public PlayerVM PlayerWhite { get; set; }
@@ -22,10 +25,14 @@ namespace MVP_Tema2.ViewModels
 
         public GameVM()
         {
+
             ObservableCollection<ObservableCollection<Cell>> board = Helper.InitBoard();
             bl = new GameBusinessLogic(board);
             GameBoard = CellBoardToCellVMBoard(board);
+            
+            
 
+            menuServices = new MenuServices();
 
 
             Player player = Helper.InitPlayer();
@@ -36,8 +43,8 @@ namespace MVP_Tema2.ViewModels
             PlayerRed = new PlayerVM(Helper.PlayerRed);
 
 
-            Player winner = Helper.Winner;
-            Winner = new PlayerVM(winner);
+
+            Winner = new PlayerVM(Helper.Winner);
 
         }
 
@@ -59,6 +66,65 @@ namespace MVP_Tema2.ViewModels
             }
 
             return result;
+        }
+
+
+
+        private ICommand aboutInfo;
+        public ICommand AboutInfo
+        {
+            get
+            {
+                if(aboutInfo==null)
+                {
+                    aboutInfo = new RelayCommand<object>(menuServices.AboutInfo);
+                }
+
+                return aboutInfo;
+            }
+        }
+
+
+        private ICommand saveGame;
+        public ICommand SaveGame
+        {
+            get
+            {
+                if(saveGame==null)
+                {
+                    saveGame = new RelayCommand<ObservableCollection<ObservableCollection<CellVM>>>(menuServices.Save);
+                }
+
+                return saveGame;
+            }
+        }
+
+        private ICommand openSavedGame;
+        public ICommand OpenSavedGame
+        {
+            get
+            {
+                if(openSavedGame==null)
+                {
+                    openSavedGame = new RelayCommand<ObservableCollection<ObservableCollection<CellVM>>>(menuServices.Open);
+                }
+                return openSavedGame;
+            }
+        }
+
+
+        private ICommand showStatistics;
+        public ICommand ShowStatistics
+        {
+            get
+            {
+                if(showStatistics==null)
+                {
+                    showStatistics = new RelayCommand<object>(menuServices.Statistics);
+                }
+
+                return showStatistics;
+            }
         }
     }
 }

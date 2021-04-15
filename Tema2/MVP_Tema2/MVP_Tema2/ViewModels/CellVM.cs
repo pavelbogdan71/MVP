@@ -1,6 +1,7 @@
 ﻿using MVP_Tema2.Commands;
 using MVP_Tema2.Models;
 using MVP_Tema2.Services;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,6 +39,7 @@ namespace MVP_Tema2.ViewModels
 
 
         private ICommand clickCommand;
+        [JsonIgnore]
         public ICommand ClickCommand
         {
             get

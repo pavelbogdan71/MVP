@@ -1,10 +1,14 @@
 ﻿using MVP_Tema2.Models;
+using MVP_Tema2.Views;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace MVP_Tema2.Services
 {
@@ -246,16 +250,31 @@ namespace MVP_Tema2.Services
 
             if(Helper.PlayerRed.PiecesNumber == 0)
             {
-                Helper.Winner = new Player("White");
+                Helper.Winner.PieceColor = "Winner: White";
+                AddWinnerToStatistics(1); 
             }
 
             if (Helper.PlayerWhite.PiecesNumber == 0)
             {
-                Helper.Winner = new Player("Red");
+                Helper.Winner.PieceColor = "Winner: Red";
+                AddWinnerToStatistics(0);
             }
 
         }
 
+        private void AddWinnerToStatistics(int index)
+        {
+            StreamReader reader = new StreamReader(@"..\..\Resources\Statistics.json");
+            string json = reader.ReadToEnd();
+
+            List<WinnerPlayer> winners = JsonConvert.DeserializeObject<List<WinnerPlayer>>(json);
+            winners[index].Wins++;
+
+            reader.Close();
+
+            json = JsonConvert.SerializeObject(winners.ToArray(), Formatting.Indented);
+            File.WriteAllText(@"..\..\Resources\Statistics.json", json);
+        }
 
 
         private void Hint(Cell cell)
@@ -379,6 +398,7 @@ namespace MVP_Tema2.Services
                 if (Helper.PreviousCell.X == cell.X - 1 || Helper.PreviousCell.X == cell.X + 1)
                 {
                     SimpleMove(cell);
+  
                 }
 
                 if (Helper.PreviousCell.X == cell.X - 2 || Helper.PreviousCell.X == cell.X + 2)
@@ -415,5 +435,7 @@ namespace MVP_Tema2.Services
         {
             Action(obj);
         }
+
     }
+
 }

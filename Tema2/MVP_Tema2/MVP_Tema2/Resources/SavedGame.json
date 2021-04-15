@@ -1,0 +1,786 @@
+[
+  [
+    {
+      "SimpleCell": {
+        "X": 0,
+        "Y": 0,
+        "Color": "#E8C090",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 0,
+        "Y": 1,
+        "Color": "#BD6904",
+        "Piece": {
+          "Color": "White",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 0,
+        "Y": 2,
+        "Color": "#E8C090",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 0,
+        "Y": 3,
+        "Color": "#BD6904",
+        "Piece": {
+          "Color": "White",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 0,
+        "Y": 4,
+        "Color": "#E8C090",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 0,
+        "Y": 5,
+        "Color": "#BD6904",
+        "Piece": {
+          "Color": "White",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 0,
+        "Y": 6,
+        "Color": "#E8C090",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 0,
+        "Y": 7,
+        "Color": "#BD6904",
+        "Piece": {
+          "Color": "White",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    }
+  ],
+  [
+    {
+      "SimpleCell": {
+        "X": 1,
+        "Y": 0,
+        "Color": "#BD6904",
+        "Piece": {
+          "Color": "White",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 1,
+        "Y": 1,
+        "Color": "#E8C090",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 1,
+        "Y": 2,
+        "Color": "#BD6904",
+        "Piece": {
+          "Color": "White",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 1,
+        "Y": 3,
+        "Color": "#E8C090",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 1,
+        "Y": 4,
+        "Color": "#BD6904",
+        "Piece": {
+          "Color": "White",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 1,
+        "Y": 5,
+        "Color": "#E8C090",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 1,
+        "Y": 6,
+        "Color": "#BD6904",
+        "Piece": {
+          "Color": "White",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 1,
+        "Y": 7,
+        "Color": "#E8C090",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    }
+  ],
+  [
+    {
+      "SimpleCell": {
+        "X": 2,
+        "Y": 0,
+        "Color": "#E8C090",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 2,
+        "Y": 1,
+        "Color": "#BD6904",
+        "Piece": {
+          "Color": "White",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 2,
+        "Y": 2,
+        "Color": "#E8C090",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 2,
+        "Y": 3,
+        "Color": "#BD6904",
+        "Piece": {
+          "Color": "White",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 2,
+        "Y": 4,
+        "Color": "#E8C090",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 2,
+        "Y": 5,
+        "Color": "#BD6904",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 2,
+        "Y": 6,
+        "Color": "#E8C090",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 2,
+        "Y": 7,
+        "Color": "#BD6904",
+        "Piece": {
+          "Color": "White",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    }
+  ],
+  [
+    {
+      "SimpleCell": {
+        "X": 3,
+        "Y": 0,
+        "Color": "#BD6904",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 3,
+        "Y": 1,
+        "Color": "#E8C090",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 3,
+        "Y": 2,
+        "Color": "#BD6904",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 3,
+        "Y": 3,
+        "Color": "#E8C090",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 3,
+        "Y": 4,
+        "Color": "#BD6904",
+        "Piece": {
+          "Color": "White",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 3,
+        "Y": 5,
+        "Color": "#E8C090",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 3,
+        "Y": 6,
+        "Color": "#BD6904",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 3,
+        "Y": 7,
+        "Color": "#E8C090",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    }
+  ],
+  [
+    {
+      "SimpleCell": {
+        "X": 4,
+        "Y": 0,
+        "Color": "#E8C090",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 4,
+        "Y": 1,
+        "Color": "#BD6904",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 4,
+        "Y": 2,
+        "Color": "#E8C090",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 4,
+        "Y": 3,
+        "Color": "#BD6904",
+        "Piece": {
+          "Color": "Red",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 4,
+        "Y": 4,
+        "Color": "#E8C090",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 4,
+        "Y": 5,
+        "Color": "#BD6904",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 4,
+        "Y": 6,
+        "Color": "#E8C090",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 4,
+        "Y": 7,
+        "Color": "#BD6904",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    }
+  ],
+  [
+    {
+      "SimpleCell": {
+        "X": 5,
+        "Y": 0,
+        "Color": "#BD6904",
+        "Piece": {
+          "Color": "Red",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 5,
+        "Y": 1,
+        "Color": "#E8C090",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 5,
+        "Y": 2,
+        "Color": "#BD6904",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 5,
+        "Y": 3,
+        "Color": "#E8C090",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 5,
+        "Y": 4,
+        "Color": "#BD6904",
+        "Piece": {
+          "Color": "Red",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 5,
+        "Y": 5,
+        "Color": "#E8C090",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 5,
+        "Y": 6,
+        "Color": "#BD6904",
+        "Piece": {
+          "Color": "Red",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 5,
+        "Y": 7,
+        "Color": "#E8C090",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    }
+  ],
+  [
+    {
+      "SimpleCell": {
+        "X": 6,
+        "Y": 0,
+        "Color": "#E8C090",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 6,
+        "Y": 1,
+        "Color": "#BD6904",
+        "Piece": {
+          "Color": "Red",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 6,
+        "Y": 2,
+        "Color": "#E8C090",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 6,
+        "Y": 3,
+        "Color": "#BD6904",
+        "Piece": {
+          "Color": "Red",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 6,
+        "Y": 4,
+        "Color": "#E8C090",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 6,
+        "Y": 5,
+        "Color": "#BD6904",
+        "Piece": {
+          "Color": "Red",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 6,
+        "Y": 6,
+        "Color": "#E8C090",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 6,
+        "Y": 7,
+        "Color": "#BD6904",
+        "Piece": {
+          "Color": "Red",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    }
+  ],
+  [
+    {
+      "SimpleCell": {
+        "X": 7,
+        "Y": 0,
+        "Color": "#BD6904",
+        "Piece": {
+          "Color": "Red",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 7,
+        "Y": 1,
+        "Color": "#E8C090",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 7,
+        "Y": 2,
+        "Color": "#BD6904",
+        "Piece": {
+          "Color": "Red",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 7,
+        "Y": 3,
+        "Color": "#E8C090",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 7,
+        "Y": 4,
+        "Color": "#BD6904",
+        "Piece": {
+          "Color": "Red",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 7,
+        "Y": 5,
+        "Color": "#E8C090",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 7,
+        "Y": 6,
+        "Color": "#BD6904",
+        "Piece": {
+          "Color": "Red",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    },
+    {
+      "SimpleCell": {
+        "X": 7,
+        "Y": 7,
+        "Color": "#E8C090",
+        "Piece": {
+          "Color": "Transparent",
+          "IsVisible": false,
+          "KingText": null
+        }
+      }
+    }
+  ]
+]
