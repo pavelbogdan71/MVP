@@ -42,9 +42,9 @@
         "Y": 3,
         "Color": "#BD6904",
         "Piece": {
-          "Color": "White",
+          "Color": "Transparent",
           "IsVisible": false,
-          "KingText": null
+          "KingText": ""
         }
       }
     },
@@ -66,9 +66,9 @@
         "Y": 5,
         "Color": "#BD6904",
         "Piece": {
-          "Color": "White",
+          "Color": "Transparent",
           "IsVisible": false,
-          "KingText": null
+          "KingText": ""
         }
       }
     },
@@ -128,7 +128,7 @@
         "Y": 2,
         "Color": "#BD6904",
         "Piece": {
-          "Color": "White",
+          "Color": "Transparent",
           "IsVisible": false,
           "KingText": null
         }
@@ -152,9 +152,9 @@
         "Y": 4,
         "Color": "#BD6904",
         "Piece": {
-          "Color": "White",
+          "Color": "Transparent",
           "IsVisible": false,
-          "KingText": null
+          "KingText": ""
         }
       }
     },
@@ -178,7 +178,7 @@
         "Piece": {
           "Color": "White",
           "IsVisible": false,
-          "KingText": null
+          "KingText": ""
         }
       }
     },
@@ -240,7 +240,7 @@
         "Piece": {
           "Color": "White",
           "IsVisible": false,
-          "KingText": null
+          "KingText": ""
         }
       }
     },
@@ -262,9 +262,9 @@
         "Y": 5,
         "Color": "#BD6904",
         "Piece": {
-          "Color": "Transparent",
+          "Color": "White",
           "IsVisible": false,
-          "KingText": null
+          "KingText": ""
         }
       }
     },
@@ -348,9 +348,9 @@
         "Y": 4,
         "Color": "#BD6904",
         "Piece": {
-          "Color": "White",
+          "Color": "Transparent",
           "IsVisible": false,
-          "KingText": null
+          "KingText": ""
         }
       }
     },
@@ -410,7 +410,7 @@
         "Y": 1,
         "Color": "#BD6904",
         "Piece": {
-          "Color": "Transparent",
+          "Color": "Red",
           "IsVisible": false,
           "KingText": null
         }
@@ -436,7 +436,7 @@
         "Piece": {
           "Color": "Red",
           "IsVisible": false,
-          "KingText": null
+          "KingText": ""
         }
       }
     },
@@ -460,7 +460,7 @@
         "Piece": {
           "Color": "Transparent",
           "IsVisible": false,
-          "KingText": null
+          "KingText": ""
         }
       }
     },
@@ -496,7 +496,7 @@
         "Y": 0,
         "Color": "#BD6904",
         "Piece": {
-          "Color": "Red",
+          "Color": "Transparent",
           "IsVisible": false,
           "KingText": null
         }
@@ -544,7 +544,7 @@
         "Y": 4,
         "Color": "#BD6904",
         "Piece": {
-          "Color": "Red",
+          "Color": "Transparent",
           "IsVisible": false,
           "KingText": null
         }
@@ -568,9 +568,9 @@
         "Y": 6,
         "Color": "#BD6904",
         "Piece": {
-          "Color": "Red",
+          "Color": "Transparent",
           "IsVisible": false,
-          "KingText": null
+          "KingText": ""
         }
       }
     },
@@ -678,9 +678,9 @@
         "Y": 7,
         "Color": "#BD6904",
         "Piece": {
-          "Color": "Red",
+          "Color": "Transparent",
           "IsVisible": false,
-          "KingText": null
+          "KingText": ""
         }
       }
     }
