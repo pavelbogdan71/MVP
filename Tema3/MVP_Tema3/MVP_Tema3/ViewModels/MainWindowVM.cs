@@ -63,14 +63,48 @@ namespace MVP_Tema3.ViewModels
         public void OpenWindowLogin(object obj)
         {
             ElevVM elevVM = new ElevVM();
-            List<ElevVM> list = elevVM.ElevList.ToList();
+            List<ElevVM> elevList = elevVM.ElevList.ToList();
 
-            foreach(ElevVM elev in list)
+            foreach(ElevVM elev in elevList)
             {
                 if(elev.NumeUtilizator.Equals(userName) && elev.Parola.Equals(password))
                 {
-                    ElevView el = new ElevView();
+                    ElevView el = new ElevView(elev.ElevId);
+                    
                     el.ShowDialog();
+                }
+            }
+
+
+            ProfesorVM profVM = new ProfesorVM();
+            List<ProfesorVM> profList = profVM.ProfesorList.ToList();
+
+            foreach (ProfesorVM prof in profList)
+            {
+                if (prof.NumeUtilizator.Equals(userName) && prof.Parola.Equals(password) && prof.Diriginte == false)
+                {
+                    ProfesorView pr = new ProfesorView();
+
+                    pr.ShowDialog();
+                }
+                if (prof.NumeUtilizator.Equals(userName) && prof.Parola.Equals(password) && prof.Diriginte == true)
+                {
+                    DiriginteView di = new DiriginteView();
+
+                    di.ShowDialog();
+                }
+            }
+
+            AdministratorVM adminVM = new AdministratorVM();
+            List<AdministratorVM> adminList = adminVM.AdminList.ToList();
+
+            foreach(AdministratorVM admin in adminList)
+            {
+                if(admin.NumeUtilizator.Equals(userName) && admin.Parola.Equals(password))
+                {
+                    AdministratorView ad = new AdministratorView();
+
+                    ad.ShowDialog();
                 }
             }
         }

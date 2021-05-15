@@ -1,4 +1,5 @@
-﻿using MVP_Tema3.ViewModels;
+﻿using MVP_Tema3.Models.ResultEntities;
+using MVP_Tema3.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -34,6 +35,61 @@ namespace MVP_Tema3.Models.Actions
                     NumeUtilizator = elev.nume_utilizator,
                     Parola = elev.parola
 
+                });
+            }
+
+            return result;
+        }
+
+        public ObservableCollection<NotaElev> Note(int elevId)
+        {
+            ObservableCollection<NotaElev> result = new ObservableCollection<NotaElev>();
+
+            var note = context.GetStudentGrades(elevId);
+
+            foreach(var nota in note)
+            {
+                result.Add(new NotaElev()
+                {
+                    Nota = nota.nota,
+                    DenumireMaterie = nota.denumire
+                });
+                
+            }
+
+            return result;
+        }
+
+        public ObservableCollection<AbsentaElev> Absente(int elevId)
+        {
+            ObservableCollection<AbsentaElev> result = new ObservableCollection<AbsentaElev>();
+
+            var absente = context.GetStudentAbsence(elevId);
+
+            foreach(var absenta in absente)
+            {
+                result.Add(new AbsentaElev()
+                {
+                    Data = absenta.data,
+                    DenumireMaterie = absenta.denumire
+                });
+            }
+
+            return result;
+        }
+
+        public ObservableCollection<MedieMaterie> Medii(int elevId)
+        {
+            ObservableCollection<MedieMaterie> result = new ObservableCollection<MedieMaterie>();
+
+            var medii = context.GetStudentAverageGrades(elevId);
+
+            foreach(var medie in medii)
+            {
+                result.Add(new MedieMaterie()
+                {
+                    DenumireMaterie = medie.denumire,
+                    Medie = medie.Column1
                 });
             }
 

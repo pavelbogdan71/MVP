@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:MVP_Tema3.ViewModels" 
         xmlns:localConverter="clr-namespace:MVP_Tema3.Converters"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="450" Width="800">
     <Window.DataContext>
         <local:MainWindowVM />

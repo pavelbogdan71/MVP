@@ -6,7 +6,8 @@
         xmlns:local1="clr-namespace:MVP_Tema3.ViewModels" 
         xmlns:localConverter="clr-namespace:MVP_Tema3.Converters"
         mc:Ignorable="d"
-        Title="ElevView" Height="450" Width="800">
+        Title="ElevView" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
     
     <Window.DataContext>
         <local1:ElevVM></local1:ElevVM>
@@ -16,11 +17,28 @@
             <localConverter:ElevConverter x:Key="elevConverter"/>
         </StackPanel.Resources>
 
-        <DataGrid AutoGenerateColumns="False" Height="250" ItemsSource="{Binding ElevList}">
+        <TextBlock>Note:</TextBlock>
+        <DataGrid AutoGenerateColumns="False" Height="150" ItemsSource="{Binding NoteList}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Nume" Binding="{Binding Nume}"/>
-                <DataGridTextColumn Header="Nume Utilizator" Binding="{Binding NumeUtilizator}"/>
+                <DataGridTextColumn Header="Materie" Binding="{Binding DenumireMaterie}"/>
+                <DataGridTextColumn Header="Nota" Binding="{Binding Nota}"/>
             </DataGrid.Columns>
         </DataGrid>
+
+        <TextBlock>Absente:</TextBlock>
+        <DataGrid AutoGenerateColumns="False" Height="150" ItemsSource="{Binding AbsenteList}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Data" Binding="{Binding Data}"/>
+                <DataGridTextColumn Header="Materie" Binding="{Binding DenumireMaterie}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        <DataGrid AutoGenerateColumns="False" Height="150" ItemsSource="{Binding MediiList}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Materie" Binding="{Binding DenumireMaterie}"/>
+                <DataGridTextColumn Header="Media" Binding="{Binding Medie}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        
     </StackPanel>
 </Window>

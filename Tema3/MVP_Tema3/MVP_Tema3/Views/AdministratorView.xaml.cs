@@ -15,22 +15,13 @@ using System.Windows.Shapes;
 namespace MVP_Tema3.Views
 {
     /// <summary>
-    /// Interaction logic for ElevView.xaml
+    /// Interaction logic for AdministratorView.xaml
     /// </summary>
-    public partial class ElevView : Window
+    public partial class AdministratorView : Window
     {
-        public static int ElevId;
-
-        public ElevView()
+        public AdministratorView()
         {
             InitializeComponent();
-        }
-
-        public ElevView(int elevId)
-        {
-            ElevId = elevId;
-            InitializeComponent();
-            
         }
     }
 }

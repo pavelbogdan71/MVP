@@ -1,5 +1,7 @@
 ﻿using MVP_Tema3.Helpers;
 using MVP_Tema3.Models.Actions;
+using MVP_Tema3.Models.ResultEntities;
+using MVP_Tema3.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -26,6 +28,9 @@ namespace MVP_Tema3.ViewModels
         private string parola;
 
         private ObservableCollection<ElevVM> elevList;
+        private ObservableCollection<NotaElev> noteList;
+        private ObservableCollection<AbsentaElev> absenteList;
+        private ObservableCollection<MedieMaterie> mediiList;
 
         public int ElevId
         {
@@ -90,6 +95,48 @@ namespace MVP_Tema3.ViewModels
             {
                 elevList = value;
                 NotifyPropertyChanged("ElevList");
+            }
+        }
+
+        public ObservableCollection<NotaElev> NoteList
+        {
+            get
+            {
+                noteList = eAct.Note(ElevView.ElevId);
+                return noteList;
+            }
+            set
+            {
+                noteList = value;
+                NotifyPropertyChanged("NoteList");
+            }
+        }
+
+        public ObservableCollection<AbsentaElev> AbsenteList
+        {
+            get
+            {
+                absenteList = eAct.Absente(ElevView.ElevId);
+                return absenteList;
+            }
+            set
+            {
+                absenteList = value;
+                NotifyPropertyChanged("AbsenteList");
+            }
+        }
+
+        public ObservableCollection<MedieMaterie> MediiList
+        {
+            get
+            {
+                mediiList = eAct.Medii(ElevView.ElevId);
+                return mediiList;
+            }
+            set
+            {
+                mediiList = value;
+                NotifyPropertyChanged("MediiList");
             }
         }
         #endregion

@@ -73,7 +73,10 @@
     <Compile Include="Models\Absenta.cs">
       <DependentUpon>SchoolModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Actions\AdministratorActions.cs" />
+    <Compile Include="Models\Actions\DiriginteActions.cs" />
     <Compile Include="Models\Actions\ElevActions.cs" />
+    <Compile Include="Models\Actions\ProfesorActions.cs" />
     <Compile Include="Models\Administrator.cs">
       <DependentUpon>SchoolModel.tt</DependentUpon>
     </Compile>
@@ -107,6 +110,9 @@
     <Compile Include="Models\Profesor.cs">
       <DependentUpon>SchoolModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ResultEntities\AbsentaElev.cs" />
+    <Compile Include="Models\ResultEntities\MedieMaterie.cs" />
+    <Compile Include="Models\ResultEntities\NotaElev.cs" />
     <Compile Include="Models\SchoolModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -122,7 +128,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SchoolModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\AdministratorVM.cs" />
+    <Compile Include="ViewModels\DiriginteVM.cs" />
     <Compile Include="ViewModels\ElevVM.cs" />
+    <Compile Include="Views\AdministratorView.xaml.cs">
+      <DependentUpon>AdministratorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DiriginteView.xaml.cs">
+      <DependentUpon>DiriginteView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProfesorView.xaml.cs">
+      <DependentUpon>ProfesorView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Views\AdministratorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DiriginteView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ElevView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -136,6 +161,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ViewModels\MainWindowVM.cs" />
+    <Compile Include="ViewModels\ProfesorVM.cs" />
     <Compile Include="Views\ElevView.xaml.cs">
       <DependentUpon>ElevView.xaml</DependentUpon>
     </Compile>
@@ -143,6 +169,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\ProfesorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
