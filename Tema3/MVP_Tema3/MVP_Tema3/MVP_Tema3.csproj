@@ -110,9 +110,6 @@
     <Compile Include="Models\Profesor.cs">
       <DependentUpon>SchoolModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ResultEntities\AbsentaElev.cs" />
-    <Compile Include="Models\ResultEntities\MedieMaterie.cs" />
-    <Compile Include="Models\ResultEntities\NotaElev.cs" />
     <Compile Include="Models\SchoolModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

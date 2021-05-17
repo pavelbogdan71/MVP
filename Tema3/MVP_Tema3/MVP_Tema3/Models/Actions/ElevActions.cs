@@ -1,5 +1,4 @@
-﻿using MVP_Tema3.Models.ResultEntities;
-using MVP_Tema3.ViewModels;
+﻿using MVP_Tema3.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -41,18 +40,18 @@ namespace MVP_Tema3.Models.Actions
             return result;
         }
 
-        public ObservableCollection<NotaElev> Note(int elevId)
+        public ObservableCollection<GetStudentGrades_Result> Note(int elevId)
         {
-            ObservableCollection<NotaElev> result = new ObservableCollection<NotaElev>();
+            ObservableCollection<GetStudentGrades_Result> result = new ObservableCollection<GetStudentGrades_Result>();
 
             var note = context.GetStudentGrades(elevId);
 
             foreach(var nota in note)
             {
-                result.Add(new NotaElev()
+                result.Add(new GetStudentGrades_Result()
                 {
-                    Nota = nota.nota,
-                    DenumireMaterie = nota.denumire
+                    nota = nota.nota,
+                    denumire = nota.denumire
                 });
                 
             }
@@ -60,36 +59,37 @@ namespace MVP_Tema3.Models.Actions
             return result;
         }
 
-        public ObservableCollection<AbsentaElev> Absente(int elevId)
+        public ObservableCollection<GetStudentAbsence_Result> Absente(int elevId)
         {
-            ObservableCollection<AbsentaElev> result = new ObservableCollection<AbsentaElev>();
+            ObservableCollection<GetStudentAbsence_Result> result = new ObservableCollection<GetStudentAbsence_Result>();
 
             var absente = context.GetStudentAbsence(elevId);
 
             foreach(var absenta in absente)
             {
-                result.Add(new AbsentaElev()
+                result.Add(new GetStudentAbsence_Result()
                 {
-                    Data = absenta.data,
-                    DenumireMaterie = absenta.denumire
+                    data = absenta.data,
+                    denumire = absenta.denumire
+                    
                 });
             }
 
             return result;
         }
 
-        public ObservableCollection<MedieMaterie> Medii(int elevId)
+        public ObservableCollection<GetStudentAverageGrades_Result> Medii(int elevId)
         {
-            ObservableCollection<MedieMaterie> result = new ObservableCollection<MedieMaterie>();
+            ObservableCollection<GetStudentAverageGrades_Result> result = new ObservableCollection<GetStudentAverageGrades_Result>();
 
             var medii = context.GetStudentAverageGrades(elevId);
 
             foreach(var medie in medii)
             {
-                result.Add(new MedieMaterie()
+                result.Add(new GetStudentAverageGrades_Result()
                 {
-                    DenumireMaterie = medie.denumire,
-                    Medie = medie.Column1
+                    denumire = medie.denumire,
+                    Column1 = medie.Column1.Value
                 });
             }
 

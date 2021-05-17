@@ -1,6 +1,6 @@
 ﻿using MVP_Tema3.Helpers;
+using MVP_Tema3.Models;
 using MVP_Tema3.Models.Actions;
-using MVP_Tema3.Models.ResultEntities;
 using MVP_Tema3.Views;
 using System;
 using System.Collections.Generic;
@@ -28,9 +28,10 @@ namespace MVP_Tema3.ViewModels
         private string parola;
 
         private ObservableCollection<ElevVM> elevList;
-        private ObservableCollection<NotaElev> noteList;
-        private ObservableCollection<AbsentaElev> absenteList;
-        private ObservableCollection<MedieMaterie> mediiList;
+
+        private ObservableCollection<GetStudentGrades_Result> noteList;
+        private ObservableCollection<GetStudentAbsence_Result> absenteList;
+        private ObservableCollection<GetStudentAverageGrades_Result> mediiList;
 
         public int ElevId
         {
@@ -98,7 +99,7 @@ namespace MVP_Tema3.ViewModels
             }
         }
 
-        public ObservableCollection<NotaElev> NoteList
+        public ObservableCollection<GetStudentGrades_Result> NoteList
         {
             get
             {
@@ -112,7 +113,7 @@ namespace MVP_Tema3.ViewModels
             }
         }
 
-        public ObservableCollection<AbsentaElev> AbsenteList
+        public ObservableCollection<GetStudentAbsence_Result> AbsenteList
         {
             get
             {
@@ -126,7 +127,7 @@ namespace MVP_Tema3.ViewModels
             }
         }
 
-        public ObservableCollection<MedieMaterie> MediiList
+        public ObservableCollection<GetStudentAverageGrades_Result> MediiList
         {
             get
             {
