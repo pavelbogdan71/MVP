@@ -33,7 +33,7 @@ namespace MVP_Tema3.Models.Actions
                     Nume = elev.nume,
                     NumeUtilizator = elev.nume_utilizator,
                     Parola = elev.parola
-
+                    
                 });
             }
 

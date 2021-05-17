@@ -14,6 +14,8 @@ namespace MVP_Tema3.Models
     public partial class GetStudentGrades_Result
     {
         public string denumire { get; set; }
+        
         public double nota { get; set; }
+        
     }
 }

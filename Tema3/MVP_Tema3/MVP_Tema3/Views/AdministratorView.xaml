@@ -10,9 +10,31 @@
     <Window.DataContext>
         <local1:AdministratorVM/>
     </Window.DataContext>
-    <Grid>
-        <TextBlock>
-            Administrator
-        </TextBlock>
-    </Grid>
+    <StackPanel>
+        
+        <DataGrid AutoGenerateColumns="False"
+                  ScrollViewer.VerticalScrollBarVisibility="Visible"
+                  ItemsSource="{Binding ElevList}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Elev" Binding="{Binding Nume}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <DataGrid AutoGenerateColumns="False"
+                  ScrollViewer.VerticalScrollBarVisibility="Visible"
+                  ItemsSource="{Binding ProfList}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Profesor" Binding="{Binding Nume}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <DataGrid AutoGenerateColumns="False"
+                  ScrollViewer.VerticalScrollBarVisibility="Visible"
+                  ItemsSource="{Binding MateriiList}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Materie" Binding="{Binding DenumireMaterie}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        
+    </StackPanel>
 </Window>

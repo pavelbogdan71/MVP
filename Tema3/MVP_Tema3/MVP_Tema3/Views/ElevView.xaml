@@ -20,25 +20,25 @@
         <TextBlock>Note:</TextBlock>
         <DataGrid AutoGenerateColumns="False" Height="150" ItemsSource="{Binding NoteList}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Materie" Binding="{Binding DenumireMaterie}"/>
-                <DataGridTextColumn Header="Nota" Binding="{Binding Nota}"/>
+                <DataGridTextColumn Header="Materie" Binding="{Binding denumire}"/>
+                <DataGridTextColumn Header="Nota" Binding="{Binding nota}"/>
             </DataGrid.Columns>
         </DataGrid>
 
         <TextBlock>Absente:</TextBlock>
         <DataGrid AutoGenerateColumns="False" Height="150" ItemsSource="{Binding AbsenteList}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Data" Binding="{Binding Data}"/>
-                <DataGridTextColumn Header="Materie" Binding="{Binding DenumireMaterie}"/>
+                <DataGridTextColumn Header="Data" Binding="{Binding data}"/>
+                <DataGridTextColumn Header="Materie" Binding="{Binding denumire}"/>
             </DataGrid.Columns>
         </DataGrid>
         
-        <DataGrid AutoGenerateColumns="False" Height="150" ItemsSource="{Binding MediiList}">
+        <!--<DataGrid AutoGenerateColumns="False" Height="150" ItemsSource="{Binding MediiList}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Materie" Binding="{Binding DenumireMaterie}"/>
-                <DataGridTextColumn Header="Media" Binding="{Binding Medie}"/>
+                <DataGridTextColumn Header="Materie" Binding="{Binding denumire}"/>
+                <DataGridTextColumn Header="Media" Binding="{Binding Column1}"/>
             </DataGrid.Columns>
-        </DataGrid>
+        </DataGrid>-->
         
     </StackPanel>
 </Window>

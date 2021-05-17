@@ -76,6 +76,7 @@
     <Compile Include="Models\Actions\AdministratorActions.cs" />
     <Compile Include="Models\Actions\DiriginteActions.cs" />
     <Compile Include="Models\Actions\ElevActions.cs" />
+    <Compile Include="Models\Actions\MaterieActions.cs" />
     <Compile Include="Models\Actions\ProfesorActions.cs" />
     <Compile Include="Models\Administrator.cs">
       <DependentUpon>SchoolModel.tt</DependentUpon>
@@ -128,6 +129,7 @@
     <Compile Include="ViewModels\AdministratorVM.cs" />
     <Compile Include="ViewModels\DiriginteVM.cs" />
     <Compile Include="ViewModels\ElevVM.cs" />
+    <Compile Include="ViewModels\MaterieVM.cs" />
     <Compile Include="Views\AdministratorView.xaml.cs">
       <DependentUpon>AdministratorView.xaml</DependentUpon>
     </Compile>

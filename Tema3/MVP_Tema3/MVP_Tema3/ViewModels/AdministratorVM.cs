@@ -26,6 +26,10 @@ namespace MVP_Tema3.ViewModels
 
         private ObservableCollection<AdministratorVM> adminList;
 
+        private ObservableCollection<ElevVM> elevList;
+        private ObservableCollection<ProfesorVM> profList;
+        private ObservableCollection<MaterieVM> materiiList;
+
         public int AdminId
         {
             get
@@ -77,6 +81,48 @@ namespace MVP_Tema3.ViewModels
             {
                 adminList = value;
                 NotifyPropertyChanged("AdminList");
+            }
+        }
+
+        public ObservableCollection<ElevVM> ElevList
+        {
+            get
+            {
+                elevList = aAct.AllElevs();
+                return elevList;
+            }
+            set
+            {
+                elevList = value;
+                NotifyPropertyChanged("ElevList");
+            }
+        }
+
+        public ObservableCollection<ProfesorVM> ProfList
+        {
+            get
+            {
+                profList = aAct.AllProf();
+                return profList;
+            }
+            set
+            {
+                profList = value;
+                NotifyPropertyChanged("ProfList");
+            }
+        }
+
+        public ObservableCollection<MaterieVM> MateriiList
+        {
+            get
+            {
+                materiiList = aAct.AllMaterii();
+                return materiiList;
+            }
+            set
+            {
+                materiiList = value;
+                NotifyPropertyChanged("MateriiList");
             }
         }
         #endregion

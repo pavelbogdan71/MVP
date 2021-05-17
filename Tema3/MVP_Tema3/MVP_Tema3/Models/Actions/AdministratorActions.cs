@@ -36,5 +36,20 @@ namespace MVP_Tema3.Models.Actions
 
             return result;
         }
+
+        public ObservableCollection<ElevVM> AllElevs()
+        {
+            return new ElevVM().ElevList;
+        }
+
+        public ObservableCollection<ProfesorVM> AllProf()
+        {
+            return new ProfesorVM().ProfesorList;
+        }
+
+        public ObservableCollection<MaterieVM> AllMaterii()
+        {
+            return new MaterieVM().MateriiList;
+        }
     }
 }
