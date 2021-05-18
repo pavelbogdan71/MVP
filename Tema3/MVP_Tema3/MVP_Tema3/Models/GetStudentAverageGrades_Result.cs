@@ -14,6 +14,6 @@ namespace MVP_Tema3.Models
     public partial class GetStudentAverageGrades_Result
     {
         public string denumire { get; set; }
-        public Nullable<double> Column1 { get; set; }
+        public Nullable<double> Media { get; set; }
     }
 }

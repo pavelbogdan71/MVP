@@ -33,6 +33,8 @@ namespace MVP_Tema3.ViewModels
         private ObservableCollection<GetStudentAbsence_Result> absenteList;
         private ObservableCollection<GetStudentAverageGrades_Result> mediiList;
 
+        private double mediaGenerala;
+
         public int ElevId
         {
             get
@@ -138,6 +140,20 @@ namespace MVP_Tema3.ViewModels
             {
                 mediiList = value;
                 NotifyPropertyChanged("MediiList");
+            }
+        }
+
+        public double MediaGenerala
+        {
+            get
+            {
+                mediaGenerala = eAct.GetMediaGenerala(ElevView.ElevId);
+                return mediaGenerala;
+            }
+            set
+            {
+                mediaGenerala = value;
+                NotifyPropertyChanged("MediaGenerala");
             }
         }
         #endregion

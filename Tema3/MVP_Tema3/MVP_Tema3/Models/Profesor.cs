@@ -17,7 +17,7 @@ namespace MVP_Tema3.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Profesor()
         {
-            this.Clasas = new HashSet<Clasa>();
+            this.Clasa = new HashSet<Clasa>();
         }
     
         public int profesorID { get; set; }
@@ -29,6 +29,6 @@ namespace MVP_Tema3.Models
     
         public virtual Materie Materie { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Clasa> Clasas { get; set; }
+        public virtual ICollection<Clasa> Clasa { get; set; }
     }
 }

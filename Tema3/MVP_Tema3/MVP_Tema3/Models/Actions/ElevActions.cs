@@ -22,7 +22,7 @@ namespace MVP_Tema3.Models.Actions
 
         public ObservableCollection<ElevVM> AllElevs()
         {
-            List<Elev> elevs = context.Elevs.ToList();
+            List<Elev> elevs = context.Elev.ToList();
             ObservableCollection<ElevVM> result = new ObservableCollection<ElevVM>();
 
             foreach(Elev elev in elevs)
@@ -85,15 +85,21 @@ namespace MVP_Tema3.Models.Actions
             var medii = context.GetStudentAverageGrades(elevId);
 
             foreach(var medie in medii)
-            {
+            { 
                 result.Add(new GetStudentAverageGrades_Result()
                 {
                     denumire = medie.denumire,
-                    Column1 = medie.Column1.Value
-                });
+                    Media = medie.Media
+                }); 
             }
 
             return result;
+        }
+
+        public double GetMediaGenerala(int elevId)
+        {
+            var result = context.GetStudentGeneralAverage(elevId);
+            return Convert.ToDouble(result.FirstOrDefault());
         }
     }
 }

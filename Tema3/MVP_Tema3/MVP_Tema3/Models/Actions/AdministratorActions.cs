@@ -21,7 +21,7 @@ namespace MVP_Tema3.Models.Actions
 
         public ObservableCollection<AdministratorVM> AllAdmins()
         {
-            List<Administrator> admins = context.Administrators.ToList();
+            List<Administrator> admins = context.Administrator.ToList();
             ObservableCollection<AdministratorVM> result = new ObservableCollection<AdministratorVM>();
 
             foreach(Administrator admin in admins)

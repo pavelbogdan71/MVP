@@ -21,7 +21,7 @@ namespace MVP_Tema3.Models.Actions
 
         public ObservableCollection<DiriginteVM> AllDiriginti()
         {
-            List<Profesor> diriginti = context.Profesors.ToList();
+            List<Profesor> diriginti = context.Profesor.ToList();
             ObservableCollection<DiriginteVM> result = new ObservableCollection<DiriginteVM>();
 
             foreach(Profesor prof in diriginti)

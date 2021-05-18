@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4d6082cc75194d1f9b88dedeb00c4246" Name="Diagram1">
+      <Diagram DiagramId="0c256b70315d4e6a823af80baa113690" Name="Diagram1">
         <EntityTypeShape EntityType="ScoalaDBModel.Absenta" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ScoalaDBModel.Administrator" Width="1.5" PointX="5.75" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ScoalaDBModel.Clasa" Width="1.5" PointX="1.5" PointY="9" IsExpanded="true" />

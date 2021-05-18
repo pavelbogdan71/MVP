@@ -33,12 +33,13 @@
             </DataGrid.Columns>
         </DataGrid>
         
-        <!--<DataGrid AutoGenerateColumns="False" Height="150" ItemsSource="{Binding MediiList}">
+        <DataGrid AutoGenerateColumns="False" Height="150" ItemsSource="{Binding MediiList}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Materie" Binding="{Binding denumire}"/>
-                <DataGridTextColumn Header="Media" Binding="{Binding Column1}"/>
+                <DataGridTextColumn Header="Media" Binding="{Binding Media}"/>
             </DataGrid.Columns>
-        </DataGrid>-->
-        
+        </DataGrid>
+
+        <TextBlock Text="{Binding MediaGenerala}"></TextBlock>
     </StackPanel>
 </Window>
