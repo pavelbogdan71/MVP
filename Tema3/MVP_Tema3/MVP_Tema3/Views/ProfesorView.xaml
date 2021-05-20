@@ -12,13 +12,92 @@
     </Window.DataContext>
     <StackPanel>
 
-
-        <TextBlock>Clasele profesorului: </TextBlock>
-        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding ClaseProfesor}">
+        <StackPanel Background="Aqua">
+        <TextBlock HorizontalAlignment="Center">Clasele profesorului: </TextBlock>
+        <DataGrid Name="clase" AutoGenerateColumns="False" ItemsSource="{Binding ClaseProfesor}"
+                  Width="200">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="An" Binding="{Binding an}"/>
                 <DataGridTextColumn Header="Specializare" Binding="{Binding specializare}"/>
             </DataGrid.Columns>
         </DataGrid>
+
+        <Button Command="{Binding AfisareClasa}"
+                Width="100"
+                Margin="10,10,10,10"
+                CommandParameter="{Binding ElementName=clase, Path=SelectedItem}">Afisare elevi</Button>
+        </StackPanel>
+
+        <TextBlock Text="Elevi:"></TextBlock>
+        <WrapPanel Background="Bisque">
+            <DataGrid Name="elevi" AutoGenerateColumns="False" ItemsSource="{Binding EleviClasa}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Nume" Binding="{Binding nume}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+           
+        </WrapPanel>
+
+
+
+        <WrapPanel Background="DarkOrange">
+            <StackPanel>
+                <Button Content="Afisare note elev"
+                    Margin="20,5,20,5"
+                    Command="{Binding AfisareNote}"
+                    CommandParameter="{Binding ElementName=elevi, Path=SelectedItem}"
+                    ></Button>
+                <DataGrid Name="note" AutoGenerateColumns="False" ItemsSource="{Binding NoteElev}"
+                      Margin="20,10,20,10">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Nota" Binding="{Binding nota}"/>
+                        <DataGridTextColumn Header="Materia" Binding="{Binding denumire}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+            </StackPanel>
+
+            <StackPanel VerticalAlignment="Center">
+                <WrapPanel>
+                    <Label Width="55" >Nota:</Label>
+                    <TextBox Width="100" 
+                             Text="{Binding ElementName=note,Path=SelectedItem.nota, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                </WrapPanel>
+                <WrapPanel>
+                    <Label Width="55" >Materia:</Label>
+                    <TextBox Width="100"
+                             Text="{Binding ElementName=note,Path=SelectedItem.denumire, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                </WrapPanel>
+            </StackPanel>
+            
+            
+            
+            <StackPanel>
+                <Button Content="Adaugare nota" Margin="5,5,5,5"/>
+                <Button Content="Modificare nota" Margin="5,5,5,5"/>
+                <Button Content="Stergere nota" Margin="5,5,5,5"/>
+            </StackPanel>
+
+
+            <StackPanel>
+                <Button Content="Afisare absente elev"
+                    Margin="20,5,20,5"
+                    Command="{Binding AfisareAbsente}"
+                    CommandParameter="{Binding ElementName=elevi, Path=SelectedItem}"></Button>
+                <DataGrid Name="absente" AutoGenerateColumns="False" ItemsSource="{Binding AbsenteElev}"
+                      Margin="20,10,20,10">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Materia" Binding="{Binding denumire}"/>
+                        <DataGridTextColumn Header="Data" Binding="{Binding data}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </WrapPanel>
+        
+        
+ 
+        
+
     </StackPanel>
 </Window>

@@ -1,4 +1,5 @@
 ﻿using MVP_Tema3.ViewModels;
+using MVP_Tema3.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -56,6 +57,69 @@ namespace MVP_Tema3.Models.Actions
             }
 
             return result;
+        }
+
+        public void SetareClasa(object obj)
+        {
+            GetTeacherClasses_Result clasa = obj as GetTeacherClasses_Result;
+
+            List<GetClassStudents_Result> elevi = context.GetClassStudents(clasa.clasaID).ToList();
+
+
+            ObservableCollection<GetClassStudents_Result> result = new ObservableCollection<GetClassStudents_Result>();
+
+            foreach(GetClassStudents_Result elev in elevi)
+            {
+                result.Add(new GetClassStudents_Result()
+                {
+                    elevID = elev.elevID,
+                    nume = elev.nume
+                });
+            }
+
+
+            profesorContext.EleviClasa = result;
+        }
+
+        public void SetareNote(object obj)
+        {
+            GetClassStudents_Result elev = obj as GetClassStudents_Result;
+
+            List<GetStudentGrades_Result> note = context.GetStudentGrades(elev.elevID).ToList();
+
+            ObservableCollection<GetStudentGrades_Result> result = new ObservableCollection<GetStudentGrades_Result>();
+
+            foreach (GetStudentGrades_Result nota in note)
+            {
+                result.Add(new GetStudentGrades_Result()
+                {
+                    nota = nota.nota,
+                    denumire = nota.denumire
+                });
+
+            }
+
+            profesorContext.NoteElev = result;
+        }
+
+        public void SetareAbsente(object obj)
+        {
+            GetClassStudents_Result elev = obj as GetClassStudents_Result;
+
+            List<GetStudentAbsence_Result> absente = context.GetStudentAbsence(elev.elevID).ToList();
+
+            ObservableCollection<GetStudentAbsence_Result> result = new ObservableCollection<GetStudentAbsence_Result>();
+
+            foreach(GetStudentAbsence_Result absenta in absente)
+            {
+                result.Add(new GetStudentAbsence_Result()
+                {
+                    data = absenta.data,
+                    denumire = absenta.denumire
+                });
+            }
+
+            profesorContext.AbsenteElev = result;
         }
     }
 }

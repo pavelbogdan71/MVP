@@ -19,7 +19,11 @@ namespace MVP_Tema3.ViewModels
         {
             eAct = new ElevActions(this);
         }
-
+        public ElevVM(int elevId)
+        {
+            eAct = new ElevActions(this);
+            ElevView.ElevId = elevId;
+        }
         #region Data Members
 
         private int elevId;

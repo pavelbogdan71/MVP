@@ -8,10 +8,11 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace MVP_Tema3.ViewModels
 {
-    class ProfesorVM:BaseVM
+    class ProfesorVM : BaseVM
     {
         ProfesorActions pAct;
 
@@ -31,9 +32,49 @@ namespace MVP_Tema3.ViewModels
         private ObservableCollection<ProfesorVM> profesorList;
 
         private ObservableCollection<GetTeacherClasses_Result> claseProfesor;
+        private ObservableCollection<GetClassStudents_Result> eleviClasa;
 
+        private ObservableCollection<GetStudentGrades_Result> noteElev;
+        private ObservableCollection<GetStudentAbsence_Result> absenteElev;
 
+        public ObservableCollection<GetStudentAbsence_Result> AbsenteElev
+        {
+            get
+            {
+                return absenteElev;
+            }
+            set
+            {
+                absenteElev = value;
+                NotifyPropertyChanged("AbsenteElev");
+            }
+        }
 
+        public ObservableCollection<GetStudentGrades_Result> NoteElev
+        {
+            get
+            {
+                return noteElev;
+            }
+            set
+            {
+                noteElev = value;
+                NotifyPropertyChanged("NoteElev");
+            }
+        }
+
+        public ObservableCollection<GetClassStudents_Result> EleviClasa
+        {
+            get
+            {
+                return eleviClasa;
+            }
+            set
+            {
+                eleviClasa = value;
+                NotifyPropertyChanged("EleviClasa");
+            }
+        }
         public ObservableCollection<GetTeacherClasses_Result> ClaseProfesor
         {
             get
@@ -48,7 +89,7 @@ namespace MVP_Tema3.ViewModels
             }
         }
 
-        public int ProfesorId 
+        public int ProfesorId
         {
             get
             {
@@ -124,6 +165,50 @@ namespace MVP_Tema3.ViewModels
             {
                 profesorList = value;
                 NotifyPropertyChanged("ProfesorList");
+            }
+        }
+        #endregion
+
+
+        #region Commands
+
+
+        private ICommand afisareClasa;
+        public ICommand AfisareClasa
+        {
+            get
+            {
+                if(afisareClasa==null)
+                {
+                    afisareClasa = new RelayCommand(pAct.SetareClasa);
+                }
+                return afisareClasa;
+            }
+        }
+
+        private ICommand afisareNote;
+        public ICommand AfisareNote
+        {
+            get
+            {
+                if(afisareNote==null)
+                {
+                    afisareNote = new RelayCommand(pAct.SetareNote);
+                }
+                return afisareNote;
+            }
+        }
+
+        private ICommand afisareAbsente;
+        public ICommand AfisareAbsente
+        {
+            get
+            {
+                if(afisareAbsente==null)
+                {
+                    afisareAbsente = new RelayCommand(pAct.SetareAbsente);
+                }
+                return afisareAbsente;
             }
         }
         #endregion
