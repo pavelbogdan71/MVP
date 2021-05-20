@@ -19,8 +19,16 @@ namespace MVP_Tema3.Views
     /// </summary>
     public partial class ProfesorView : Window
     {
+        public static int ProfesorId;
+
         public ProfesorView()
         {
+            InitializeComponent();
+        }
+
+        public ProfesorView(int profId)
+        {
+            ProfesorId = profId;
             InitializeComponent();
         }
     }

@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\User\Desktop\Repos\MVP\Tema3\MVP_Tema3\MVP_Tema3\Models\SchoolModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\pavel\Desktop\Fac Repo\MVP\Tema3\MVP_Tema3\MVP_Tema3\Models\SchoolModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

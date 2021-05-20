@@ -27,13 +27,13 @@ namespace MVP_Tema3.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Absenta> Absenta { get; set; }
-        public virtual DbSet<Administrator> Administrator { get; set; }
-        public virtual DbSet<Clasa> Clasa { get; set; }
-        public virtual DbSet<Elev> Elev { get; set; }
-        public virtual DbSet<Materie> Materie { get; set; }
-        public virtual DbSet<Nota> Nota { get; set; }
-        public virtual DbSet<Profesor> Profesor { get; set; }
+        public virtual DbSet<Absenta> Absentas { get; set; }
+        public virtual DbSet<Administrator> Administrators { get; set; }
+        public virtual DbSet<Clasa> Clasas { get; set; }
+        public virtual DbSet<Elev> Elevs { get; set; }
+        public virtual DbSet<Materie> Materies { get; set; }
+        public virtual DbSet<Nota> Notas { get; set; }
+        public virtual DbSet<Profesor> Profesors { get; set; }
     
         public virtual int AddAbsence(Nullable<int> absentaID, string data, Nullable<bool> motivata, Nullable<int> elevID, Nullable<int> materieID)
         {
@@ -129,6 +129,15 @@ namespace MVP_Tema3.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetAllGrades_Result>("GetAllGrades", elevIDParameter, materieIDParameter);
         }
     
+        public virtual ObjectResult<GetClassStudents_Result> GetClassStudents(Nullable<int> clasaID)
+        {
+            var clasaIDParameter = clasaID.HasValue ?
+                new ObjectParameter("clasaID", clasaID) :
+                new ObjectParameter("clasaID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetClassStudents_Result>("GetClassStudents", clasaIDParameter);
+        }
+    
         public virtual ObjectResult<GetStudentAbsence_Result> GetStudentAbsence(Nullable<int> elevID)
         {
             var elevIDParameter = elevID.HasValue ?
@@ -147,6 +156,15 @@ namespace MVP_Tema3.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetStudentAverageGrades_Result>("GetStudentAverageGrades", elevIDParameter);
         }
     
+        public virtual ObjectResult<GetStudentClass_Result> GetStudentClass(Nullable<int> clasaID)
+        {
+            var clasaIDParameter = clasaID.HasValue ?
+                new ObjectParameter("clasaID", clasaID) :
+                new ObjectParameter("clasaID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetStudentClass_Result>("GetStudentClass", clasaIDParameter);
+        }
+    
         public virtual ObjectResult<Nullable<double>> GetStudentGeneralAverage(Nullable<int> elevID)
         {
             var elevIDParameter = elevID.HasValue ?
@@ -163,6 +181,15 @@ namespace MVP_Tema3.Models
                 new ObjectParameter("elevID", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetStudentGrades_Result>("GetStudentGrades", elevIDParameter);
+        }
+    
+        public virtual ObjectResult<GetTeacherClasses_Result> GetTeacherClasses(Nullable<int> profesorID)
+        {
+            var profesorIDParameter = profesorID.HasValue ?
+                new ObjectParameter("profesorID", profesorID) :
+                new ObjectParameter("profesorID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetTeacherClasses_Result>("GetTeacherClasses", profesorIDParameter);
         }
     
         public virtual int ModifyAbsence(Nullable<int> absentaID)

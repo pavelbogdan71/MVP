@@ -11,6 +11,14 @@
         <local1:ProfesorVM/>
     </Window.DataContext>
     <StackPanel>
-        <TextBlock>Profesor</TextBlock>
+
+
+        <TextBlock>Clasele profesorului: </TextBlock>
+        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding ClaseProfesor}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="An" Binding="{Binding an}"/>
+                <DataGridTextColumn Header="Specializare" Binding="{Binding specializare}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </StackPanel>
 </Window>

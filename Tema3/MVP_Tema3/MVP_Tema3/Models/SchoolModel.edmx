@@ -203,17 +203,26 @@ warning 6002: The table/view 'ScoalaDB.dbo.Clasa-Profesor' does not have a prima
           <Parameter Name="elevID" Type="int" Mode="In" />
           <Parameter Name="materieID" Type="int" Mode="In" />
         </Function>
+        <Function Name="GetClassStudents" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="clasaID" Type="int" Mode="In" />
+        </Function>
         <Function Name="GetStudentAbsence" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="elevID" Type="int" Mode="In" />
         </Function>
         <Function Name="GetStudentAverageGrades" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="elevID" Type="int" Mode="In" />
         </Function>
+        <Function Name="GetStudentClass" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="clasaID" Type="int" Mode="In" />
+        </Function>
         <Function Name="GetStudentGeneralAverage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="elevID" Type="int" Mode="In" />
         </Function>
         <Function Name="GetStudentGrades" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="elevID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetTeacherClasses" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="profesorID" Type="int" Mode="In" />
         </Function>
         <Function Name="ModifyAbsence" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="absentaID" Type="int" Mode="In" />
@@ -298,8 +307,8 @@ warning 6002: The table/view 'ScoalaDB.dbo.Clasa-Profesor' does not have a prima
           <Property Name="an" Type="Int32" Nullable="false" />
           <Property Name="specializare" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="profesorID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Elev" Relationship="Self.FK_Elev_Clasa" FromRole="Clasa" ToRole="Elev" />
-          <NavigationProperty Name="Profesor" Relationship="Self.Clasa_Profesor" FromRole="Clasa" ToRole="Profesor" />
+          <NavigationProperty Name="Elevs" Relationship="Self.FK_Elev_Clasa" FromRole="Clasa" ToRole="Elev" />
+          <NavigationProperty Name="Profesors" Relationship="Self.Clasa_Profesor" FromRole="Clasa" ToRole="Profesor" />
         </EntityType>
         <EntityType Name="Elev">
           <Key>
@@ -310,9 +319,9 @@ warning 6002: The table/view 'ScoalaDB.dbo.Clasa-Profesor' does not have a prima
           <Property Name="nume_utilizator" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="parola" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="clasaID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Absenta" Relationship="Self.FK_Absenta_Elev" FromRole="Elev" ToRole="Absenta" />
+          <NavigationProperty Name="Absentas" Relationship="Self.FK_Absenta_Elev" FromRole="Elev" ToRole="Absenta" />
           <NavigationProperty Name="Clasa" Relationship="Self.FK_Elev_Clasa" FromRole="Elev" ToRole="Clasa" />
-          <NavigationProperty Name="Nota" Relationship="Self.FK_Nota_Elev" FromRole="Elev" ToRole="Nota" />
+          <NavigationProperty Name="Notas" Relationship="Self.FK_Nota_Elev" FromRole="Elev" ToRole="Nota" />
         </EntityType>
         <EntityType Name="Materie">
           <Key>
@@ -320,9 +329,9 @@ warning 6002: The table/view 'ScoalaDB.dbo.Clasa-Profesor' does not have a prima
           </Key>
           <Property Name="materieID" Type="Int32" Nullable="false" />
           <Property Name="denumire" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Absenta" Relationship="Self.FK_Absenta_Materie" FromRole="Materie" ToRole="Absenta" />
-          <NavigationProperty Name="Nota" Relationship="Self.FK_Nota_Materie" FromRole="Materie" ToRole="Nota" />
-          <NavigationProperty Name="Profesor" Relationship="Self.FK_Profesor_Materie" FromRole="Materie" ToRole="Profesor" />
+          <NavigationProperty Name="Absentas" Relationship="Self.FK_Absenta_Materie" FromRole="Materie" ToRole="Absenta" />
+          <NavigationProperty Name="Notas" Relationship="Self.FK_Nota_Materie" FromRole="Materie" ToRole="Nota" />
+          <NavigationProperty Name="Profesors" Relationship="Self.FK_Profesor_Materie" FromRole="Materie" ToRole="Profesor" />
         </EntityType>
         <EntityType Name="Nota">
           <Key>
@@ -346,7 +355,7 @@ warning 6002: The table/view 'ScoalaDB.dbo.Clasa-Profesor' does not have a prima
           <Property Name="diriginte" Type="Boolean" Nullable="false" />
           <Property Name="materieID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Materie" Relationship="Self.FK_Profesor_Materie" FromRole="Profesor" ToRole="Materie" />
-          <NavigationProperty Name="Clasa" Relationship="Self.Clasa_Profesor" FromRole="Profesor" ToRole="Clasa" />
+          <NavigationProperty Name="Clasas" Relationship="Self.Clasa_Profesor" FromRole="Profesor" ToRole="Clasa" />
         </EntityType>
         <Association Name="FK_Absenta_Elev">
           <End Role="Elev" Type="Self.Elev" Multiplicity="1" />
@@ -425,40 +434,40 @@ warning 6002: The table/view 'ScoalaDB.dbo.Clasa-Profesor' does not have a prima
           <End Role="Profesor" Type="Self.Profesor" Multiplicity="*" />
         </Association>
         <EntityContainer Name="ScoalaDBEntities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Absenta" EntityType="Self.Absenta" />
-          <EntitySet Name="Administrator" EntityType="Self.Administrator" />
-          <EntitySet Name="Clasa" EntityType="Self.Clasa" />
-          <EntitySet Name="Elev" EntityType="Self.Elev" />
-          <EntitySet Name="Materie" EntityType="Self.Materie" />
-          <EntitySet Name="Nota" EntityType="Self.Nota" />
-          <EntitySet Name="Profesor" EntityType="Self.Profesor" />
+          <EntitySet Name="Absentas" EntityType="Self.Absenta" />
+          <EntitySet Name="Administrators" EntityType="Self.Administrator" />
+          <EntitySet Name="Clasas" EntityType="Self.Clasa" />
+          <EntitySet Name="Elevs" EntityType="Self.Elev" />
+          <EntitySet Name="Materies" EntityType="Self.Materie" />
+          <EntitySet Name="Notas" EntityType="Self.Nota" />
+          <EntitySet Name="Profesors" EntityType="Self.Profesor" />
           <AssociationSet Name="FK_Absenta_Elev" Association="Self.FK_Absenta_Elev">
-            <End Role="Elev" EntitySet="Elev" />
-            <End Role="Absenta" EntitySet="Absenta" />
+            <End Role="Elev" EntitySet="Elevs" />
+            <End Role="Absenta" EntitySet="Absentas" />
           </AssociationSet>
           <AssociationSet Name="FK_Absenta_Materie" Association="Self.FK_Absenta_Materie">
-            <End Role="Materie" EntitySet="Materie" />
-            <End Role="Absenta" EntitySet="Absenta" />
+            <End Role="Materie" EntitySet="Materies" />
+            <End Role="Absenta" EntitySet="Absentas" />
           </AssociationSet>
           <AssociationSet Name="FK_Elev_Clasa" Association="Self.FK_Elev_Clasa">
-            <End Role="Clasa" EntitySet="Clasa" />
-            <End Role="Elev" EntitySet="Elev" />
+            <End Role="Clasa" EntitySet="Clasas" />
+            <End Role="Elev" EntitySet="Elevs" />
           </AssociationSet>
           <AssociationSet Name="FK_Nota_Elev" Association="Self.FK_Nota_Elev">
-            <End Role="Elev" EntitySet="Elev" />
-            <End Role="Nota" EntitySet="Nota" />
+            <End Role="Elev" EntitySet="Elevs" />
+            <End Role="Nota" EntitySet="Notas" />
           </AssociationSet>
           <AssociationSet Name="FK_Nota_Materie" Association="Self.FK_Nota_Materie">
-            <End Role="Materie" EntitySet="Materie" />
-            <End Role="Nota" EntitySet="Nota" />
+            <End Role="Materie" EntitySet="Materies" />
+            <End Role="Nota" EntitySet="Notas" />
           </AssociationSet>
           <AssociationSet Name="FK_Profesor_Materie" Association="Self.FK_Profesor_Materie">
-            <End Role="Materie" EntitySet="Materie" />
-            <End Role="Profesor" EntitySet="Profesor" />
+            <End Role="Materie" EntitySet="Materies" />
+            <End Role="Profesor" EntitySet="Profesors" />
           </AssociationSet>
           <AssociationSet Name="Clasa_Profesor" Association="Self.Clasa_Profesor">
-            <End Role="Clasa" EntitySet="Clasa" />
-            <End Role="Profesor" EntitySet="Profesor" />
+            <End Role="Clasa" EntitySet="Clasas" />
+            <End Role="Profesor" EntitySet="Profesors" />
           </AssociationSet>
           <FunctionImport Name="AddAbsence">
             <Parameter Name="absentaID" Mode="In" Type="Int32" />
@@ -488,17 +497,26 @@ warning 6002: The table/view 'ScoalaDB.dbo.Clasa-Profesor' does not have a prima
             <Parameter Name="elevID" Mode="In" Type="Int32" />
             <Parameter Name="materieID" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="GetClassStudents" ReturnType="Collection(ScoalaDBModel.GetClassStudents_Result)">
+            <Parameter Name="clasaID" Mode="In" Type="Int32" />
+          </FunctionImport>
           <FunctionImport Name="GetStudentAbsence" ReturnType="Collection(ScoalaDBModel.GetStudentAbsence_Result)">
             <Parameter Name="elevID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetStudentAverageGrades" ReturnType="Collection(ScoalaDBModel.GetStudentAverageGrades_Result)">
             <Parameter Name="elevID" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="GetStudentClass" ReturnType="Collection(ScoalaDBModel.GetStudentClass_Result)">
+            <Parameter Name="clasaID" Mode="In" Type="Int32" />
+          </FunctionImport>
           <FunctionImport Name="GetStudentGeneralAverage" ReturnType="Collection(Double)">
             <Parameter Name="elevID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetStudentGrades" ReturnType="Collection(ScoalaDBModel.GetStudentGrades_Result)">
             <Parameter Name="elevID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetTeacherClasses" ReturnType="Collection(ScoalaDBModel.GetTeacherClasses_Result)">
+            <Parameter Name="profesorID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="ModifyAbsence">
             <Parameter Name="absentaID" Mode="In" Type="Int32" />
@@ -514,6 +532,10 @@ warning 6002: The table/view 'ScoalaDB.dbo.Clasa-Profesor' does not have a prima
           <Property Type="String" Name="denumire" Nullable="false" MaxLength="50" />
           <Property Type="Double" Name="nota" Nullable="false" />
         </ComplexType>
+        <ComplexType Name="GetClassStudents_Result">
+          <Property Type="Int32" Name="elevID" Nullable="false" />
+          <Property Type="String" Name="nume" Nullable="false" MaxLength="50" />
+        </ComplexType>
         <ComplexType Name="GetStudentAbsence_Result">
           <Property Type="String" Name="data" Nullable="false" MaxLength="10" />
           <Property Type="String" Name="denumire" Nullable="false" MaxLength="50" />
@@ -522,9 +544,18 @@ warning 6002: The table/view 'ScoalaDB.dbo.Clasa-Profesor' does not have a prima
           <Property Type="String" Name="denumire" Nullable="false" MaxLength="50" />
           <Property Type="Double" Name="Media" Nullable="true" />
         </ComplexType>
+        <ComplexType Name="GetStudentClass_Result">
+          <Property Type="Int32" Name="an" Nullable="false" />
+          <Property Type="String" Name="specializare" Nullable="false" MaxLength="50" />
+        </ComplexType>
         <ComplexType Name="GetStudentGrades_Result">
           <Property Type="String" Name="denumire" Nullable="false" MaxLength="50" />
           <Property Type="Double" Name="nota" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="GetTeacherClasses_Result">
+          <Property Type="Int32" Name="clasaID" Nullable="false" />
+          <Property Type="Int32" Name="an" Nullable="false" />
+          <Property Type="String" Name="specializare" Nullable="false" MaxLength="50" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -532,7 +563,7 @@ warning 6002: The table/view 'ScoalaDB.dbo.Clasa-Profesor' does not have a prima
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ScoalaDBModelStoreContainer" CdmEntityContainer="ScoalaDBEntities1">
-          <EntitySetMapping Name="Absenta">
+          <EntitySetMapping Name="Absentas">
             <EntityTypeMapping TypeName="ScoalaDBModel.Absenta">
               <MappingFragment StoreEntitySet="Absenta">
                 <ScalarProperty Name="absentaID" ColumnName="absentaID" />
@@ -543,7 +574,7 @@ warning 6002: The table/view 'ScoalaDB.dbo.Clasa-Profesor' does not have a prima
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Administrator">
+          <EntitySetMapping Name="Administrators">
             <EntityTypeMapping TypeName="ScoalaDBModel.Administrator">
               <MappingFragment StoreEntitySet="Administrator">
                 <ScalarProperty Name="adminID" ColumnName="adminID" />
@@ -552,7 +583,7 @@ warning 6002: The table/view 'ScoalaDB.dbo.Clasa-Profesor' does not have a prima
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Clasa">
+          <EntitySetMapping Name="Clasas">
             <EntityTypeMapping TypeName="ScoalaDBModel.Clasa">
               <MappingFragment StoreEntitySet="Clasa">
                 <ScalarProperty Name="clasaID" ColumnName="clasaID" />
@@ -562,7 +593,7 @@ warning 6002: The table/view 'ScoalaDB.dbo.Clasa-Profesor' does not have a prima
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Elev">
+          <EntitySetMapping Name="Elevs">
             <EntityTypeMapping TypeName="ScoalaDBModel.Elev">
               <MappingFragment StoreEntitySet="Elev">
                 <ScalarProperty Name="elevID" ColumnName="elevID" />
@@ -573,7 +604,7 @@ warning 6002: The table/view 'ScoalaDB.dbo.Clasa-Profesor' does not have a prima
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Materie">
+          <EntitySetMapping Name="Materies">
             <EntityTypeMapping TypeName="ScoalaDBModel.Materie">
               <MappingFragment StoreEntitySet="Materie">
                 <ScalarProperty Name="materieID" ColumnName="materieID" />
@@ -581,7 +612,7 @@ warning 6002: The table/view 'ScoalaDB.dbo.Clasa-Profesor' does not have a prima
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Nota">
+          <EntitySetMapping Name="Notas">
             <EntityTypeMapping TypeName="ScoalaDBModel.Nota">
               <MappingFragment StoreEntitySet="Nota">
                 <ScalarProperty Name="notaID" ColumnName="notaID" />
@@ -591,7 +622,7 @@ warning 6002: The table/view 'ScoalaDB.dbo.Clasa-Profesor' does not have a prima
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Profesor">
+          <EntitySetMapping Name="Profesors">
             <EntityTypeMapping TypeName="ScoalaDBModel.Profesor">
               <MappingFragment StoreEntitySet="Profesor">
                 <ScalarProperty Name="profesorID" ColumnName="profesorID" />
@@ -633,6 +664,14 @@ warning 6002: The table/view 'ScoalaDB.dbo.Clasa-Profesor' does not have a prima
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetClassStudents" FunctionName="ScoalaDBModel.Store.GetClassStudents">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ScoalaDBModel.GetClassStudents_Result">
+                <ScalarProperty Name="elevID" ColumnName="elevID" />
+                <ScalarProperty Name="nume" ColumnName="nume" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="GetStudentAbsence" FunctionName="ScoalaDBModel.Store.GetStudentAbsence">
             <ResultMapping>
               <ComplexTypeMapping TypeName="ScoalaDBModel.GetStudentAbsence_Result">
@@ -649,12 +688,29 @@ warning 6002: The table/view 'ScoalaDB.dbo.Clasa-Profesor' does not have a prima
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetStudentClass" FunctionName="ScoalaDBModel.Store.GetStudentClass">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ScoalaDBModel.GetStudentClass_Result">
+                <ScalarProperty Name="an" ColumnName="an" />
+                <ScalarProperty Name="specializare" ColumnName="specializare" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="GetStudentGeneralAverage" FunctionName="ScoalaDBModel.Store.GetStudentGeneralAverage" />
           <FunctionImportMapping FunctionImportName="GetStudentGrades" FunctionName="ScoalaDBModel.Store.GetStudentGrades">
             <ResultMapping>
               <ComplexTypeMapping TypeName="ScoalaDBModel.GetStudentGrades_Result">
                 <ScalarProperty Name="denumire" ColumnName="denumire" />
                 <ScalarProperty Name="nota" ColumnName="nota" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetTeacherClasses" FunctionName="ScoalaDBModel.Store.GetTeacherClasses">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ScoalaDBModel.GetTeacherClasses_Result">
+                <ScalarProperty Name="clasaID" ColumnName="clasaID" />
+                <ScalarProperty Name="an" ColumnName="an" />
+                <ScalarProperty Name="specializare" ColumnName="specializare" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -673,7 +729,7 @@ warning 6002: The table/view 'ScoalaDB.dbo.Clasa-Profesor' does not have a prima
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

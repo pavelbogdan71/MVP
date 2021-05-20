@@ -21,7 +21,7 @@ namespace MVP_Tema3.Models.Actions
 
         public ObservableCollection<MaterieVM> AllMaterii()
         {
-            List<Materie> materii = context.Materie.ToList();
+            List<Materie> materii = context.Materies.ToList();
             ObservableCollection<MaterieVM> result = new ObservableCollection<MaterieVM>();
 
             foreach(Materie materie in materii)

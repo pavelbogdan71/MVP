@@ -18,7 +18,7 @@
         </StackPanel.Resources>
 
         <TextBlock>Note:</TextBlock>
-        <DataGrid AutoGenerateColumns="False" Height="150" ItemsSource="{Binding NoteList}">
+        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding NoteList}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Materie" Binding="{Binding denumire}"/>
                 <DataGridTextColumn Header="Nota" Binding="{Binding nota}"/>
@@ -26,20 +26,22 @@
         </DataGrid>
 
         <TextBlock>Absente:</TextBlock>
-        <DataGrid AutoGenerateColumns="False" Height="150" ItemsSource="{Binding AbsenteList}">
+        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding AbsenteList}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Data" Binding="{Binding data}"/>
                 <DataGridTextColumn Header="Materie" Binding="{Binding denumire}"/>
             </DataGrid.Columns>
         </DataGrid>
-        
-        <DataGrid AutoGenerateColumns="False" Height="150" ItemsSource="{Binding MediiList}">
+
+        <TextBlock>Medii:</TextBlock>
+        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding MediiList}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Materie" Binding="{Binding denumire}"/>
                 <DataGridTextColumn Header="Media" Binding="{Binding Media}"/>
             </DataGrid.Columns>
         </DataGrid>
 
+        <TextBlock>Media generala:</TextBlock>
         <TextBlock Text="{Binding MediaGenerala}"></TextBlock>
     </StackPanel>
 </Window>

@@ -26,6 +26,9 @@ namespace MVP_Tema3.ViewModels
         private string nume;
         private string numeUtilizator;
         private string parola;
+        private int clasaId;
+
+        private GetStudentClass_Result clasa;
 
         private ObservableCollection<ElevVM> elevList;
 
@@ -154,6 +157,33 @@ namespace MVP_Tema3.ViewModels
             {
                 mediaGenerala = value;
                 NotifyPropertyChanged("MediaGenerala");
+            }
+        }
+
+        public GetStudentClass_Result Clasa
+        {
+            get
+            {
+                clasa = eAct.GetClasa(clasaId);
+                return clasa;
+            }
+            set
+            {
+                clasa = value;
+                NotifyPropertyChanged("Clasa");
+            }
+        }
+
+        public int ClasaId
+        {
+            get
+            {
+                return clasaId;
+            }
+            set
+            {
+                clasaId = value;
+                NotifyPropertyChanged("ClasaId");
             }
         }
         #endregion

@@ -1,5 +1,7 @@
 ﻿using MVP_Tema3.Helpers;
+using MVP_Tema3.Models;
 using MVP_Tema3.Models.Actions;
+using MVP_Tema3.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -27,6 +29,24 @@ namespace MVP_Tema3.ViewModels
         private bool diriginte;
 
         private ObservableCollection<ProfesorVM> profesorList;
+
+        private ObservableCollection<GetTeacherClasses_Result> claseProfesor;
+
+
+
+        public ObservableCollection<GetTeacherClasses_Result> ClaseProfesor
+        {
+            get
+            {
+                claseProfesor = pAct.GetClaseProfesor(ProfesorView.ProfesorId);
+                return claseProfesor;
+            }
+            set
+            {
+                claseProfesor = value;
+                NotifyPropertyChanged("ClaseProfesor");
+            }
+        }
 
         public int ProfesorId 
         {

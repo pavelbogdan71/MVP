@@ -21,7 +21,7 @@ namespace MVP_Tema3.Models.Actions
 
         public ObservableCollection<ProfesorVM> AllProfesors()
         {
-            List<Profesor> profesors = context.Profesor.ToList();
+            List<Profesor> profesors = context.Profesors.ToList();
             ObservableCollection<ProfesorVM> result = new ObservableCollection<ProfesorVM>();
 
             foreach(Profesor prof in profesors)
@@ -35,6 +35,24 @@ namespace MVP_Tema3.Models.Actions
                     Diriginte = prof.diriginte
                 });
                 
+            }
+
+            return result;
+        }
+
+        public ObservableCollection<GetTeacherClasses_Result> GetClaseProfesor(int profId)
+        {
+            List<GetTeacherClasses_Result> clase = context.GetTeacherClasses(profId).ToList();
+            ObservableCollection<GetTeacherClasses_Result> result = new ObservableCollection<GetTeacherClasses_Result>();
+
+            foreach(GetTeacherClasses_Result clasa in clase)
+            {
+                result.Add(new GetTeacherClasses_Result()
+                {
+                    clasaID = clasa.clasaID,
+                    an = clasa.an,
+                    specializare = clasa.specializare
+                });
             }
 
             return result;

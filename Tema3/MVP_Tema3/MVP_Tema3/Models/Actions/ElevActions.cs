@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +23,7 @@ namespace MVP_Tema3.Models.Actions
 
         public ObservableCollection<ElevVM> AllElevs()
         {
-            List<Elev> elevs = context.Elev.ToList();
+            List<Elev> elevs = context.Elevs.ToList();
             ObservableCollection<ElevVM> result = new ObservableCollection<ElevVM>();
 
             foreach(Elev elev in elevs)
@@ -32,9 +33,9 @@ namespace MVP_Tema3.Models.Actions
                     ElevId = elev.elevID,
                     Nume = elev.nume,
                     NumeUtilizator = elev.nume_utilizator,
-                    Parola = elev.parola
-                    
-                });
+                    Parola = elev.parola,
+                    ClasaId = elev.clasaID
+                }); 
             }
 
             return result;
@@ -100,6 +101,13 @@ namespace MVP_Tema3.Models.Actions
         {
             var result = context.GetStudentGeneralAverage(elevId);
             return Convert.ToDouble(result.FirstOrDefault());
+        }
+
+        public GetStudentClass_Result GetClasa(int clasaId)
+        {
+            var result = context.GetStudentClass(clasaId);
+
+            return result.FirstOrDefault();
         }
     }
 }

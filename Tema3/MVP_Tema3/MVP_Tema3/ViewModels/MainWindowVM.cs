@@ -83,7 +83,7 @@ namespace MVP_Tema3.ViewModels
             {
                 if (prof.NumeUtilizator.Equals(userName) && prof.Parola.Equals(password) && prof.Diriginte == false)
                 {
-                    ProfesorView pr = new ProfesorView();
+                    ProfesorView pr = new ProfesorView(prof.ProfesorId);
 
                     pr.ShowDialog();
                 }

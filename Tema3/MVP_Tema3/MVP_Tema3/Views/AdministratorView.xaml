@@ -11,16 +11,34 @@
         <local1:AdministratorVM/>
     </Window.DataContext>
     <StackPanel>
+
+        <!--Elevi-->
+        <WrapPanel>
+            <Button Content="Adauga elev" Width="100" Height="20" Margin="5,5,5,5"/>
+            <Button Content="Modifica elev" Width="100" Height="20" Margin="5,5,5,5"/>
+            <Button Content="Sterge elev" Width="100" Height="20" Margin="5,5,5,5"/>
+        </WrapPanel>
         
-        <DataGrid AutoGenerateColumns="False"
+        <WrapPanel Margin="0,5,0,5">
+            <Label Width="100">Nume elev: </Label>
+            <TextBox Name="numeElev" Width="200" HorizontalAlignment="Left"
+                       Text="{Binding ElementName=tabelElevi, Path=SelectedItem.Nume, UpdateSourceTrigger=PropertyChanged}"/>
+        </WrapPanel>
+        
+        <DataGrid Name="tabelElevi"
+                  AutoGenerateColumns="False"
                   ScrollViewer.VerticalScrollBarVisibility="Visible"
                   ItemsSource="{Binding ElevList}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Elev" Binding="{Binding Nume}"/>
+                <DataGridTextColumn Header="An" Binding="{Binding Clasa.an}"/>
+                <DataGridTextColumn Header="Specializare" Binding="{Binding Clasa.specializare}"/>
             </DataGrid.Columns>
         </DataGrid>
 
-        <DataGrid AutoGenerateColumns="False"
+        
+        <!--Profesori-->
+        <!--<DataGrid AutoGenerateColumns="False"
                   ScrollViewer.VerticalScrollBarVisibility="Visible"
                   ItemsSource="{Binding ProfList}">
             <DataGrid.Columns>
@@ -34,7 +52,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Materie" Binding="{Binding DenumireMaterie}"/>
             </DataGrid.Columns>
-        </DataGrid>
+        </DataGrid>-->
         
     </StackPanel>
 </Window>
