@@ -211,6 +211,34 @@ namespace MVP_Tema3.ViewModels
                 return afisareAbsente;
             }
         }
+
+        /*
+        private ICommand adaugareNota;
+        public ICommand AdaugareNota
+        {
+            get
+            {
+                if(adaugareNota==null)
+                {
+                    adaugareNota = new RelayCommand(pAct.AdaugareNota);
+                }
+
+                return adaugareNota;
+            }
+        }*/
+
+        private ICommand modificareNota;
+        public ICommand ModificareNota
+        {
+            get
+            {
+                if(modificareNota==null)
+                {
+                    modificareNota = new RelayCommand(pAct.ModificareNota);
+                }
+                return modificareNota;
+            }
+        }
         #endregion
     }
 }

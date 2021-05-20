@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MVP_Tema3.Views" xmlns:local1="clr-namespace:MVP_Tema3.ViewModels"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="AdministratorView" Height="450" Width="800">
+        Title="AdministratorView" Height="450" Width="1000">
     <Window.DataContext>
         <local1:AdministratorVM/>
     </Window.DataContext>

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MVP_Tema3.Views" xmlns:local1="clr-namespace:MVP_Tema3.ViewModels"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="ProfesorView" Height="450" Width="800">
+        Title="ProfesorView" Height="450" Width="1000">
     <Window.DataContext>
         <local1:ProfesorVM/>
     </Window.DataContext>
@@ -28,17 +28,22 @@
                 CommandParameter="{Binding ElementName=clase, Path=SelectedItem}">Afisare elevi</Button>
         </StackPanel>
 
-        <TextBlock Text="Elevi:"></TextBlock>
-        <WrapPanel Background="Bisque">
-            <DataGrid Name="elevi" AutoGenerateColumns="False" ItemsSource="{Binding EleviClasa}">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Nume" Binding="{Binding nume}"/>
-                </DataGrid.Columns>
-            </DataGrid>
+        <StackPanel Background="Bisque">
+            
+        
+            <TextBlock Text="Elevi:" HorizontalAlignment="Center"></TextBlock>
+            <WrapPanel  HorizontalAlignment="Center">
+                <DataGrid Name="elevi" AutoGenerateColumns="False" ItemsSource="{Binding EleviClasa}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Nume" Binding="{Binding nume}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
 
-           
-        </WrapPanel>
-
+                <Button Content="Calculare medie" Margin="20,20,20,20"></Button>
+                
+            </WrapPanel>
+            
+        </StackPanel>
 
 
         <WrapPanel Background="DarkOrange">
@@ -92,6 +97,25 @@
                         <DataGridTextColumn Header="Data" Binding="{Binding data}"/>
                     </DataGrid.Columns>
                 </DataGrid>
+            </StackPanel>
+
+            <StackPanel VerticalAlignment="Center">
+                <WrapPanel>
+                    <Label Width="55">Materia:</Label>
+                    <TextBox Width="100"
+                             Text="{Binding ElementName=absente, Path=SelectedItem.denumire,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                </WrapPanel>
+                <WrapPanel>
+                    <Label Width="55">Data:</Label>
+                    <TextBox Width="100"
+                             Text="{Binding ElementName=absente, Path=SelectedItem.data,UpdateSourceTrigger=PropertyChanged}"/>
+                </WrapPanel>
+            </StackPanel>
+            
+            <StackPanel VerticalAlignment="Center">
+                <Button Content="Adaugare absenta"/>
+                <Button Content="Modificare absenta"/>
+                <Button Content="Stergere absenta"/>
             </StackPanel>
         </WrapPanel>
         
