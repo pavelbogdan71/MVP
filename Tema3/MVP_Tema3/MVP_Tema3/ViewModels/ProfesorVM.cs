@@ -28,6 +28,7 @@ namespace MVP_Tema3.ViewModels
         private string numeUtilizator;
         private string parola;
         private bool diriginte;
+        private int materieId;
 
         private ObservableCollection<ProfesorVM> profesorList;
 
@@ -36,6 +37,20 @@ namespace MVP_Tema3.ViewModels
 
         private ObservableCollection<GetStudentGrades_Result> noteElev;
         private ObservableCollection<GetStudentAbsence_Result> absenteElev;
+
+
+        public int MaterieId
+        {
+            get
+            {
+                return materieId;
+            }
+            set
+            {
+                materieId = value;
+                NotifyPropertyChanged("MaterieId");
+            }
+        }
 
         public ObservableCollection<GetStudentAbsence_Result> AbsenteElev
         {
@@ -212,7 +227,7 @@ namespace MVP_Tema3.ViewModels
             }
         }
 
-        /*
+        
         private ICommand adaugareNota;
         public ICommand AdaugareNota
         {
@@ -225,7 +240,7 @@ namespace MVP_Tema3.ViewModels
 
                 return adaugareNota;
             }
-        }*/
+        }
 
         private ICommand modificareNota;
         public ICommand ModificareNota

@@ -7,7 +7,7 @@
         xmlns:localConverter="clr-namespace:MVP_Tema3.Converters"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="450" Width="1000">
+        Title="MainWindow" Height="600" Width="1000">
     <Window.DataContext>
         <local:MainWindowVM />
     </Window.DataContext>

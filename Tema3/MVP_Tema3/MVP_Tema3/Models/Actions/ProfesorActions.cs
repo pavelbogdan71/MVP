@@ -33,7 +33,8 @@ namespace MVP_Tema3.Models.Actions
                     Nume = prof.nume,
                     NumeUtilizator = prof.nume_utilizator,
                     Parola = prof.parola,
-                    Diriginte = prof.diriginte
+                    Diriginte = prof.diriginte,
+                    MaterieId = prof.materieID
                 });
                 
             }
@@ -135,9 +136,24 @@ namespace MVP_Tema3.Models.Actions
         }
 
 
-       public void ModificareNota(object obj)
-       {
-            
-       }
+        public void AdaugareNota(object obj)
+        {
+            ElevVM elev = obj as ElevVM;
+
+            context.AddGrade(context.Notas.Count() + 1,1, profesorContext.MaterieId,1);
+        }
+
+
+
+        public void ModificareNota(object obj)
+        {
+            Nota nota = obj as Nota;
+
+            if(nota!=null)
+            {
+                context.ModifyGrade(nota.notaID, Convert.ToInt32(nota.nota1));
+                context.SaveChanges();
+            }
+        }
     }
 }

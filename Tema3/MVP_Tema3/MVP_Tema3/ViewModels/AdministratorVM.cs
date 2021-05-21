@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace MVP_Tema3.ViewModels
 {
@@ -123,6 +124,127 @@ namespace MVP_Tema3.ViewModels
             {
                 materiiList = value;
                 NotifyPropertyChanged("MateriiList");
+            }
+        }
+        #endregion
+
+        #region Commands
+
+        private ICommand adaugareElev;
+        public ICommand AdaugareElev
+        {
+            get
+            {
+                if(adaugareElev==null)
+                {
+                    adaugareElev = new RelayCommand(aAct.AdaugareElev);
+                }
+                return adaugareElev;
+            }
+        }
+
+        private ICommand modificareElev;
+        public ICommand ModificareElev
+        {
+            get
+            {
+                if(modificareElev==null)
+                {
+                    modificareElev = new RelayCommand(aAct.ModificareElev);
+                }
+                return modificareElev;
+            }
+        }
+
+        private ICommand stergereElev;
+        public ICommand StergereElev
+        {
+            get
+            {
+                if(stergereElev==null)
+                {
+                    stergereElev = new RelayCommand(aAct.StergereElev);
+                }
+                return stergereElev;
+            }
+        }
+
+
+        private ICommand adaugareProfesor;
+        public ICommand AdaugareProfesor
+        {
+            get
+            {
+                if(adaugareProfesor==null)
+                {
+                    adaugareProfesor = new RelayCommand(aAct.AdaugareProfesor);
+                }
+                return adaugareProfesor;
+            }
+        }
+
+        private ICommand modificareProfesor;
+        public ICommand ModificareProfesor
+        {
+            get
+            {
+                if(modificareProfesor==null)
+                {
+                    modificareProfesor = new RelayCommand(aAct.ModificareProfesor);
+                }
+                return modificareProfesor;
+            }
+        }
+
+        private ICommand stergereProfesor;
+        public ICommand StergereProfesor
+        {
+            get
+            {
+                if(stergereProfesor==null)
+                {
+                    stergereProfesor = new RelayCommand(aAct.StergereProfesor);
+                }
+                return stergereProfesor;
+            }
+        }
+
+        private ICommand adaugareMaterie;
+        public ICommand AdaugareMaterie
+        {
+            get
+            {
+                if(adaugareMaterie==null)
+                {
+                    adaugareMaterie = new RelayCommand(aAct.AdaugareMaterie);
+                }
+                return adaugareMaterie;
+            }
+        }
+
+        private ICommand modificareMaterie;
+        public ICommand ModificareMaterie
+        {
+            get
+            {
+                if(modificareMaterie==null)
+                {
+                    modificareMaterie = new RelayCommand(aAct.ModificareMaterie);
+                }
+                return modificareMaterie;
+            }
+        }
+
+        private ICommand stergereMaterie;
+        public ICommand StergereMaterie
+        {
+            get
+            {
+                if(stergereMaterie==null)
+                {
+                    stergereMaterie = new RelayCommand(aAct.StergereMaterie);
+                }
+                return stergereMaterie;
             }
         }
         #endregion

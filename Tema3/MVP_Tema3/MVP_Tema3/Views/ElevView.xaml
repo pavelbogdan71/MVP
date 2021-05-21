@@ -6,7 +6,7 @@
         xmlns:local1="clr-namespace:MVP_Tema3.ViewModels" 
         xmlns:localConverter="clr-namespace:MVP_Tema3.Converters"
         mc:Ignorable="d"
-        Title="ElevView" Height="450" Width="1000"
+        Title="ElevView" Height="600" Width="1000"
         WindowStartupLocation="CenterScreen">
     
     <Window.DataContext>

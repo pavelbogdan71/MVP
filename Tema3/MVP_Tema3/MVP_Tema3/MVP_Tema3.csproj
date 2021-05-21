@@ -105,6 +105,9 @@
     <Compile Include="Models\GetStudentClass_Result.cs">
       <DependentUpon>SchoolModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\GetStudentGradesBySubject_Result.cs">
+      <DependentUpon>SchoolModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\GetStudentGrades_Result.cs">
       <DependentUpon>SchoolModel.tt</DependentUpon>
     </Compile>

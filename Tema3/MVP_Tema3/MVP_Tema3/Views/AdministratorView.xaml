@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MVP_Tema3.Views" xmlns:local1="clr-namespace:MVP_Tema3.ViewModels"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="AdministratorView" Height="450" Width="1000">
+        Title="AdministratorView" Height="600" Width="1000">
     <Window.DataContext>
         <local1:AdministratorVM/>
     </Window.DataContext>
@@ -14,45 +14,110 @@
 
         <!--Elevi-->
         <WrapPanel>
-            <Button Content="Adauga elev" Width="100" Height="20" Margin="5,5,5,5"/>
-            <Button Content="Modifica elev" Width="100" Height="20" Margin="5,5,5,5"/>
-            <Button Content="Sterge elev" Width="100" Height="20" Margin="5,5,5,5"/>
+            <Button Content="Adauga elev" Width="100" Height="20" Margin="5,5,5,5"
+                    Command="{Binding AdaugareElev}"
+                    CommandParameter="{Binding ElementName=numeElev, Path=Text}"/>
+            <Button Content="Modifica elev" Width="100" Height="20" Margin="5,5,5,5"
+                    Command="{Binding ModificareElev}"
+                    CommandParameter="{Binding ElementName=tabelElevi,Path=SelectedItem}"/>
+            <Button Content="Sterge elev" Width="100" Height="20" Margin="5,5,5,5"
+                    Command="{Binding StergereElev}"
+                    CommandParameter="{Binding ElementName=tabelElevi,Path=SelectedItem}"/>
         </WrapPanel>
         
-        <WrapPanel Margin="0,5,0,5">
-            <Label Width="100">Nume elev: </Label>
-            <TextBox Name="numeElev" Width="200" HorizontalAlignment="Left"
-                       Text="{Binding ElementName=tabelElevi, Path=SelectedItem.Nume, UpdateSourceTrigger=PropertyChanged}"/>
-        </WrapPanel>
-        
-        <DataGrid Name="tabelElevi"
+        <WrapPanel>
+            <DataGrid Name="tabelElevi"
                   AutoGenerateColumns="False"
                   ScrollViewer.VerticalScrollBarVisibility="Visible"
-                  ItemsSource="{Binding ElevList}">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Elev" Binding="{Binding Nume}"/>
-                <DataGridTextColumn Header="An" Binding="{Binding Clasa.an}"/>
-                <DataGridTextColumn Header="Specializare" Binding="{Binding Clasa.specializare}"/>
-            </DataGrid.Columns>
-        </DataGrid>
+                  ItemsSource="{Binding ElevList}"
+                  Width="200"
+                  HorizontalAlignment="Left"
+                  Margin="5,5,5,5">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Elev" Binding="{Binding Nume}"/>
+                    <DataGridTextColumn Header="An" Binding="{Binding Clasa.an}"/>
+                    <DataGridTextColumn Header="Specializare" Binding="{Binding Clasa.specializare}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <StackPanel>
+                <WrapPanel Margin="0,5,0,5">
+                    <Label Width="100">Nume elev:</Label>
+                    <TextBox Name="numeElev" Width="200" HorizontalAlignment="Left"
+                       Text="{Binding ElementName=tabelElevi, Path=SelectedItem.Nume, UpdateSourceTrigger=PropertyChanged}"/>
+                </WrapPanel>
+            </StackPanel>
+        </WrapPanel>
+        
 
         
         <!--Profesori-->
-        <!--<DataGrid AutoGenerateColumns="False"
-                  ScrollViewer.VerticalScrollBarVisibility="Visible"
-                  ItemsSource="{Binding ProfList}">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Profesor" Binding="{Binding Nume}"/>
-            </DataGrid.Columns>
-        </DataGrid>
 
-        <DataGrid AutoGenerateColumns="False"
+        <WrapPanel>
+            <Button Content="Adauga profesor" Width="100" Height="20" Margin="5,5,5,5"
+                    Command="{Binding AdaugareProfesor}"
+                    CommandParameter="{Binding ElementName=numeProfesor, Path=Text}"/>
+            <Button Content="Modifica profesor" Width="100" Height="20" Margin="5,5,5,5"
+                    Command="{Binding ModificareProfesor}"
+                    CommandParameter="{Binding ElementName=tabelProfesori, Path=SelectedItem}"/>
+            <Button Content="Sterge profesor" Width="100" Height="20" Margin="5,5,5,5"
+                    Command="{Binding StergereProfesor}"
+                    CommandParameter="{Binding ElementName=tabelProfesori, Path=SelectedItem}"/>
+        </WrapPanel>
+
+        <WrapPanel>
+            <DataGrid AutoGenerateColumns="False"
                   ScrollViewer.VerticalScrollBarVisibility="Visible"
-                  ItemsSource="{Binding MateriiList}">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Materie" Binding="{Binding DenumireMaterie}"/>
-            </DataGrid.Columns>
-        </DataGrid>-->
+                  ItemsSource="{Binding ProfList}"
+                  Width="200"
+                  HorizontalAlignment="Left"
+                      Name="tabelProfesori">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Profesor" Binding="{Binding Nume}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <WrapPanel>
+                <Label Width="100">Nume:</Label>
+                <TextBox Name="numeProfesor" Width="200" HorizontalAlignment="Left"
+                         Text="{Binding ElementName=tabelProfesori, Path=SelectedItem.Nume,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            </WrapPanel>
+        </WrapPanel>
+
+
+
+        <WrapPanel>
+            <Button Content="Adauga materie" Width="100" Height="20" Margin="5,5,5,5"
+                    Command="{Binding AdaugareMaterie}"
+                    CommandParameter="{Binding ElementName=numeMaterie, Path=Text}"/>
+            <Button Content="Modifica materie" Width="100" Height="20" Margin="5,5,5,5"
+                    Command="{Binding ModificareMaterie}"
+                    CommandParameter="{Binding ElementName=tabelMaterii, Path=SelectedItem}"/>
+            <Button Content="Sterge materie" Width="100" Height="20" Margin="5,5,5,5"
+                    Command="{Binding StergereMaterie}"
+                    CommandParameter="{Binding ElementName=tabelMaterii, Path=SelectedItem}"/>
+        </WrapPanel>
+
+        <WrapPanel>
+            <DataGrid AutoGenerateColumns="False"
+                  ScrollViewer.VerticalScrollBarVisibility="Visible"
+                  ItemsSource="{Binding MateriiList}"
+                      Width="200"
+                      Name="tabelMaterii">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Materie" Binding="{Binding DenumireMaterie}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            
+            
+            <WrapPanel>
+                <Label Width="100">Materie:</Label>
+                <TextBox Width="200" HorizontalAlignment="Left"
+                         Name="numeMaterie"
+                     Text="{Binding ElementName=tabelMaterii,Path=SelectedItem.DenumireMaterie,UpdateSourceTrigger=PropertyChanged}"/>
+            </WrapPanel>
+            
+        </WrapPanel>
         
+
     </StackPanel>
 </Window>

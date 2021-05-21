@@ -81,6 +81,57 @@ namespace MVP_Tema3.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AddGrade", notaIDParameter, elevIDParameter, materieIDParameter, notaParameter);
         }
     
+        public virtual int AddStudent(Nullable<int> elevId, string nume, Nullable<int> clasaId)
+        {
+            var elevIdParameter = elevId.HasValue ?
+                new ObjectParameter("elevId", elevId) :
+                new ObjectParameter("elevId", typeof(int));
+    
+            var numeParameter = nume != null ?
+                new ObjectParameter("nume", nume) :
+                new ObjectParameter("nume", typeof(string));
+    
+            var clasaIdParameter = clasaId.HasValue ?
+                new ObjectParameter("clasaId", clasaId) :
+                new ObjectParameter("clasaId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AddStudent", elevIdParameter, numeParameter, clasaIdParameter);
+        }
+    
+        public virtual int AddSubject(Nullable<int> materieId, string denumire)
+        {
+            var materieIdParameter = materieId.HasValue ?
+                new ObjectParameter("materieId", materieId) :
+                new ObjectParameter("materieId", typeof(int));
+    
+            var denumireParameter = denumire != null ?
+                new ObjectParameter("denumire", denumire) :
+                new ObjectParameter("denumire", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AddSubject", materieIdParameter, denumireParameter);
+        }
+    
+        public virtual int AddTeacher(Nullable<int> profesorId, string nume, Nullable<bool> diriginte, Nullable<int> materieId)
+        {
+            var profesorIdParameter = profesorId.HasValue ?
+                new ObjectParameter("profesorId", profesorId) :
+                new ObjectParameter("profesorId", typeof(int));
+    
+            var numeParameter = nume != null ?
+                new ObjectParameter("nume", nume) :
+                new ObjectParameter("nume", typeof(string));
+    
+            var diriginteParameter = diriginte.HasValue ?
+                new ObjectParameter("diriginte", diriginte) :
+                new ObjectParameter("diriginte", typeof(bool));
+    
+            var materieIdParameter = materieId.HasValue ?
+                new ObjectParameter("materieId", materieId) :
+                new ObjectParameter("materieId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AddTeacher", profesorIdParameter, numeParameter, diriginteParameter, materieIdParameter);
+        }
+    
         public virtual ObjectResult<Nullable<double>> AverageGrade(Nullable<int> elevID, Nullable<int> materieID)
         {
             var elevIDParameter = elevID.HasValue ?
@@ -101,6 +152,33 @@ namespace MVP_Tema3.Models
                 new ObjectParameter("notaID", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeleteGrade", notaIDParameter);
+        }
+    
+        public virtual int DeleteStudent(Nullable<int> elevId)
+        {
+            var elevIdParameter = elevId.HasValue ?
+                new ObjectParameter("elevId", elevId) :
+                new ObjectParameter("elevId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeleteStudent", elevIdParameter);
+        }
+    
+        public virtual int DeleteSubject(Nullable<int> materieId)
+        {
+            var materieIdParameter = materieId.HasValue ?
+                new ObjectParameter("materieId", materieId) :
+                new ObjectParameter("materieId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeleteSubject", materieIdParameter);
+        }
+    
+        public virtual int DeleteTeacher(Nullable<int> profesorId)
+        {
+            var profesorIdParameter = profesorId.HasValue ?
+                new ObjectParameter("profesorId", profesorId) :
+                new ObjectParameter("profesorId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeleteTeacher", profesorIdParameter);
         }
     
         public virtual ObjectResult<GetAllAbsence_Result> GetAllAbsence(Nullable<int> elevID, Nullable<int> materieID)
@@ -183,6 +261,19 @@ namespace MVP_Tema3.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetStudentGrades_Result>("GetStudentGrades", elevIDParameter);
         }
     
+        public virtual ObjectResult<GetStudentGradesBySubject_Result> GetStudentGradesBySubject(Nullable<int> elevID, Nullable<int> materieId)
+        {
+            var elevIDParameter = elevID.HasValue ?
+                new ObjectParameter("elevID", elevID) :
+                new ObjectParameter("elevID", typeof(int));
+    
+            var materieIdParameter = materieId.HasValue ?
+                new ObjectParameter("materieId", materieId) :
+                new ObjectParameter("materieId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetStudentGradesBySubject_Result>("GetStudentGradesBySubject", elevIDParameter, materieIdParameter);
+        }
+    
         public virtual ObjectResult<GetTeacherClasses_Result> GetTeacherClasses(Nullable<int> profesorID)
         {
             var profesorIDParameter = profesorID.HasValue ?
@@ -199,6 +290,62 @@ namespace MVP_Tema3.Models
                 new ObjectParameter("absentaID", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ModifyAbsence", absentaIDParameter);
+        }
+    
+        public virtual int ModifyGrade(Nullable<int> notaId, Nullable<int> nota)
+        {
+            var notaIdParameter = notaId.HasValue ?
+                new ObjectParameter("notaId", notaId) :
+                new ObjectParameter("notaId", typeof(int));
+    
+            var notaParameter = nota.HasValue ?
+                new ObjectParameter("nota", nota) :
+                new ObjectParameter("nota", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ModifyGrade", notaIdParameter, notaParameter);
+        }
+    
+        public virtual int ModifyStudent(Nullable<int> elevId, string nume)
+        {
+            var elevIdParameter = elevId.HasValue ?
+                new ObjectParameter("elevId", elevId) :
+                new ObjectParameter("elevId", typeof(int));
+    
+            var numeParameter = nume != null ?
+                new ObjectParameter("nume", nume) :
+                new ObjectParameter("nume", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ModifyStudent", elevIdParameter, numeParameter);
+        }
+    
+        public virtual int ModifySubject(Nullable<int> materieId, string denumire)
+        {
+            var materieIdParameter = materieId.HasValue ?
+                new ObjectParameter("materieId", materieId) :
+                new ObjectParameter("materieId", typeof(int));
+    
+            var denumireParameter = denumire != null ?
+                new ObjectParameter("denumire", denumire) :
+                new ObjectParameter("denumire", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ModifySubject", materieIdParameter, denumireParameter);
+        }
+    
+        public virtual int ModifyTeacher(Nullable<int> profesorId, string nume, Nullable<bool> diriginte)
+        {
+            var profesorIdParameter = profesorId.HasValue ?
+                new ObjectParameter("profesorId", profesorId) :
+                new ObjectParameter("profesorId", typeof(int));
+    
+            var numeParameter = nume != null ?
+                new ObjectParameter("nume", nume) :
+                new ObjectParameter("nume", typeof(string));
+    
+            var diriginteParameter = diriginte.HasValue ?
+                new ObjectParameter("diriginte", diriginte) :
+                new ObjectParameter("diriginte", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ModifyTeacher", profesorIdParameter, numeParameter, diriginteParameter);
         }
     }
 }

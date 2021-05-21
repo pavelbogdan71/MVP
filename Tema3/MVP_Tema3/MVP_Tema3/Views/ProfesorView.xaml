@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MVP_Tema3.Views" xmlns:local1="clr-namespace:MVP_Tema3.ViewModels"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="ProfesorView" Height="450" Width="1000">
+        Title="ProfesorView" Height="600" Width="1000">
     <Window.DataContext>
         <local1:ProfesorVM/>
     </Window.DataContext>
@@ -78,9 +78,11 @@
             
             
             
-            <StackPanel>
+            <StackPanel VerticalAlignment="Center">
                 <Button Content="Adaugare nota" Margin="5,5,5,5"/>
-                <Button Content="Modificare nota" Margin="5,5,5,5"/>
+                <Button Content="Modificare nota" Margin="5,5,5,5"
+                        Command="{Binding ModificareNota}"
+                        CommandParameter="{Binding ElementName=note, Path=SelectedItem}"/>
                 <Button Content="Stergere nota" Margin="5,5,5,5"/>
             </StackPanel>
 
@@ -113,9 +115,8 @@
             </StackPanel>
             
             <StackPanel VerticalAlignment="Center">
-                <Button Content="Adaugare absenta"/>
-                <Button Content="Modificare absenta"/>
-                <Button Content="Stergere absenta"/>
+                <Button Content="Adaugare absenta" Margin="5,5,5,5"/>
+                <Button Content="Modificare absenta" Margin="5,5,5,5"/>
             </StackPanel>
         </WrapPanel>
         

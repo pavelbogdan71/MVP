@@ -188,12 +188,36 @@ warning 6002: The table/view 'ScoalaDB.dbo.Clasa-Profesor' does not have a prima
           <Parameter Name="materieID" Type="int" Mode="In" />
           <Parameter Name="nota" Type="int" Mode="In" />
         </Function>
+        <Function Name="AddStudent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="elevId" Type="int" Mode="In" />
+          <Parameter Name="nume" Type="varchar" Mode="In" />
+          <Parameter Name="clasaId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="AddSubject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="materieId" Type="int" Mode="In" />
+          <Parameter Name="denumire" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="AddTeacher" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="profesorId" Type="int" Mode="In" />
+          <Parameter Name="nume" Type="varchar" Mode="In" />
+          <Parameter Name="diriginte" Type="bit" Mode="In" />
+          <Parameter Name="materieId" Type="int" Mode="In" />
+        </Function>
         <Function Name="AverageGrade" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="elevID" Type="int" Mode="In" />
           <Parameter Name="materieID" Type="int" Mode="In" />
         </Function>
         <Function Name="DeleteGrade" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="notaID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteStudent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="elevId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteSubject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="materieId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteTeacher" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="profesorId" Type="int" Mode="In" />
         </Function>
         <Function Name="GetAllAbsence" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="elevID" Type="int" Mode="In" />
@@ -221,11 +245,32 @@ warning 6002: The table/view 'ScoalaDB.dbo.Clasa-Profesor' does not have a prima
         <Function Name="GetStudentGrades" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="elevID" Type="int" Mode="In" />
         </Function>
+        <Function Name="GetStudentGradesBySubject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="elevID" Type="int" Mode="In" />
+          <Parameter Name="materieId" Type="int" Mode="In" />
+        </Function>
         <Function Name="GetTeacherClasses" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="profesorID" Type="int" Mode="In" />
         </Function>
         <Function Name="ModifyAbsence" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="absentaID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ModifyGrade" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="notaId" Type="int" Mode="In" />
+          <Parameter Name="nota" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ModifyStudent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="elevId" Type="int" Mode="In" />
+          <Parameter Name="nume" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="ModifySubject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="materieId" Type="int" Mode="In" />
+          <Parameter Name="denumire" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="ModifyTeacher" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="profesorId" Type="int" Mode="In" />
+          <Parameter Name="nume" Type="varchar" Mode="In" />
+          <Parameter Name="diriginte" Type="bit" Mode="In" />
         </Function>
         <EntityContainer Name="ScoalaDBModelStoreContainer">
           <EntitySet Name="Absenta" EntityType="Self.Absenta" Schema="dbo" store:Type="Tables" />
@@ -482,12 +527,36 @@ warning 6002: The table/view 'ScoalaDB.dbo.Clasa-Profesor' does not have a prima
             <Parameter Name="materieID" Mode="In" Type="Int32" />
             <Parameter Name="nota" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="AddStudent">
+            <Parameter Name="elevId" Mode="In" Type="Int32" />
+            <Parameter Name="nume" Mode="In" Type="String" />
+            <Parameter Name="clasaId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="AddSubject">
+            <Parameter Name="materieId" Mode="In" Type="Int32" />
+            <Parameter Name="denumire" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="AddTeacher">
+            <Parameter Name="profesorId" Mode="In" Type="Int32" />
+            <Parameter Name="nume" Mode="In" Type="String" />
+            <Parameter Name="diriginte" Mode="In" Type="Boolean" />
+            <Parameter Name="materieId" Mode="In" Type="Int32" />
+          </FunctionImport>
           <FunctionImport Name="AverageGrade" ReturnType="Collection(Double)">
             <Parameter Name="elevID" Mode="In" Type="Int32" />
             <Parameter Name="materieID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="DeleteGrade">
             <Parameter Name="notaID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteStudent">
+            <Parameter Name="elevId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteSubject">
+            <Parameter Name="materieId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteTeacher">
+            <Parameter Name="profesorId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetAllAbsence" ReturnType="Collection(ScoalaDBModel.GetAllAbsence_Result)">
             <Parameter Name="elevID" Mode="In" Type="Int32" />
@@ -515,11 +584,32 @@ warning 6002: The table/view 'ScoalaDB.dbo.Clasa-Profesor' does not have a prima
           <FunctionImport Name="GetStudentGrades" ReturnType="Collection(ScoalaDBModel.GetStudentGrades_Result)">
             <Parameter Name="elevID" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="GetStudentGradesBySubject" ReturnType="Collection(ScoalaDBModel.GetStudentGradesBySubject_Result)">
+            <Parameter Name="elevID" Mode="In" Type="Int32" />
+            <Parameter Name="materieId" Mode="In" Type="Int32" />
+          </FunctionImport>
           <FunctionImport Name="GetTeacherClasses" ReturnType="Collection(ScoalaDBModel.GetTeacherClasses_Result)">
             <Parameter Name="profesorID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="ModifyAbsence">
             <Parameter Name="absentaID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ModifyGrade">
+            <Parameter Name="notaId" Mode="In" Type="Int32" />
+            <Parameter Name="nota" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ModifyStudent">
+            <Parameter Name="elevId" Mode="In" Type="Int32" />
+            <Parameter Name="nume" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ModifySubject">
+            <Parameter Name="materieId" Mode="In" Type="Int32" />
+            <Parameter Name="denumire" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ModifyTeacher">
+            <Parameter Name="profesorId" Mode="In" Type="Int32" />
+            <Parameter Name="nume" Mode="In" Type="String" />
+            <Parameter Name="diriginte" Mode="In" Type="Boolean" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="GetAllAbsence_Result">
@@ -549,6 +639,10 @@ warning 6002: The table/view 'ScoalaDB.dbo.Clasa-Profesor' does not have a prima
           <Property Type="String" Name="specializare" Nullable="false" MaxLength="50" />
         </ComplexType>
         <ComplexType Name="GetStudentGrades_Result">
+          <Property Type="String" Name="denumire" Nullable="false" MaxLength="50" />
+          <Property Type="Double" Name="nota" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="GetStudentGradesBySubject_Result">
           <Property Type="String" Name="denumire" Nullable="false" MaxLength="50" />
           <Property Type="Double" Name="nota" Nullable="false" />
         </ComplexType>
@@ -644,8 +738,14 @@ warning 6002: The table/view 'ScoalaDB.dbo.Clasa-Profesor' does not have a prima
           </AssociationSetMapping>
           <FunctionImportMapping FunctionImportName="AddAbsence" FunctionName="ScoalaDBModel.Store.AddAbsence" />
           <FunctionImportMapping FunctionImportName="AddGrade" FunctionName="ScoalaDBModel.Store.AddGrade" />
+          <FunctionImportMapping FunctionImportName="AddStudent" FunctionName="ScoalaDBModel.Store.AddStudent" />
+          <FunctionImportMapping FunctionImportName="AddSubject" FunctionName="ScoalaDBModel.Store.AddSubject" />
+          <FunctionImportMapping FunctionImportName="AddTeacher" FunctionName="ScoalaDBModel.Store.AddTeacher" />
           <FunctionImportMapping FunctionImportName="AverageGrade" FunctionName="ScoalaDBModel.Store.AverageGrade" />
           <FunctionImportMapping FunctionImportName="DeleteGrade" FunctionName="ScoalaDBModel.Store.DeleteGrade" />
+          <FunctionImportMapping FunctionImportName="DeleteStudent" FunctionName="ScoalaDBModel.Store.DeleteStudent" />
+          <FunctionImportMapping FunctionImportName="DeleteSubject" FunctionName="ScoalaDBModel.Store.DeleteSubject" />
+          <FunctionImportMapping FunctionImportName="DeleteTeacher" FunctionName="ScoalaDBModel.Store.DeleteTeacher" />
           <FunctionImportMapping FunctionImportName="GetAllAbsence" FunctionName="ScoalaDBModel.Store.GetAllAbsence">
             <ResultMapping>
               <ComplexTypeMapping TypeName="ScoalaDBModel.GetAllAbsence_Result">
@@ -705,6 +805,14 @@ warning 6002: The table/view 'ScoalaDB.dbo.Clasa-Profesor' does not have a prima
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetStudentGradesBySubject" FunctionName="ScoalaDBModel.Store.GetStudentGradesBySubject">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ScoalaDBModel.GetStudentGradesBySubject_Result">
+                <ScalarProperty Name="denumire" ColumnName="denumire" />
+                <ScalarProperty Name="nota" ColumnName="nota" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="GetTeacherClasses" FunctionName="ScoalaDBModel.Store.GetTeacherClasses">
             <ResultMapping>
               <ComplexTypeMapping TypeName="ScoalaDBModel.GetTeacherClasses_Result">
@@ -715,6 +823,10 @@ warning 6002: The table/view 'ScoalaDB.dbo.Clasa-Profesor' does not have a prima
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="ModifyAbsence" FunctionName="ScoalaDBModel.Store.ModifyAbsence" />
+          <FunctionImportMapping FunctionImportName="ModifyGrade" FunctionName="ScoalaDBModel.Store.ModifyGrade" />
+          <FunctionImportMapping FunctionImportName="ModifyStudent" FunctionName="ScoalaDBModel.Store.ModifyStudent" />
+          <FunctionImportMapping FunctionImportName="ModifySubject" FunctionName="ScoalaDBModel.Store.ModifySubject" />
+          <FunctionImportMapping FunctionImportName="ModifyTeacher" FunctionName="ScoalaDBModel.Store.ModifyTeacher" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

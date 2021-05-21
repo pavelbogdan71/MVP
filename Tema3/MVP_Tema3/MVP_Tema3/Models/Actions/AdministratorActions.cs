@@ -51,5 +51,117 @@ namespace MVP_Tema3.Models.Actions
         {
             return new MaterieVM().MateriiList;
         }
+
+
+        public void AdaugareElev(object obj)
+        {
+            string nume = obj as string;
+
+            if(nume!=null)
+            {
+                context.AddStudent(adminContext.ElevList.Count()+1, nume, adminContext.ElevList.First().ClasaId);
+                context.SaveChanges();
+
+                adminContext.ElevList = AllElevs();
+            }
+        }
+
+        public void ModificareElev(object obj)
+        {
+            ElevVM elev = obj as ElevVM;
+
+            if(elev!=null)
+            {
+                context.ModifyStudent(elev.ElevId, elev.Nume);
+                context.SaveChanges();
+            }
+        }
+
+        public void StergereElev(object obj)
+        {
+            ElevVM elev = obj as ElevVM;
+
+            if(elev!=null)
+            {
+                context.DeleteStudent(elev.ElevId);
+                context.SaveChanges();
+
+                adminContext.ElevList = AllElevs();
+            }
+        }
+
+        public void AdaugareProfesor(object obj)
+        {
+            string nume = obj as string;
+
+            if(nume!=null)
+            {
+                context.AddTeacher(adminContext.ProfList.Count() + 1, nume, false, adminContext.ProfList.First().MaterieId);
+                context.SaveChanges();
+
+                adminContext.ProfList = AllProf();
+            }
+        }
+
+        public void ModificareProfesor(object obj)
+        {
+            ProfesorVM profesor = obj as ProfesorVM;
+
+            if(profesor!=null)
+            {
+                context.ModifyTeacher(profesor.ProfesorId, profesor.Nume, false);
+                context.SaveChanges();
+            }
+        }
+
+        public void StergereProfesor(object obj)
+        {
+            ProfesorVM profesor = obj as ProfesorVM;
+
+            if(profesor!=null)
+            {
+                context.DeleteTeacher(profesor.ProfesorId);
+                context.SaveChanges();
+
+                adminContext.ProfList = AllProf();
+            }
+        }
+
+        public void AdaugareMaterie(object obj)
+        {
+            string nume = obj as string;
+
+            if(nume!=null)
+            {
+                context.AddSubject(adminContext.MateriiList.Count() + 1, nume);
+                context.SaveChanges();
+
+                adminContext.MateriiList = AllMaterii();
+            }
+        }
+
+        public void ModificareMaterie(object obj)
+        {
+            MaterieVM materie = obj as MaterieVM;
+
+            if(materie!=null)
+            {
+                context.ModifySubject(materie.MaterieId, materie.DenumireMaterie);
+                context.SaveChanges();
+            }
+        }
+
+        public void StergereMaterie(object obj)
+        {
+            MaterieVM materie = obj as MaterieVM;
+
+            if(materie!=null)
+            {
+                context.DeleteSubject(materie.MaterieId);
+                context.SaveChanges();
+
+                adminContext.MateriiList = AllMaterii();
+            }
+        }
     }
 }
