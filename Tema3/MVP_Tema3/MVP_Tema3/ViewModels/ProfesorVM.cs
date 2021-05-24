@@ -38,6 +38,20 @@ namespace MVP_Tema3.ViewModels
         private ObservableCollection<GetStudentGrades_Result> noteElev;
         private ObservableCollection<GetStudentAbsence_Result> absenteElev;
 
+        private string medieElev;
+
+        public string MedieElev
+        {
+            get
+            {
+                return medieElev;
+            }
+            set
+            {
+                medieElev = value;
+                NotifyPropertyChanged("MedieElev");
+            }
+        }
 
         public int MaterieId
         {
@@ -254,6 +268,21 @@ namespace MVP_Tema3.ViewModels
                 return modificareNota;
             }
         }
+
+
+        private ICommand getMedieElev;
+        public ICommand GetMedieElev
+        {
+            get
+            {
+                if(getMedieElev==null)
+                {
+                    getMedieElev = new RelayCommand(pAct.GetMedieElev);
+                }
+                return getMedieElev;
+            }
+        }
         #endregion
+
     }
 }

@@ -138,9 +138,10 @@ namespace MVP_Tema3.Models.Actions
 
         public void AdaugareNota(object obj)
         {
-            ElevVM elev = obj as ElevVM;
+            Nota nota= obj as Nota;
 
-            context.AddGrade(context.Notas.Count() + 1,1, profesorContext.MaterieId,1);
+            context.AddGrade(context.Notas.Count() + 1,nota.elevID, profesorContext.MaterieId,Convert.ToInt32(nota.nota1));
+            context.SaveChanges();
         }
 
 
@@ -154,6 +155,19 @@ namespace MVP_Tema3.Models.Actions
                 context.ModifyGrade(nota.notaID, Convert.ToInt32(nota.nota1));
                 context.SaveChanges();
             }
+        }
+
+        public void GetMedieElev(object obj)
+        {
+            GetClassStudents_Result elev = obj as GetClassStudents_Result;
+
+            if(elev!=null)
+            {
+                var result = context.GetStudentGeneralAverage(elev.elevID);
+
+                profesorContext.MedieElev = result.First().ToString();
+            }
+           
         }
     }
 }

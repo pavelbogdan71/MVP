@@ -31,11 +31,11 @@ namespace MVP_Tema3.ViewModels
         {
             get
             {
-                return DiriginteId;
+                return diriginteId;
             }
             set
             {
-                DiriginteId = value;
+                diriginteId = value;
                 NotifyPropertyChanged("DiriginteId");
             }
         }

@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MVP_Tema3.Views" xmlns:local1="clr-namespace:MVP_Tema3.ViewModels"
+        xmlns:local="clr-namespace:MVP_Tema3.Views" xmlns:local1="clr-namespace:MVP_Tema3.ViewModels" xmlns:localConverter="clr-namespace:MVP_Tema3.Converters"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="ProfesorView" Height="600" Width="1000">
@@ -11,6 +11,10 @@
         <local1:ProfesorVM/>
     </Window.DataContext>
     <StackPanel>
+        
+        <!--<StackPanel.Resources>
+            <localConverter:NotaConvert x:Key="notaConvert"/>
+        </StackPanel.Resources>-->
 
         <StackPanel Background="Aqua">
         <TextBlock HorizontalAlignment="Center">Clasele profesorului: </TextBlock>
@@ -39,7 +43,13 @@
                     </DataGrid.Columns>
                 </DataGrid>
 
-                <Button Content="Calculare medie" Margin="20,20,20,20"></Button>
+                <WrapPanel VerticalAlignment="Center">
+                    <Button Content="Calculare medie" Margin="20,20,20,20"
+                            Command="{Binding GetMedieElev}"
+                            CommandParameter="{Binding ElementName=elevi, Path=SelectedItem}"></Button>
+                    <Label Content="{Binding MedieElev}" VerticalAlignment="Center"></Label>
+                </WrapPanel>
+                
                 
             </WrapPanel>
             
@@ -65,13 +75,13 @@
 
             <StackPanel VerticalAlignment="Center">
                 <WrapPanel>
-                    <Label Width="55" >Nota:</Label>
-                    <TextBox Width="100" 
+                    <Label  Width="55" >Nota:</Label>
+                    <TextBox Width="100" Name="nota"
                              Text="{Binding ElementName=note,Path=SelectedItem.nota, UpdateSourceTrigger=PropertyChanged}"></TextBox>
                 </WrapPanel>
                 <WrapPanel>
-                    <Label Width="55" >Materia:</Label>
-                    <TextBox Width="100"
+                    <Label  Width="55" >Materia:</Label>
+                    <TextBox Width="100" Name="materia"
                              Text="{Binding ElementName=note,Path=SelectedItem.denumire, UpdateSourceTrigger=PropertyChanged}"></TextBox>
                 </WrapPanel>
             </StackPanel>
@@ -79,7 +89,14 @@
             
             
             <StackPanel VerticalAlignment="Center">
-                <Button Content="Adaugare nota" Margin="5,5,5,5"/>
+                <Button Content="Adaugare nota" Margin="5,5,5,5" Command="{Binding AdaugareNota}">
+                    <!--<Button.CommandParameter>
+                        <MultiBinding Converter="{StaticResource notaConvert}">
+                            <Binding ElementName="nota" Path="Text"/>
+                            <Binding ElementName="materia" Path="Text"/>
+                        </MultiBinding>
+                    </Button.CommandParameter>-->
+                </Button>
                 <Button Content="Modificare nota" Margin="5,5,5,5"
                         Command="{Binding ModificareNota}"
                         CommandParameter="{Binding ElementName=note, Path=SelectedItem}"/>
